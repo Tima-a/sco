@@ -4,6 +4,7 @@ import jax
 import jax.numpy as jnp 
 import utility
 from functools import partial
+from scipy.stats import qmc
 DTYPE=utility.DTYPE
 INTTYPE=utility.INTTYPE
 def unpack_parameters(batch,segments_to_fit, params_reduced, changepoint_list, prev_full_params,x_data_full_np,functions_config):
@@ -279,7 +280,7 @@ def compute_state(params_unconstrained,x_data_full, y, lower, upper, changepoint
     
     J_unconstrained = J_constrained * transform_grad_vec
     
-    ssr = jnp.dot(r, r)
+    ssr = jnp.dot(r,r)
     
     return params_unconstrained, r, J_unconstrained, ssr
 
@@ -368,14 +369,14 @@ def lm_fit(params_init, x_data, y, lower, upper, changepoint_jax, batch_index, p
         batch_index, prev_params, num_segments, leftover_batch, 
         max_seg_len, fitting_config,functions_config)
 
-    init_state = (p0, lam0, err0, r0, J0, 0,jnp.inf, 1e12, p0, 0, 0, False)
+    init_state = (p0, lam0, err0, r0, J0, 0,jnp.inf, p0, 0, 0, False)
 
     def cond_fun(state):
-        _, _, _, _, _, it, _, _, _, _,_,converged= state
+        _, _, _, _, _, it, _, _,_,_,converged= state
         return jnp.logical_and(it < fitting_config.max_iters, jnp.logical_not(converged))
 
     def body_fun(state):
-        p_old, lam, err_old, r_old, J_old, it, best_error, rmse_old, best_params, conv_ftol_counter, conv_xtol_counter, _ = state
+        p_old, lam, err_old, r_old, J_old, it, best_error, best_params, conv_ftol_counter, conv_xtol_counter, _ = state
         
         dp = solve_step(p_old, r_old, J_old, lam,ridge)
         p_prop = p_old + dp
@@ -383,13 +384,9 @@ def lm_fit(params_init, x_data, y, lower, upper, changepoint_jax, batch_index, p
         r_prop = residuals_next_iterations(params_c, x_data,y, changepoint_jax,
                                            batch_index, prev_params,num_segments, 
                                            leftover_batch, max_seg_len, fitting_config,functions_config)
-        err_prop = jnp.dot(r_prop, r_prop)
+        err_prop = jnp.dot(r_prop,r_prop)
         ActRed = err_old - err_prop
 
-        rmse = jnp.sqrt(err_prop / batch_size)
-        max_error = batch_std*0.5
-        best_params = jnp.where(rmse<best_error, p_prop, best_params)
-        best_error=jnp.where(rmse<best_error, rmse, best_error)
         def accept_branch(_):
             lam_new = jnp.maximum(1e-12, lam / 3.0)
             Jc = jac_fn_next(params_c,x_data, y, changepoint_jax,
@@ -401,12 +398,12 @@ def lm_fit(params_init, x_data, y, lower, upper, changepoint_jax, batch_index, p
             trans = (upper - lower) * 0.5 * sech2
             J_new = Jc * trans
 
-            return (p_prop, lam_new, err_prop, r_prop, J_new, rmse, True)
+            return (p_prop, lam_new, err_prop, r_prop, J_new, True)
 
         def reject_branch(_):
-            return (p_old, lam * 10.0, err_old, r_old, J_old, rmse_old, False)
+            return (p_old, lam * 10.0, err_old, r_old, J_old, False)
         converged = False        
-        p_new, lam_new, err_new, r_new, J_new, rmse_new, is_accepted = jax.lax.cond(
+        p_new, lam_new, err_new, r_new, J_new, is_accepted = jax.lax.cond(
             ActRed>0.0,
             accept_branch,
             reject_branch,
@@ -422,20 +419,22 @@ def lm_fit(params_init, x_data, y, lower, upper, changepoint_jax, batch_index, p
             p_step = jnp.linalg.norm(p_prop - p_old)
             p_norm = jnp.linalg.norm(p_old)
             return p_step / (p_norm + 1e-12) < xtol
-        
         cond_xtol = jax.lax.cond(is_accepted, lambda _: compute_xtol(), lambda _: False, operand=0)
-        converge_count=3
+        converge_tol_count=3
         conv_ftol_counter=jnp.where(cond_ftol, conv_ftol_counter+1,0)
         conv_xtol_counter=jnp.where(cond_xtol, conv_xtol_counter+1,0)
-        converged = jnp.logical_and(jnp.logical_and(jnp.logical_or(conv_ftol_counter>=converge_count, conv_xtol_counter>=converge_count), can_converge), it>5)
-        conv_ftol_counter=jnp.where(conv_ftol_counter>=converge_count, 0,conv_ftol_counter)
-        conv_xtol_counter=jnp.where(conv_xtol_counter>=converge_count, 0,conv_xtol_counter)
+        converged = jnp.logical_and(jnp.logical_and(jnp.logical_or(conv_ftol_counter>=converge_tol_count, conv_xtol_counter>=converge_tol_count), can_converge), it>5)
+
+        conv_ftol_counter=jnp.where(conv_ftol_counter>=converge_tol_count, 0,conv_ftol_counter)
+        conv_xtol_counter=jnp.where(conv_xtol_counter>=converge_tol_count, 0,conv_xtol_counter)
         #jax.debug.print("Iteration {it}, Error {err_new} | Lambda {lam_new} | ActRed: {ActRed}", it=it, err_new=err_new, lam_new=lam_new, ActRed=ActRed)
-        return (p_new, lam_new, err_new, r_new, J_new, it + 1, best_error,rmse_new,best_params,conv_ftol_counter,conv_xtol_counter, converged)
+        best_params = jnp.where(err_new<best_error, p_new, best_params)
+        best_error=jnp.where(err_new<best_error, err_new, best_error)
+        return (p_new, lam_new, err_new, r_new, J_new, it + 1, best_error,best_params,conv_ftol_counter,conv_xtol_counter, converged)
 
     final_state = jax.lax.while_loop(cond_fun, body_fun, init_state)
 
-    final_params, _, _, _, _, iters, best_error,_, best_params, _,_,converged = final_state
+    final_params, _, _, _, _, iters, best_error, best_params, _,_,converged = final_state
     return best_params, iters, best_error, converged
 
 def forward_fit_processing(batch,batch_remainder,num_batches,num_segments,params,lower,upper,changepoint_list_original,fitting_config,functions_config):
@@ -580,9 +579,9 @@ def lm_start(params, x_data_full_np, y_padded, lower, upper, changepoint_list_or
         else:
             jnp_prev_params=jnp.array(prev_parameters[-1],dtype=DTYPE)
 
-        forward_fit_params_array=np.pad(forward_fit_params_array,(0, pad_zeros), mode='constant', constant_values=0.0)
-        forward_fit_lower_array=np.pad(forward_fit_lower_array,(0, pad_zeros), mode='constant', constant_values=0.0)
-        forward_fit_upper_array=np.pad(forward_fit_upper_array,(0, pad_zeros), mode='constant', constant_values=0.0)
+        forward_fit_params_array=np.pad(forward_fit_params_array,(0, pad_zeros), mode='constant', constant_values=forward_fit_params_array[-1])
+        forward_fit_lower_array=np.pad(forward_fit_lower_array,(0, pad_zeros), mode='constant', constant_values=forward_fit_lower_array[-1])
+        forward_fit_upper_array=np.pad(forward_fit_upper_array,(0, pad_zeros), mode='constant', constant_values=forward_fit_upper_array[-1])
         forward_fit_changepoint_array=np.pad(forward_fit_changepoint_array,(0, max_padding-len(forward_fit_changepoint_array)), mode='constant', constant_values=forward_fit_changepoint_array[-1])
         forward_fit_arrays={'params': forward_fit_params_array, 'lower': forward_fit_lower_array, 'upper': forward_fit_upper_array, 'changepoint': forward_fit_changepoint_array}
         batch_info={'batch': batch, 'num_segments': num_segments, 'leftover_batch': leftover_batch}

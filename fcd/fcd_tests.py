@@ -8,11 +8,11 @@ from dateutil.relativedelta import relativedelta
 import utility
 from utility import fmt
 import utility_guesses
-np.random.seed(97)
-def test_datasets(k):
-    
-    if k<=24:
+def test_datasets(k, max_k=24, data_user=None, model_user=None, model_init_user=None):   
+    if k<=max_k:
         data_y=np.load(f"test_datasets/cryptocoin_tests/test{k}.npy")
+        if data_user:
+            data_y=data_user
         x_delta_max=1.0
         if k<=5:
             x_delta_max=1.0
@@ -24,43 +24,47 @@ def test_datasets(k):
         deltas = np.random.uniform(1e-4, x_delta_max, dataset_length)
         x_data = np.cumsum(deltas)
     else:
-        if k == 25:
+        if k == max_k+1:
             dataset_length=103
             x_data=np.arange(dataset_length)
             data_y=utility.model_linear(x_data,2.0,-100.0)
-        elif k == 26:
+        elif k == max_k+2:
             dataset_length=987
             x_delta_max=100.0
             deltas = np.random.uniform(1e-4, x_delta_max, dataset_length)
             x_data = np.cumsum(deltas)
             data_y=utility.model_cubic(x_data,1.0, -7.0, 21.0, -23581.0)
-        elif k == 27:
+        elif k == max_k+3:
             dataset_length=1291
             x_delta_max=-10.0
             deltas = np.random.uniform(-1e-4, x_delta_max, dataset_length)
             x_data = np.cumsum(deltas)
             data_y=np.full(dataset_length, 90.0)
-        elif k == 28:
+        elif k == max_k+4:
             dataset_length=11
             x_delta_max=0.01
             deltas = np.random.uniform(1e-4, x_delta_max, dataset_length)
             x_data = np.cumsum(deltas)
             data_y=np.full(dataset_length, 0.0)
-        elif k == 29:
+        elif k == max_k+5:
             data_y=np.load(f"test_datasets/cryptocoin_tests/test{1}.npy")/1e20
             x_data=np.linspace(0, 1e-16, len(data_y))
-        elif k == 30:
+        elif k == max_k+6:
             data_y=np.load(f"test_datasets/cryptocoin_tests/test{6}.npy")/1e-20
             x_data=np.linspace(0, 1e20, len(data_y))
-    if k <= 24:
+    if k <= max_k:
         if k>len(utility.default_models):
             k-=len(utility.default_models)
+        if k == 11: # 11 is for fourier model, it is unstable for now and therefore is excluded
+            k-=1
         model = list(utility.default_models.keys())[k-1]
         model_init_guesses=utility_guesses.initial_guesses_models[k-1]
     else:
         model = list(utility.default_models.keys())[5]
         model_init_guesses=utility_guesses.initial_guesses_models[5]
-        
+    if model_user:
+        model=model_user
+        model_init_guesses=model_init_user
     return x_data,data_y, model,model_init_guesses
  
 def get_bitcoin_seed_data(seed, coin, tf, start_date):
@@ -116,17 +120,27 @@ def make_testing_dataset():
         np.save(filename, dataset)
 
 def main_fitting():
-    my_settings = {'scaling': True, 'warmup': False}
-    optimization_settings_args={"batch_size": 5}
-    mode_fitting_runner=mode_fitting.FCD(x_dataset=np.full(10000,1),y_dataset=np.full(10000,1), model=utility.model_sin7, initial_guesses_function=utility_guesses.initial_guess_sin7,settings_args=my_settings,optimization_settings_args=optimization_settings_args,parallel=True,verbose = 1)
+    #97,11,45,76, 154, 231
+    np.random.seed(97)    
     warning_segs=[]
     num_testing=30
     average_srmse_tests=[]
     average_rmse_tests=[]
+    all_srmse_tests=[]
     time_tests=[]
-    for k in range(2,num_testing+1):
-        x_dataset, y_dataset,model, init_guess_model=test_datasets(k) 
-        print(f"Running test on seed {k}")
+    randomized=True
+    model_user=utility.model_quadratic
+    model_init_user=utility_guesses.initial_guess_quadratic
+    for k in range(1,num_testing+1):
+        settings={'show_plot': False}
+        k_randomized=0
+        if randomized:
+            k_randomized=np.random.randint(1, num_testing)
+        else:
+            k_randomized=k
+        mode_fitting_runner=mode_fitting.FCD(x_dataset=np.full(10000,1),y_dataset=np.full(10000,1), model=utility.model_sin7, initial_guesses_function=utility_guesses.initial_guess_sin7, settings_args=settings,parallel=True,verbose = 1)    
+        x_dataset, y_dataset,model, init_guess_model=test_datasets(k_randomized) 
+        print(f"Running test on seed {k}, k_randomized is {k_randomized}")
         mode_fitting_runner.set_data(x_dataset, y_dataset)
         mode_fitting_runner.set_model(model,init_guess_model)
         mode_fitting_runner.run()
@@ -151,14 +165,16 @@ def main_fitting():
                     warning_segs.append({"test": k, "mode": i, "segment": s, "dataset deviation": f"{fmt(dataset_std)}", "segment deviation": f"{fmt(segment_deviation)}", "SRMSE": f"{fmt(all_srmse[i][s])}", "RMSE": f"{fmt(all_rmse[i][s])}"})
         all_srmse_flat = [item for sublist in all_srmse for item in sublist]
         all_rmse_flat = [item for sublist in all_rmse for item in sublist]
+        all_srmse_tests.append(max(all_srmse_flat))
         if k<25: #counting only real non-stationary datasets tests
             average_srmse_tests.append(np.mean(np.array(all_srmse_flat)))
             average_rmse_tests.append(np.mean(np.array(all_rmse_flat)))
             time_tests.append(all_time)
         #print(warning_segs)
     print(f"Average SRMSE across all tests: {fmt(np.mean(average_srmse_tests))}")
+    print(f"Max SRMSE across all tests: {fmt(np.max(all_srmse_tests))} at test {int(np.argmax(all_srmse_tests))+1}")
     print(f"Average RMSE across all tests: {fmt(np.mean(average_rmse_tests))}")
     print(f"Average time across all tests(with compilation): {fmt(np.mean(time_tests))}")
 
-
-main_fitting()
+if __name__=="__main__":
+    main_fitting()

@@ -7,6 +7,7 @@ import concurrent.futures
 import utility
 import os
 from optimizer import lm_fit, lm_start
+import utility_guesses
 import utility
 from utility import fmt
 from collections import namedtuple
@@ -35,6 +36,7 @@ class FCD:
                 unscaling_function (Callable): Unscaling function which has to be defined if custom_fitting is used.
                 requested_modes (int): Number of modes to decompose. If None, number of modes is calculated using logarithmic equation.
                 warmup (bool): Use warmup. Defaults to False
+                show_plot (bool): Show final plot. Defaults to True on verbose > 0
                 non_uniform (bool): Use non-uniform segmentation. If true, for multi-scale analysis user has to provide all changepoints for each mode, for single analysis one changepoint array.
                 changepoints_non_uniform (array-like, optional): Changepoint indices for non-uniform segmentation. 
                 hardware_factor (float): Multiplier for bucketing factor. Defaults to 1.0
@@ -55,11 +57,10 @@ class FCD:
         defaults_continuity_args={'custom_fitting': False, 'value_parameter_fix': '', 'derivative_parameter_fix': '', 'value_continuity': True, 'derivative_continuity': True}
         self._continuity_args=utility.parse_args(defaults_continuity_args,continuity_args)
         
-
         default_optimization_settings_args={'batch_size': 5, 'max_iters': 500, 'ftol': 1e-3, 'xtol': 1e-3, 'initial_lam': 1e-1, 'bucketing': True}
         self._optimization_settings_args=utility.parse_args(default_optimization_settings_args,optimization_settings_args)
 
-        default_settings_args={'multi_scale': True, 'num_segments_single': 1, 'scaling': True, 'unscaling_function': None, 'requested_modes': None, 'warmup': False, 'non_uniform': False, 'changepoints_non_uniform': None, 'hardware_factor': 1.0}
+        default_settings_args={'multi_scale': True, 'num_segments_single': 1, 'scaling': True, 'unscaling_function': None, 'requested_modes': None, 'warmup': False, 'show_plot': True, 'non_uniform': False, 'changepoints_non_uniform': None, 'hardware_factor': 1.0}
         self._settings_args=utility.parse_args(default_settings_args,settings_args)
 
         self._x_dataset_unscaled = x_dataset
@@ -110,7 +111,12 @@ class FCD:
                 for i in range(changepoints_to_fit):
                     segment_x = self._x_dataset[changepoint[i]:changepoint[i+1]]-self._x_dataset[changepoint[i]] #zero-centered
                     segment_y = self._y_dataset[changepoint[i]:changepoint[i+1]]
-                    initial_p0, initial_lower_bound, initial_upper_bound=self._functions_config.initial_guesses_function(self._x_dataset,self._y_dataset,dataset_std, segment_x,segment_y, i, mode, last_mode)
+                    batch_size = self._optimization_settings_args['batch_size']
+                    start_idx = max(0, i - batch_size)
+                    end_idx = min(len(changepoint) - 1, i + batch_size)
+                    batch_segments_y=self._y_dataset[changepoint[start_idx]:changepoint[end_idx]]
+                    batch_segments_x=self._x_dataset[changepoint[start_idx]:changepoint[end_idx]]
+                    initial_p0, initial_lower_bound, initial_upper_bound=self._functions_config.initial_guesses_function(self._x_dataset,self._y_dataset,batch_segments_x,batch_segments_y, segment_x,segment_y, i, mode, last_mode)
                     p0_np = np.asarray(initial_p0)
                     lb_np = np.asarray(initial_lower_bound)
                     ub_np = np.asarray(initial_upper_bound)
@@ -137,7 +143,7 @@ class FCD:
                 last_mode=True
                 segment_x = self._x_dataset-self._x_dataset[0]
                 segment_y = self._y_dataset
-                initial_p0, initial_lower_bound, initial_upper_bound=self._functions_config.initial_guesses_function(self._x_dataset,self._y_dataset,dataset_std,segment_x, segment_y, 0, mode,last_mode)
+                initial_p0, initial_lower_bound, initial_upper_bound=self._functions_config.initial_guesses_function(self._x_dataset,self._y_dataset,self._x_dataset,self._y_dataset,segment_x, segment_y, 0, mode,last_mode)
                 initial_p0=np.clip(initial_p0, initial_lower_bound, initial_upper_bound)
                 full_initial_p0 = [initial_p0]
                 initial_p0s = initial_p0
@@ -436,7 +442,7 @@ class FCD:
         N_full = len(self._y_dataset)
         if self._settings_args['non_uniform']==False:
             if self._settings_args['multi_scale']:
-                num_segments_uniform=utility.modify_uniform_num_segments(N_full)
+                num_segments_uniform=utility.modify_uniform_num_segments(N_full, max(5,len(self.parameter_names)))
                 if self._number_of_modes==None:
                     self._number_of_modes=len(num_segments_uniform)
                 else:
@@ -511,8 +517,8 @@ class FCD:
             pad_arr=self._max_segment_lengths[-1]
         else:
             pad_arr=len(self._y_dataset)
-        y_fit_full=np.pad(self._y_dataset,(0, pad_arr+1), mode='constant', constant_values=0.0)
-        x_fit_full=np.pad(self._x_dataset,(0, pad_arr+1), mode='constant', constant_values=0.0)
+        y_fit_full=np.pad(self._y_dataset,(0, pad_arr+1), mode='constant', constant_values=self._y_dataset[-1])
+        x_fit_full=np.pad(self._x_dataset,(0, pad_arr+1), mode='constant', constant_values=self._x_dataset[-1])
         results_ordered = []
         if self._settings_args['multi_scale']:
             if self._parallel:            
@@ -547,5 +553,6 @@ class FCD:
             if self._settings_args['non_uniform']==False:
                 print(f"Number of segments in each mode: {self._num_segments_uniform}")
             print(f"Decomposition took {time_took:.4f}s")
-            utility.show_fitting_plot(self._number_of_modes, self.all_changepoints, self._x_dataset_unscaled,self._y_dataset_unscaled,self.fitted_parameters_modes,self.all_full_initial_guesses,self._functions_config,self._verbose)
+            if self._settings_args['show_plot']:
+                utility.show_fitting_plot(self._number_of_modes, self.all_changepoints, self._x_dataset_unscaled,self._y_dataset_unscaled,self.fitted_parameters_modes,self.all_full_initial_guesses,self._functions_config,self._verbose)
         return self.fitted_parameters_modes
