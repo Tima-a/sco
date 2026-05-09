@@ -44,7 +44,7 @@ def calculate_floor_sin(batch_segments_x,batch_segments_y):
     noise_floor = batch_segments_y - trend_guess_flat
     noise_floor=np.std(noise_floor)
     noise_floor=np.where(noise_floor<1e-9, 1e-9, noise_floor)
-    span_batches=max(max(batch_segments_y)-min(batch_segments_y),1e-12)
+    span_batches=max((max(batch_segments_y)-min(batch_segments_y))/2.0,1e-12)
     return noise_floor,span_batches
 def initial_guesses_sin(x_dataset,y_dataset,batch_segments_x,batch_segments_y,segment_x, segment_y, segment_index, mode_index,last_mode,parameters_configuration=7):
     noise_floor,noise_floor_span=calculate_floor_sin(batch_segments_x,batch_segments_y)
@@ -66,7 +66,7 @@ def initial_guesses_sin(x_dataset,y_dataset,batch_segments_x,batch_segments_y,se
     y_detrended_std=np.std(y_detrended)
 
     y_detrended_std_floor=noise_floor
-    a0_start = np.std(y_detrended) * 1.414
+    a0_start = noise_floor_span
     a1_start = 1e-12 
     
     a0_start = max(a0_start, 0.0)
@@ -94,8 +94,8 @@ def initial_guesses_sin(x_dataset,y_dataset,batch_segments_x,batch_segments_y,se
     
         d0_start = np.arcsin(y0_clipped)
               
-    safe_a0_max = noise_floor_span
-    safe_a0_min = y_detrended_std * 0.7
+    safe_a0_max = noise_floor_span*2.0
+    safe_a0_min = min(a0_start,y_detrended_std) * 0.7
 
     safe_a1_max = abs(safe_a0_max / x_span)*0.5
     
@@ -348,9 +348,9 @@ def initial_guess_fourier(x_dataset, y_dataset,batch_segments_x,batch_segments_y
     c0 = y_start_stable
     
     y_detrended = segment_y - (c1 * segment_x + c0)
-    a1=max(np.std(y_detrended) * 1.414,1e-12)
-    a2=max(a1*0.5,1e-12)
-    a3=max(a1*0.2,1e-12)
+    a1=max(noise_floor_span*0.1,1e-12)
+    a2=max(noise_floor_span*0.05,1e-12)
+    a3=max(noise_floor_span*0.01,1e-12)
     num_cycles = get_robust_freq(y_detrended,segment_x)
 
     detected_freq = 2.0 * np.pi * num_cycles

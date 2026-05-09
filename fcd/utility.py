@@ -520,13 +520,13 @@ def show_fitting_plot(max_mode, all_changepoints, x_data_full_np,y_data_full_np,
         for i in range(max_mode, rows * cols):
             fig.delaxes(axes_flat[i])
     plt.gca().yaxis.set_major_locator(ticker.MaxNLocator(nbins=5))
-    fig.supylabel(r'Voltage ($\mu$V)', fontsize=12)
-    fig.supxlabel(r'Time ($s$)', fontsize=12)
+    fig.supylabel(r'Price ($)', fontsize=12)
+    fig.supxlabel(r'Time ($m$)', fontsize=12)
     
-    #fig.tight_layout(rect=[0, 0.03, 1, 0.95])
-    #fig = plt.gcf()
-    #fig.set_size_inches(14, 8)  
-    #fig.set_dpi(100)          
+    fig.tight_layout(rect=[0, 0.03, 1, 0.95])
+    fig = plt.gcf()
+    fig.set_size_inches(14, 8)  
+    fig.set_dpi(100)          
     
     plt.tight_layout()
     
@@ -645,8 +645,8 @@ def get_metrics(segments_params_modes, x_data_full_np,y_data_full_np,all_changep
                 last_start=0
             changepoint_index=k
             x_data_segment=x_data_full_np[changepoint[changepoint_index]:changepoint[changepoint_index+1] + last_start]-x_data_full_np[changepoint[changepoint_index]]
-            y_prediction = functions_config.model_py(x_data_segment, *segments_params_modes[i][k])
-            y_real=y_data_full_np[changepoint[changepoint_index]:changepoint[changepoint_index+1]+last_start]
+            y_prediction = np.array(functions_config.model_py(x_data_segment, *segments_params_modes[i][k]))
+            y_real=np.array(y_data_full_np[changepoint[changepoint_index]:changepoint[changepoint_index+1]+last_start])
             current_srmse=calculate_srmse(y_real, y_prediction)
             current_rmse=calculate_rmse(y_real, y_prediction)
             data_scales_mode.append(max(y_real)-min(y_real))

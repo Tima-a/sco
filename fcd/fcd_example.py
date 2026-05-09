@@ -11,8 +11,8 @@ x=np.arange(len(y))
 
 fcd = FCD(
     x_dataset=x, y_dataset=y,
-    model=utility.model_sin5,
-    initial_guesses_function=utility_guesses.initial_guess_sin5,
+    model=utility.model_fourier,
+    initial_guesses_function=utility_guesses.initial_guess_fourier,
     parallel=True,
     verbose=1
 )

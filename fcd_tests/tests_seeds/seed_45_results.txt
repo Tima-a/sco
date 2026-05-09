@@ -1,0 +1,592 @@
+Initialization finished in 0.3308s
+Running test on seed 1, k_randomized is 12
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.1086s
+Running FCD on model_gaussian with initial guess function initial_guess_gaussian
+Time took for initial guess and batch transformation: 0.1545s
+Bucketing segment lengths: [42, 374]
+Mode 1: Max SRMSE 4.855 (with RMSE 7.795 at segment 80, Max RMSE 12.886 (range 43.440), Average SRMSE 0.744, Average RMSE 2.569
+Mode 2: Max SRMSE 2.963 (with RMSE 2.832 at segment 6, Max RMSE 14.596 (range 39.320), Average SRMSE 0.698, Average RMSE 3.492
+Mode 3: Max SRMSE 2.424 (with RMSE 4.659 at segment 32, Max RMSE 15.713 (range 57.550), Average SRMSE 0.708, Average RMSE 4.986
+Mode 4: Max SRMSE 3.531 (with RMSE 4.607 at segment 15, Max RMSE 15.152 (range 82.750), Average SRMSE 0.707, Average RMSE 6.524
+Mode 5: Max SRMSE 1.085 (with RMSE 16.695 at segment 16, Max RMSE 16.695 (range 59.860), Average SRMSE 0.554, Average RMSE 8.970
+Mode 6: Max SRMSE 2.378 (with RMSE 12.446 at segment 3, Max RMSE 22.926 (range 130.430), Average SRMSE 0.895, Average RMSE 14.530
+Mode 7: Max SRMSE 0.781 (with RMSE 29.862 at segment 3, Max RMSE 29.862 (range 175.070), Average SRMSE 0.497, Average RMSE 19.244
+Mode 8: Max SRMSE 0.691 (with RMSE 49.055 at segment 0, Max RMSE 49.055 (range 260.461), Average SRMSE 0.691, Average RMSE 49.055
+Average SRMSE across all modes is 0.720
+Average RMSE across all modes is 3.907
+Number of segments in each mode: [373, 186, 93, 46, 23, 11, 5, 1]
+Decomposition took 3.2489s
+Initialization finished in 0.1063s
+Running test on seed 2, k_randomized is 25
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0136s
+Running FCD on model_cubic with initial guess function initial_guess_cubic
+Time took for initial guess and batch transformation: 0.0173s
+Bucketing segment lengths: [22]
+Mode 1: Max SRMSE 0.000 (with RMSE 0.000 at segment 19, Max RMSE 0.000 (range 10.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 2: Max SRMSE 0.000 (with RMSE 0.000 at segment 9, Max RMSE 0.000 (range 20.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 3: Max SRMSE 0.000 (with RMSE 0.000 at segment 4, Max RMSE 0.000 (range 40.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 4: Max SRMSE 0.000 (with RMSE 0.000 at segment 0, Max RMSE 0.000 (range 204.000), Average SRMSE 0.000, Average RMSE 0.000
+Average SRMSE across all modes is 0.000
+Average RMSE across all modes is 0.000
+Number of segments in each mode: [20, 10, 5, 1]
+Decomposition took 1.7565s
+Initialization finished in 0.1049s
+Running test on seed 3, k_randomized is 27
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0263s
+Running FCD on model_cubic with initial guess function initial_guess_cubic
+Time took for initial guess and batch transformation: 0.0757s
+Bucketing segment lengths: [42, 324]
+Mode 1: Max SRMSE 0.000 (with RMSE 0.000 at segment 0, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 2: Max SRMSE 0.000 (with RMSE 0.000 at segment 0, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 3: Max SRMSE 0.000 (with RMSE 0.000 at segment 0, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 4: Max SRMSE 0.000 (with RMSE 0.000 at segment 0, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 5: Max SRMSE 0.000 (with RMSE 0.000 at segment 0, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 6: Max SRMSE 0.000 (with RMSE 0.000 at segment 0, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 7: Max SRMSE 0.000 (with RMSE 0.000 at segment 0, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 8: Max SRMSE 0.000 (with RMSE 0.000 at segment 0, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Average SRMSE across all modes is 0.000
+Average RMSE across all modes is 0.000
+Number of segments in each mode: [258, 129, 64, 32, 16, 8, 4, 1]
+Decomposition took 2.8679s
+Initialization finished in 0.1058s
+Running test on seed 4, k_randomized is 7
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0529s
+Running FCD on model_linear with initial guess function initial_guess_linear
+Time took for initial guess and batch transformation: 0.3806s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 4.746 (with RMSE 59.611 at segment 1335, Max RMSE 134.823 (range 426.120), Average SRMSE 0.890, Average RMSE 18.842
+Mode 2: Max SRMSE 2.779 (with RMSE 31.162 at segment 875, Max RMSE 168.130 (range 486.750), Average SRMSE 0.929, Average RMSE 26.838
+Mode 3: Max SRMSE 2.348 (with RMSE 29.147 at segment 253, Max RMSE 177.415 (range 619.970), Average SRMSE 0.943, Average RMSE 37.803
+Mode 4: Max SRMSE 2.976 (with RMSE 46.085 at segment 240, Max RMSE 217.143 (range 1168.280), Average SRMSE 0.908, Average RMSE 53.566
+Mode 5: Max SRMSE 1.907 (with RMSE 95.268 at segment 31, Max RMSE 237.407 (range 1301.500), Average SRMSE 0.939, Average RMSE 79.218
+Mode 6: Max SRMSE 2.418 (with RMSE 135.002 at segment 35, Max RMSE 226.001 (range 1042.500), Average SRMSE 0.972, Average RMSE 109.936
+Mode 7: Max SRMSE 3.143 (with RMSE 125.726 at segment 5, Max RMSE 468.892 (range 2053.780), Average SRMSE 0.915, Average RMSE 158.841
+Mode 8: Max SRMSE 2.346 (with RMSE 434.343 at segment 5, Max RMSE 524.589 (range 2199.900), Average SRMSE 0.896, Average RMSE 220.559
+Mode 9: Max SRMSE 1.256 (with RMSE 335.758 at segment 5, Max RMSE 501.993 (range 2605.470), Average SRMSE 0.911, Average RMSE 351.404
+Mode 10: Max SRMSE 0.654 (with RMSE 636.535 at segment 0, Max RMSE 636.535 (range 4127.040), Average SRMSE 0.654, Average RMSE 636.535
+Average SRMSE across all modes is 0.911
+Average RMSE across all modes is 31.286
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 5.4913s
+Initialization finished in 0.1090s
+Running test on seed 5, k_randomized is 24
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0412s
+Running FCD on model_gaussian with initial guess function initial_guess_gaussian
+Time took for initial guess and batch transformation: 0.0862s
+Bucketing segment lengths: [42, 374]
+Mode 1: Max SRMSE 4.379 (with RMSE 0.100 at segment 66, Max RMSE 0.237 (range 0.190), Average SRMSE 0.838, Average RMSE 0.029
+Mode 2: Max SRMSE 4.923 (with RMSE 0.054 at segment 1, Max RMSE 0.217 (range 0.525), Average SRMSE 0.781, Average RMSE 0.038
+Mode 3: Max SRMSE 4.106 (with RMSE 0.433 at segment 87, Max RMSE 0.433 (range 0.352), Average SRMSE 0.823, Average RMSE 0.055
+Mode 4: Max SRMSE 1.823 (with RMSE 0.031 at segment 19, Max RMSE 0.255 (range 1.234), Average SRMSE 0.723, Average RMSE 0.069
+Mode 5: Max SRMSE 1.841 (with RMSE 0.063 at segment 10, Max RMSE 0.265 (range 1.354), Average SRMSE 0.810, Average RMSE 0.103
+Mode 6: Max SRMSE 1.483 (with RMSE 0.076 at segment 6, Max RMSE 0.295 (range 2.790), Average SRMSE 0.700, Average RMSE 0.122
+Mode 7: Max SRMSE 0.937 (with RMSE 0.324 at segment 0, Max RMSE 0.324 (range 1.614), Average SRMSE 0.605, Average RMSE 0.193
+Mode 8: Max SRMSE 0.424 (with RMSE 0.349 at segment 0, Max RMSE 0.349 (range 3.331), Average SRMSE 0.424, Average RMSE 0.349
+Average SRMSE across all modes is 0.809
+Average RMSE across all modes is 0.042
+Number of segments in each mode: [373, 186, 93, 46, 23, 11, 5, 1]
+Decomposition took 2.6483s
+Initialization finished in 0.1106s
+Running test on seed 6, k_randomized is 25
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0079s
+Running FCD on model_cubic with initial guess function initial_guess_cubic
+Time took for initial guess and batch transformation: 0.0124s
+Bucketing segment lengths: [22]
+Mode 1: Max SRMSE 0.000 (with RMSE 0.000 at segment 19, Max RMSE 0.000 (range 10.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 2: Max SRMSE 0.000 (with RMSE 0.000 at segment 9, Max RMSE 0.000 (range 20.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 3: Max SRMSE 0.000 (with RMSE 0.000 at segment 4, Max RMSE 0.000 (range 40.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 4: Max SRMSE 0.000 (with RMSE 0.000 at segment 0, Max RMSE 0.000 (range 204.000), Average SRMSE 0.000, Average RMSE 0.000
+Average SRMSE across all modes is 0.000
+Average RMSE across all modes is 0.000
+Number of segments in each mode: [20, 10, 5, 1]
+Decomposition took 1.7120s
+Initialization finished in 0.1069s
+Running test on seed 7, k_randomized is 7
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0530s
+Running FCD on model_linear with initial guess function initial_guess_linear
+Time took for initial guess and batch transformation: 0.3795s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 3.398 (with RMSE 42.685 at segment 1335, Max RMSE 128.946 (range 426.120), Average SRMSE 0.878, Average RMSE 18.567
+Mode 2: Max SRMSE 3.158 (with RMSE 34.464 at segment 578, Max RMSE 156.801 (range 486.750), Average SRMSE 0.924, Average RMSE 26.670
+Mode 3: Max SRMSE 2.600 (with RMSE 32.281 at segment 253, Max RMSE 166.370 (range 619.970), Average SRMSE 0.944, Average RMSE 37.772
+Mode 4: Max SRMSE 2.623 (with RMSE 40.618 at segment 240, Max RMSE 207.698 (range 1168.280), Average SRMSE 0.913, Average RMSE 53.920
+Mode 5: Max SRMSE 1.845 (with RMSE 92.171 at segment 31, Max RMSE 225.281 (range 1301.500), Average SRMSE 0.943, Average RMSE 79.481
+Mode 6: Max SRMSE 2.421 (with RMSE 135.197 at segment 35, Max RMSE 229.044 (range 1042.500), Average SRMSE 0.969, Average RMSE 109.216
+Mode 7: Max SRMSE 3.090 (with RMSE 123.607 at segment 5, Max RMSE 468.167 (range 2053.780), Average SRMSE 0.914, Average RMSE 158.631
+Mode 8: Max SRMSE 2.356 (with RMSE 436.206 at segment 5, Max RMSE 526.988 (range 2199.900), Average SRMSE 0.897, Average RMSE 220.930
+Mode 9: Max SRMSE 1.239 (with RMSE 331.167 at segment 5, Max RMSE 502.598 (range 2605.470), Average SRMSE 0.907, Average RMSE 350.238
+Mode 10: Max SRMSE 0.656 (with RMSE 638.285 at segment 0, Max RMSE 638.285 (range 4127.040), Average SRMSE 0.656, Average RMSE 638.285
+Average SRMSE across all modes is 0.904
+Average RMSE across all modes is 31.120
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 6.0133s
+Initialization finished in 0.1090s
+Running test on seed 8, k_randomized is 29
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0574s
+Running FCD on model_cubic with initial guess function initial_guess_cubic
+Time took for initial guess and batch transformation: 0.4725s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 0.000 (with RMSE 0.000 at segment 1607, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 2: Max SRMSE 0.000 (with RMSE 0.000 at segment 803, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 3: Max SRMSE 0.000 (with RMSE 0.000 at segment 401, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 4: Max SRMSE 0.000 (with RMSE 0.000 at segment 93, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 5: Max SRMSE 0.000 (with RMSE 0.000 at segment 46, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 6: Max SRMSE 0.000 (with RMSE 0.000 at segment 49, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 7: Max SRMSE 0.000 (with RMSE 0.000 at segment 19, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 8: Max SRMSE 0.000 (with RMSE 0.000 at segment 9, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 9: Max SRMSE 0.000 (with RMSE 0.000 at segment 4, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 10: Max SRMSE 0.000 (with RMSE 0.000 at segment 0, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Average SRMSE across all modes is 0.000
+Average RMSE across all modes is 0.000
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 6.4410s
+Initialization finished in 0.1115s
+Running test on seed 9, k_randomized is 8
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0304s
+Warning, initial guess is out of lower and upper bounds for mode 1 segment 22, initial guess was clipped
+Running FCD on model_relation with initial guess function initial_guess_relation
+Time took for initial guess and batch transformation: 0.0930s
+Bucketing segment lengths: [42, 374]
+Mode 1: Max SRMSE 3.449 (with RMSE 43.770 at segment 327, Max RMSE 241.207 (range 455.900), Average SRMSE 0.753, Average RMSE 55.101
+Mode 2: Max SRMSE 1.943 (with RMSE 44.201 at segment 157, Max RMSE 237.888 (range 494.060), Average SRMSE 0.809, Average RMSE 81.991
+Mode 3: Max SRMSE 1.960 (with RMSE 386.677 at segment 7, Max RMSE 454.046 (range 1734.540), Average SRMSE 0.830, Average RMSE 121.330
+Mode 4: Max SRMSE 1.415 (with RMSE 68.159 at segment 17, Max RMSE 576.219 (range 2076.830), Average SRMSE 0.779, Average RMSE 166.170
+Mode 5: Max SRMSE 1.152 (with RMSE 107.201 at segment 11, Max RMSE 564.844 (range 2591.580), Average SRMSE 0.725, Average RMSE 235.101
+Mode 6: Max SRMSE 1.247 (with RMSE 605.415 at segment 8, Max RMSE 834.009 (range 3358.660), Average SRMSE 0.768, Average RMSE 394.624
+Mode 7: Max SRMSE 1.001 (with RMSE 865.004 at segment 4, Max RMSE 865.004 (range 3358.660), Average SRMSE 0.785, Average RMSE 493.764
+Mode 8: Max SRMSE 0.975 (with RMSE 883.365 at segment 0, Max RMSE 883.365 (range 4103.160), Average SRMSE 0.975, Average RMSE 883.365
+Average SRMSE across all modes is 0.778
+Average RMSE across all modes is 91.911
+Number of segments in each mode: [373, 186, 93, 46, 23, 11, 5, 1]
+Decomposition took 3.0501s
+Initialization finished in 0.1294s
+Running test on seed 10, k_randomized is 26
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0189s
+Running FCD on model_cubic with initial guess function initial_guess_cubic
+Time took for initial guess and batch transformation: 0.0583s
+Bucketing segment lengths: [166]
+Mode 1: Max SRMSE 1.000 (with RMSE 57.771 at segment 0, Max RMSE 57.771 (range 22248860.895), Average SRMSE 0.751, Average RMSE 0.594
+Mode 2: Max SRMSE 1.000 (with RMSE 1162.029 at segment 0, Max RMSE 1162.029 (range 216624730.546), Average SRMSE 0.510, Average RMSE 14.181
+Mode 3: Max SRMSE 1.000 (with RMSE 13.361 at segment 0, Max RMSE 13.361 (range 952839657.626), Average SRMSE 0.408, Average RMSE 0.728
+Mode 4: Max SRMSE 1.000 (with RMSE 0.001 at segment 0, Max RMSE 3.558 (range 11828470057726.016), Average SRMSE 0.292, Average RMSE 1.052
+Mode 5: Max SRMSE 1.000 (with RMSE 0.067 at segment 0, Max RMSE 6.527 (range 18900947173272.016), Average SRMSE 0.167, Average RMSE 1.651
+Mode 6: Max SRMSE 1.000 (with RMSE 0.346 at segment 0, Max RMSE 3.920 (range 21498113516659.383), Average SRMSE 0.167, Average RMSE 1.877
+Mode 7: Max SRMSE 0.000 (with RMSE 10.031 at segment 0, Max RMSE 10.031 (range 116856817507645.438), Average SRMSE 0.000, Average RMSE 10.031
+Average SRMSE across all modes is 0.589
+Average RMSE across all modes is 4.157
+Number of segments in each mode: [197, 98, 49, 24, 12, 6, 1]
+Decomposition took 3.2417s
+Initialization finished in 0.1152s
+Running test on seed 11, k_randomized is 4
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0434s
+Running FCD on model_sin4 with initial guess function initial_guesses_sin
+Time took for initial guess and batch transformation: 0.2146s
+Bucketing segment lengths: [42, 374]
+Mode 1: Max SRMSE 3.386 (with RMSE 1685.282 at segment 313, Max RMSE 4238.238 (range 14014.140), Average SRMSE 0.776, Average RMSE 901.765
+Mode 2: Max SRMSE 2.808 (with RMSE 1548.731 at segment 112, Max RMSE 7525.301 (range 22525.200), Average SRMSE 0.896, Average RMSE 1459.157
+Mode 3: Max SRMSE 4.033 (with RMSE 1296.920 at segment 36, Max RMSE 9563.487 (range 31041.990), Average SRMSE 0.949, Average RMSE 2142.266
+Mode 4: Max SRMSE 2.990 (with RMSE 1164.663 at segment 17, Max RMSE 8927.907 (range 25939.620), Average SRMSE 1.015, Average RMSE 3186.598
+Mode 5: Max SRMSE 2.522 (with RMSE 6134.756 at segment 13, Max RMSE 15564.054 (range 45807.340), Average SRMSE 1.055, Average RMSE 5371.567
+Mode 6: Max SRMSE 2.691 (with RMSE 4424.514 at segment 5, Max RMSE 15289.265 (range 45829.830), Average SRMSE 1.177, Average RMSE 7974.982
+Mode 7: Max SRMSE 1.931 (with RMSE 12289.960 at segment 2, Max RMSE 21221.579 (range 66182.730), Average SRMSE 1.295, Average RMSE 13695.162
+Mode 8: Max SRMSE 1.049 (with RMSE 30982.290 at segment 0, Max RMSE 30982.290 (range 108877.250), Average SRMSE 1.049, Average RMSE 30982.290
+Average SRMSE across all modes is 0.861
+Average RMSE across all modes is 1713.150
+Number of segments in each mode: [373, 186, 93, 46, 23, 11, 5, 1]
+Decomposition took 3.0292s
+Initialization finished in 0.1095s
+Running test on seed 12, k_randomized is 8
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0247s
+Warning, initial guess is out of lower and upper bounds for mode 1 segment 22, initial guess was clipped
+Running FCD on model_relation with initial guess function initial_guess_relation
+Time took for initial guess and batch transformation: 0.0871s
+Bucketing segment lengths: [42, 374]
+Mode 1: Max SRMSE 3.303 (with RMSE 41.919 at segment 327, Max RMSE 241.719 (range 455.900), Average SRMSE 0.761, Average RMSE 55.513
+Mode 2: Max SRMSE 2.253 (with RMSE 51.636 at segment 84, Max RMSE 255.253 (range 1734.540), Average SRMSE 0.805, Average RMSE 81.106
+Mode 3: Max SRMSE 2.895 (with RMSE 77.903 at segment 32, Max RMSE 476.046 (range 1734.540), Average SRMSE 0.844, Average RMSE 120.350
+Mode 4: Max SRMSE 1.359 (with RMSE 65.467 at segment 17, Max RMSE 576.349 (range 2076.830), Average SRMSE 0.776, Average RMSE 165.079
+Mode 5: Max SRMSE 1.124 (with RMSE 104.592 at segment 11, Max RMSE 563.481 (range 2591.580), Average SRMSE 0.735, Average RMSE 239.184
+Mode 6: Max SRMSE 1.261 (with RMSE 612.141 at segment 8, Max RMSE 831.655 (range 3358.660), Average SRMSE 0.774, Average RMSE 398.533
+Mode 7: Max SRMSE 1.033 (with RMSE 497.556 at segment 3, Max RMSE 829.238 (range 3358.660), Average SRMSE 0.795, Average RMSE 497.147
+Mode 8: Max SRMSE 0.973 (with RMSE 881.911 at segment 0, Max RMSE 881.911 (range 4103.160), Average SRMSE 0.973, Average RMSE 881.911
+Average SRMSE across all modes is 0.783
+Average RMSE across all modes is 91.912
+Number of segments in each mode: [373, 186, 93, 46, 23, 11, 5, 1]
+Decomposition took 2.7998s
+Initialization finished in 0.1131s
+Running test on seed 13, k_randomized is 12
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0435s
+Running FCD on model_gaussian with initial guess function initial_guess_gaussian
+Time took for initial guess and batch transformation: 0.0900s
+Bucketing segment lengths: [42, 374]
+Mode 1: Max SRMSE 3.824 (with RMSE 3.130 at segment 12, Max RMSE 11.970 (range 54.720), Average SRMSE 0.753, Average RMSE 2.512
+Mode 2: Max SRMSE 1.779 (with RMSE 4.361 at segment 10, Max RMSE 15.878 (range 39.320), Average SRMSE 0.674, Average RMSE 3.397
+Mode 3: Max SRMSE 2.254 (with RMSE 2.463 at segment 50, Max RMSE 16.286 (range 57.550), Average SRMSE 0.678, Average RMSE 4.925
+Mode 4: Max SRMSE 3.096 (with RMSE 4.040 at segment 15, Max RMSE 15.966 (range 82.750), Average SRMSE 0.698, Average RMSE 6.667
+Mode 5: Max SRMSE 1.160 (with RMSE 17.843 at segment 16, Max RMSE 17.843 (range 59.860), Average SRMSE 0.535, Average RMSE 8.846
+Mode 6: Max SRMSE 2.343 (with RMSE 12.264 at segment 3, Max RMSE 23.982 (range 234.926), Average SRMSE 0.870, Average RMSE 14.407
+Mode 7: Max SRMSE 0.785 (with RMSE 30.039 at segment 3, Max RMSE 30.039 (range 175.070), Average SRMSE 0.495, Average RMSE 19.237
+Mode 8: Max SRMSE 0.693 (with RMSE 49.144 at segment 0, Max RMSE 49.144 (range 260.461), Average SRMSE 0.693, Average RMSE 49.144
+Average SRMSE across all modes is 0.713
+Average RMSE across all modes is 3.849
+Number of segments in each mode: [373, 186, 93, 46, 23, 11, 5, 1]
+Decomposition took 2.7645s
+Initialization finished in 0.1118s
+Running test on seed 14, k_randomized is 17
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0607s
+Running FCD on model_quadratic with initial guess function initial_guess_quadratic
+Time took for initial guess and batch transformation: 0.4848s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 7.351 (with RMSE 0.000 at segment 977, Max RMSE 0.000 (range 0.000), Average SRMSE 0.981, Average RMSE 0.000
+Mode 2: Max SRMSE 6.669 (with RMSE 0.000 at segment 433, Max RMSE 0.000 (range 0.000), Average SRMSE 0.989, Average RMSE 0.000
+Mode 3: Max SRMSE 4.324 (with RMSE 0.000 at segment 409, Max RMSE 0.000 (range 0.000), Average SRMSE 1.007, Average RMSE 0.000
+Mode 4: Max SRMSE 7.413 (with RMSE 0.000 at segment 110, Max RMSE 0.000 (range 0.000), Average SRMSE 1.060, Average RMSE 0.000
+Mode 5: Max SRMSE 7.788 (with RMSE 0.000 at segment 45, Max RMSE 0.000 (range 0.000), Average SRMSE 1.094, Average RMSE 0.000
+Mode 6: Max SRMSE 3.713 (with RMSE 0.000 at segment 11, Max RMSE 0.000 (range 0.000), Average SRMSE 1.050, Average RMSE 0.000
+Mode 7: Max SRMSE 3.048 (with RMSE 0.000 at segment 5, Max RMSE 0.000 (range 0.000), Average SRMSE 1.025, Average RMSE 0.000
+Mode 8: Max SRMSE 1.419 (with RMSE 0.000 at segment 13, Max RMSE 0.000 (range 0.000), Average SRMSE 0.939, Average RMSE 0.000
+Mode 9: Max SRMSE 1.505 (with RMSE 0.000 at segment 4, Max RMSE 0.000 (range 0.000), Average SRMSE 1.017, Average RMSE 0.000
+Mode 10: Max SRMSE 0.698 (with RMSE 0.000 at segment 0, Max RMSE 0.000 (range 0.000), Average SRMSE 0.698, Average RMSE 0.000
+Average SRMSE across all modes is 0.996
+Average RMSE across all modes is 0.000
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 6.9345s
+Initialization finished in 0.1104s
+Running test on seed 15, k_randomized is 9
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0664s
+Running FCD on model_decay with initial guess function initial_guess_decay
+Time took for initial guess and batch transformation: 0.4208s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 7.052 (with RMSE 0.001 at segment 1456, Max RMSE 0.002 (range 0.008), Average SRMSE 0.943, Average RMSE 0.000
+Mode 2: Max SRMSE 5.837 (with RMSE 0.000 at segment 810, Max RMSE 0.002 (range 0.006), Average SRMSE 0.932, Average RMSE 0.000
+Mode 3: Max SRMSE 3.264 (with RMSE 0.001 at segment 198, Max RMSE 0.002 (range 0.006), Average SRMSE 0.930, Average RMSE 0.000
+Mode 4: Max SRMSE 2.865 (with RMSE 0.001 at segment 91, Max RMSE 0.003 (range 0.006), Average SRMSE 0.855, Average RMSE 0.000
+Mode 5: Max SRMSE 6.013 (with RMSE 0.001 at segment 109, Max RMSE 0.003 (range 0.010), Average SRMSE 0.912, Average RMSE 0.001
+Mode 6: Max SRMSE 1.457 (with RMSE 0.002 at segment 40, Max RMSE 0.003 (range 0.020), Average SRMSE 0.827, Average RMSE 0.001
+Mode 7: Max SRMSE 1.918 (with RMSE 0.001 at segment 4, Max RMSE 0.003 (range 0.013), Average SRMSE 0.842, Average RMSE 0.001
+Mode 8: Max SRMSE 1.371 (with RMSE 0.004 at segment 6, Max RMSE 0.007 (range 0.026), Average SRMSE 0.950, Average RMSE 0.003
+Mode 9: Max SRMSE 0.927 (with RMSE 0.003 at segment 3, Max RMSE 0.007 (range 0.031), Average SRMSE 0.709, Average RMSE 0.004
+Mode 10: Max SRMSE 0.935 (with RMSE 0.006 at segment 0, Max RMSE 0.006 (range 0.033), Average SRMSE 0.935, Average RMSE 0.006
+Average SRMSE across all modes is 0.929
+Average RMSE across all modes is 0.000
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 5.9811s
+Initialization finished in 0.1099s
+Running test on seed 16, k_randomized is 23
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.1076s
+Running FCD on model_logistic with initial guess function initial_guess_logistic
+Time took for initial guess and batch transformation: 0.4603s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 2.328 (with RMSE 0.014 at segment 1934, Max RMSE 0.050 (range 0.219), Average SRMSE 0.685, Average RMSE 0.005
+Mode 2: Max SRMSE 1.786 (with RMSE 0.020 at segment 603, Max RMSE 0.067 (range 0.213), Average SRMSE 0.689, Average RMSE 0.007
+Mode 3: Max SRMSE 1.898 (with RMSE 0.008 at segment 320, Max RMSE 0.095 (range 0.297), Average SRMSE 0.689, Average RMSE 0.011
+Mode 4: Max SRMSE 1.461 (with RMSE 0.012 at segment 176, Max RMSE 0.076 (range 0.418), Average SRMSE 0.674, Average RMSE 0.015
+Mode 5: Max SRMSE 1.365 (with RMSE 0.019 at segment 80, Max RMSE 0.075 (range 0.418), Average SRMSE 0.638, Average RMSE 0.019
+Mode 6: Max SRMSE 1.234 (with RMSE 0.030 at segment 13, Max RMSE 0.128 (range 0.751), Average SRMSE 0.719, Average RMSE 0.032
+Mode 7: Max SRMSE 1.272 (with RMSE 0.039 at segment 6, Max RMSE 0.209 (range 1.277), Average SRMSE 0.660, Average RMSE 0.046
+Mode 8: Max SRMSE 1.323 (with RMSE 0.046 at segment 10, Max RMSE 0.150 (range 1.450), Average SRMSE 0.743, Average RMSE 0.064
+Mode 9: Max SRMSE 1.026 (with RMSE 0.100 at segment 4, Max RMSE 0.138 (range 1.511), Average SRMSE 0.537, Average RMSE 0.091
+Mode 10: Max SRMSE 0.725 (with RMSE 0.240 at segment 0, Max RMSE 0.240 (range 1.720), Average SRMSE 0.725, Average RMSE 0.240
+Average SRMSE across all modes is 0.685
+Average RMSE across all modes is 0.009
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 5.2583s
+Initialization finished in 0.1090s
+Running test on seed 17, k_randomized is 29
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0572s
+Running FCD on model_cubic with initial guess function initial_guess_cubic
+Time took for initial guess and batch transformation: 0.4607s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 0.000 (with RMSE 0.000 at segment 1607, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 2: Max SRMSE 0.000 (with RMSE 0.000 at segment 803, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 3: Max SRMSE 0.000 (with RMSE 0.000 at segment 401, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 4: Max SRMSE 0.000 (with RMSE 0.000 at segment 93, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 5: Max SRMSE 0.000 (with RMSE 0.000 at segment 46, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 6: Max SRMSE 0.000 (with RMSE 0.000 at segment 49, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 7: Max SRMSE 0.000 (with RMSE 0.000 at segment 19, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 8: Max SRMSE 0.000 (with RMSE 0.000 at segment 9, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 9: Max SRMSE 0.000 (with RMSE 0.000 at segment 4, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 10: Max SRMSE 0.000 (with RMSE 0.000 at segment 0, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Average SRMSE across all modes is 0.000
+Average RMSE across all modes is 0.000
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 6.0651s
+Initialization finished in 0.1067s
+Running test on seed 18, k_randomized is 23
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0786s
+Running FCD on model_logistic with initial guess function initial_guess_logistic
+Time took for initial guess and batch transformation: 0.4353s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 2.322 (with RMSE 0.014 at segment 1934, Max RMSE 0.053 (range 0.204), Average SRMSE 0.684, Average RMSE 0.005
+Mode 2: Max SRMSE 1.871 (with RMSE 0.007 at segment 690, Max RMSE 0.071 (range 0.235), Average SRMSE 0.696, Average RMSE 0.007
+Mode 3: Max SRMSE 1.934 (with RMSE 0.009 at segment 320, Max RMSE 0.070 (range 0.297), Average SRMSE 0.689, Average RMSE 0.011
+Mode 4: Max SRMSE 1.515 (with RMSE 0.012 at segment 176, Max RMSE 0.075 (range 0.418), Average SRMSE 0.677, Average RMSE 0.015
+Mode 5: Max SRMSE 1.324 (with RMSE 0.019 at segment 80, Max RMSE 0.081 (range 0.375), Average SRMSE 0.635, Average RMSE 0.019
+Mode 6: Max SRMSE 1.448 (with RMSE 0.035 at segment 13, Max RMSE 0.127 (range 0.751), Average SRMSE 0.707, Average RMSE 0.032
+Mode 7: Max SRMSE 1.625 (with RMSE 0.049 at segment 6, Max RMSE 0.211 (range 1.277), Average SRMSE 0.674, Average RMSE 0.046
+Mode 8: Max SRMSE 1.335 (with RMSE 0.046 at segment 10, Max RMSE 0.153 (range 1.450), Average SRMSE 0.753, Average RMSE 0.065
+Mode 9: Max SRMSE 1.024 (with RMSE 0.099 at segment 4, Max RMSE 0.139 (range 1.511), Average SRMSE 0.537, Average RMSE 0.092
+Mode 10: Max SRMSE 0.724 (with RMSE 0.239 at segment 0, Max RMSE 0.239 (range 1.720), Average SRMSE 0.724, Average RMSE 0.239
+Average SRMSE across all modes is 0.686
+Average RMSE across all modes is 0.009
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 5.6690s
+Initialization finished in 0.1094s
+Running test on seed 19, k_randomized is 6
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0585s
+Running FCD on model_cubic with initial guess function initial_guess_cubic
+Time took for initial guess and batch transformation: 0.4926s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 1.574 (with RMSE 3.680 at segment 806, Max RMSE 6.651 (range 31.990), Average SRMSE 0.798, Average RMSE 1.105
+Mode 2: Max SRMSE 1.298 (with RMSE 4.521 at segment 480, Max RMSE 9.940 (range 27.970), Average SRMSE 0.768, Average RMSE 1.604
+Mode 3: Max SRMSE 1.392 (with RMSE 4.043 at segment 240, Max RMSE 12.748 (range 77.590), Average SRMSE 0.764, Average RMSE 2.322
+Mode 4: Max SRMSE 1.363 (with RMSE 4.900 at segment 190, Max RMSE 14.717 (range 86.960), Average SRMSE 0.753, Average RMSE 3.295
+Mode 5: Max SRMSE 1.263 (with RMSE 2.428 at segment 10, Max RMSE 18.730 (range 102.820), Average SRMSE 0.716, Average RMSE 4.538
+Mode 6: Max SRMSE 1.145 (with RMSE 9.066 at segment 47, Max RMSE 24.339 (range 170.090), Average SRMSE 0.674, Average RMSE 6.697
+Mode 7: Max SRMSE 1.210 (with RMSE 10.698 at segment 20, Max RMSE 22.534 (range 263.810), Average SRMSE 0.687, Average RMSE 9.428
+Mode 8: Max SRMSE 1.001 (with RMSE 4.044 at segment 2, Max RMSE 37.975 (range 263.810), Average SRMSE 0.733, Average RMSE 14.892
+Mode 9: Max SRMSE 0.913 (with RMSE 37.565 at segment 3, Max RMSE 37.565 (range 263.810), Average SRMSE 0.653, Average RMSE 19.552
+Mode 10: Max SRMSE 0.218 (with RMSE 38.641 at segment 0, Max RMSE 38.641 (range 572.370), Average SRMSE 0.218, Average RMSE 38.641
+Average SRMSE across all modes is 0.777
+Average RMSE across all modes is 1.872
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 6.1295s
+Initialization finished in 0.1081s
+Running test on seed 20, k_randomized is 7
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0542s
+Running FCD on model_linear with initial guess function initial_guess_linear
+Time took for initial guess and batch transformation: 0.3859s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 3.161 (with RMSE 42.151 at segment 1405, Max RMSE 124.560 (range 426.120), Average SRMSE 0.884, Average RMSE 18.704
+Mode 2: Max SRMSE 2.797 (with RMSE 31.366 at segment 875, Max RMSE 160.241 (range 486.750), Average SRMSE 0.923, Average RMSE 26.661
+Mode 3: Max SRMSE 2.673 (with RMSE 33.187 at segment 253, Max RMSE 170.950 (range 619.970), Average SRMSE 0.949, Average RMSE 38.130
+Mode 4: Max SRMSE 2.743 (with RMSE 42.472 at segment 240, Max RMSE 218.323 (range 1168.280), Average SRMSE 0.915, Average RMSE 54.021
+Mode 5: Max SRMSE 1.874 (with RMSE 93.635 at segment 31, Max RMSE 231.670 (range 1301.500), Average SRMSE 0.935, Average RMSE 78.825
+Mode 6: Max SRMSE 2.578 (with RMSE 143.960 at segment 35, Max RMSE 226.310 (range 1042.500), Average SRMSE 0.969, Average RMSE 109.307
+Mode 7: Max SRMSE 3.179 (with RMSE 127.171 at segment 5, Max RMSE 458.432 (range 2053.780), Average SRMSE 0.913, Average RMSE 157.780
+Mode 8: Max SRMSE 2.334 (with RMSE 432.198 at segment 5, Max RMSE 535.854 (range 2199.900), Average SRMSE 0.897, Average RMSE 221.180
+Mode 9: Max SRMSE 1.261 (with RMSE 337.066 at segment 5, Max RMSE 503.727 (range 2605.470), Average SRMSE 0.914, Average RMSE 352.291
+Mode 10: Max SRMSE 0.654 (with RMSE 637.140 at segment 0, Max RMSE 637.140 (range 4127.040), Average SRMSE 0.654, Average RMSE 637.140
+Average SRMSE across all modes is 0.907
+Average RMSE across all modes is 31.216
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 4.5554s
+Initialization finished in 0.1068s
+Running test on seed 21, k_randomized is 3
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0984s
+Running FCD on model_sin5 with initial guess function initial_guesses_sin
+Time took for initial guess and batch transformation: 1.0865s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 2.757 (with RMSE 446.842 at segment 343, Max RMSE 904.123 (range 2395.330), Average SRMSE 0.586, Average RMSE 152.344
+Mode 2: Max SRMSE 3.224 (with RMSE 552.627 at segment 700, Max RMSE 1179.048 (range 4324.170), Average SRMSE 0.642, Average RMSE 235.293
+Mode 3: Max SRMSE 2.626 (with RMSE 875.295 at segment 35, Max RMSE 1471.435 (range 5338.580), Average SRMSE 0.654, Average RMSE 340.122
+Mode 4: Max SRMSE 1.510 (with RMSE 1334.197 at segment 78, Max RMSE 1528.598 (range 9433.620), Average SRMSE 0.629, Average RMSE 475.184
+Mode 5: Max SRMSE 1.310 (with RMSE 1330.133 at segment 2, Max RMSE 2030.843 (range 6510.990), Average SRMSE 0.626, Average RMSE 692.366
+Mode 6: Max SRMSE 1.561 (with RMSE 1428.047 at segment 39, Max RMSE 1739.992 (range 10470.110), Average SRMSE 0.661, Average RMSE 971.842
+Mode 7: Max SRMSE 1.287 (with RMSE 1941.457 at segment 11, Max RMSE 3243.458 (range 10851.130), Average SRMSE 0.768, Average RMSE 1783.757
+Mode 8: Max SRMSE 1.567 (with RMSE 3095.562 at segment 5, Max RMSE 5004.680 (range 24122.150), Average SRMSE 0.889, Average RMSE 2776.489
+Mode 9: Max SRMSE 1.031 (with RMSE 4029.152 at segment 1, Max RMSE 5432.743 (range 26355.840), Average SRMSE 0.725, Average RMSE 4282.398
+Mode 10: Max SRMSE 1.100 (with RMSE 10420.215 at segment 0, Max RMSE 10420.215 (range 39711.490), Average SRMSE 1.100, Average RMSE 10420.215
+Average SRMSE across all modes is 0.616
+Average RMSE across all modes is 278.872
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 7.2417s
+Initialization finished in 0.1087s
+Running test on seed 22, k_randomized is 8
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0248s
+Warning, initial guess is out of lower and upper bounds for mode 1 segment 22, initial guess was clipped
+Running FCD on model_relation with initial guess function initial_guess_relation
+Time took for initial guess and batch transformation: 0.0862s
+Bucketing segment lengths: [42, 374]
+Mode 1: Max SRMSE 3.432 (with RMSE 43.558 at segment 327, Max RMSE 237.952 (range 455.900), Average SRMSE 0.758, Average RMSE 55.450
+Mode 2: Max SRMSE 2.291 (with RMSE 52.108 at segment 157, Max RMSE 261.480 (range 1734.540), Average SRMSE 0.812, Average RMSE 82.004
+Mode 3: Max SRMSE 2.708 (with RMSE 72.869 at segment 32, Max RMSE 440.724 (range 1734.540), Average SRMSE 0.840, Average RMSE 119.940
+Mode 4: Max SRMSE 1.558 (with RMSE 75.039 at segment 17, Max RMSE 574.644 (range 2076.830), Average SRMSE 0.775, Average RMSE 164.294
+Mode 5: Max SRMSE 1.160 (with RMSE 107.923 at segment 11, Max RMSE 572.076 (range 2591.580), Average SRMSE 0.729, Average RMSE 236.189
+Mode 6: Max SRMSE 1.271 (with RMSE 616.830 at segment 8, Max RMSE 811.324 (range 3358.660), Average SRMSE 0.766, Average RMSE 393.019
+Mode 7: Max SRMSE 1.001 (with RMSE 864.922 at segment 4, Max RMSE 864.922 (range 3358.660), Average SRMSE 0.785, Average RMSE 495.304
+Mode 8: Max SRMSE 0.974 (with RMSE 882.492 at segment 0, Max RMSE 882.492 (range 4103.160), Average SRMSE 0.974, Average RMSE 882.492
+Average SRMSE across all modes is 0.783
+Average RMSE across all modes is 91.819
+Number of segments in each mode: [373, 186, 93, 46, 23, 11, 5, 1]
+Decomposition took 2.4297s
+Initialization finished in 0.1113s
+Running test on seed 23, k_randomized is 22
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0795s
+Running FCD on model_logistic with initial guess function initial_guess_logistic
+Time took for initial guess and batch transformation: 0.4354s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 2.317 (with RMSE 0.001 at segment 1864, Max RMSE 0.005 (range 0.015), Average SRMSE 0.689, Average RMSE 0.000
+Mode 2: Max SRMSE 1.703 (with RMSE 0.001 at segment 510, Max RMSE 0.005 (range 0.020), Average SRMSE 0.672, Average RMSE 0.000
+Mode 3: Max SRMSE 1.844 (with RMSE 0.001 at segment 400, Max RMSE 0.006 (range 0.044), Average SRMSE 0.700, Average RMSE 0.001
+Mode 4: Max SRMSE 1.949 (with RMSE 0.001 at segment 62, Max RMSE 0.005 (range 0.049), Average SRMSE 0.707, Average RMSE 0.001
+Mode 5: Max SRMSE 2.075 (with RMSE 0.001 at segment 93, Max RMSE 0.007 (range 0.061), Average SRMSE 0.721, Average RMSE 0.001
+Mode 6: Max SRMSE 1.299 (with RMSE 0.001 at segment 11, Max RMSE 0.010 (range 0.061), Average SRMSE 0.725, Average RMSE 0.002
+Mode 7: Max SRMSE 1.183 (with RMSE 0.001 at segment 23, Max RMSE 0.011 (range 0.077), Average SRMSE 0.793, Average RMSE 0.003
+Mode 8: Max SRMSE 1.085 (with RMSE 0.003 at segment 6, Max RMSE 0.013 (range 0.077), Average SRMSE 0.820, Average RMSE 0.004
+Mode 9: Max SRMSE 0.943 (with RMSE 0.005 at segment 3, Max RMSE 0.013 (range 0.124), Average SRMSE 0.581, Average RMSE 0.005
+Mode 10: Max SRMSE 0.269 (with RMSE 0.008 at segment 0, Max RMSE 0.008 (range 0.154), Average SRMSE 0.269, Average RMSE 0.008
+Average SRMSE across all modes is 0.690
+Average RMSE across all modes is 0.001
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 4.9172s
+Initialization finished in 0.1095s
+Running test on seed 24, k_randomized is 23
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0785s
+Running FCD on model_logistic with initial guess function initial_guess_logistic
+Time took for initial guess and batch transformation: 0.4332s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 2.348 (with RMSE 0.014 at segment 1934, Max RMSE 0.050 (range 0.219), Average SRMSE 0.681, Average RMSE 0.005
+Mode 2: Max SRMSE 1.956 (with RMSE 0.008 at segment 690, Max RMSE 0.072 (range 0.235), Average SRMSE 0.692, Average RMSE 0.008
+Mode 3: Max SRMSE 1.941 (with RMSE 0.009 at segment 201, Max RMSE 0.069 (range 0.297), Average SRMSE 0.685, Average RMSE 0.010
+Mode 4: Max SRMSE 1.579 (with RMSE 0.015 at segment 180, Max RMSE 0.075 (range 0.418), Average SRMSE 0.675, Average RMSE 0.015
+Mode 5: Max SRMSE 1.333 (with RMSE 0.019 at segment 80, Max RMSE 0.081 (range 0.375), Average SRMSE 0.647, Average RMSE 0.020
+Mode 6: Max SRMSE 1.254 (with RMSE 0.030 at segment 13, Max RMSE 0.128 (range 0.751), Average SRMSE 0.706, Average RMSE 0.032
+Mode 7: Max SRMSE 1.229 (with RMSE 0.068 at segment 17, Max RMSE 0.211 (range 1.277), Average SRMSE 0.649, Average RMSE 0.045
+Mode 8: Max SRMSE 1.330 (with RMSE 0.046 at segment 10, Max RMSE 0.150 (range 1.450), Average SRMSE 0.746, Average RMSE 0.064
+Mode 9: Max SRMSE 1.022 (with RMSE 0.099 at segment 4, Max RMSE 0.138 (range 1.511), Average SRMSE 0.535, Average RMSE 0.091
+Mode 10: Max SRMSE 0.724 (with RMSE 0.240 at segment 0, Max RMSE 0.240 (range 1.720), Average SRMSE 0.724, Average RMSE 0.240
+Average SRMSE across all modes is 0.683
+Average RMSE across all modes is 0.009
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 5.8130s
+Initialization finished in 0.1093s
+Running test on seed 25, k_randomized is 22
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0783s
+Running FCD on model_logistic with initial guess function initial_guess_logistic
+Time took for initial guess and batch transformation: 0.4358s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 2.140 (with RMSE 0.001 at segment 528, Max RMSE 0.005 (range 0.015), Average SRMSE 0.688, Average RMSE 0.000
+Mode 2: Max SRMSE 2.960 (with RMSE 0.001 at segment 481, Max RMSE 0.006 (range 0.020), Average SRMSE 0.677, Average RMSE 0.000
+Mode 3: Max SRMSE 1.846 (with RMSE 0.001 at segment 400, Max RMSE 0.006 (range 0.044), Average SRMSE 0.702, Average RMSE 0.001
+Mode 4: Max SRMSE 1.930 (with RMSE 0.001 at segment 72, Max RMSE 0.005 (range 0.049), Average SRMSE 0.705, Average RMSE 0.001
+Mode 5: Max SRMSE 2.010 (with RMSE 0.002 at segment 66, Max RMSE 0.007 (range 0.061), Average SRMSE 0.726, Average RMSE 0.001
+Mode 6: Max SRMSE 1.298 (with RMSE 0.001 at segment 11, Max RMSE 0.010 (range 0.061), Average SRMSE 0.727, Average RMSE 0.002
+Mode 7: Max SRMSE 1.200 (with RMSE 0.001 at segment 17, Max RMSE 0.011 (range 0.077), Average SRMSE 0.788, Average RMSE 0.003
+Mode 8: Max SRMSE 1.095 (with RMSE 0.003 at segment 6, Max RMSE 0.013 (range 0.077), Average SRMSE 0.825, Average RMSE 0.004
+Mode 9: Max SRMSE 0.942 (with RMSE 0.005 at segment 3, Max RMSE 0.012 (range 0.124), Average SRMSE 0.583, Average RMSE 0.005
+Mode 10: Max SRMSE 0.269 (with RMSE 0.008 at segment 0, Max RMSE 0.008 (range 0.154), Average SRMSE 0.269, Average RMSE 0.008
+Average SRMSE across all modes is 0.691
+Average RMSE across all modes is 0.001
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 4.8199s
+Initialization finished in 0.1058s
+Running test on seed 26, k_randomized is 15
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0932s
+Running FCD on model_sin5 with initial guess function initial_guesses_sin
+Time took for initial guess and batch transformation: 1.0826s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 3.436 (with RMSE 0.022 at segment 1826, Max RMSE 0.094 (range 0.538), Average SRMSE 0.624, Average RMSE 0.007
+Mode 2: Max SRMSE 2.092 (with RMSE 0.018 at segment 670, Max RMSE 0.131 (range 0.514), Average SRMSE 0.668, Average RMSE 0.012
+Mode 3: Max SRMSE 1.551 (with RMSE 0.018 at segment 335, Max RMSE 0.107 (range 0.824), Average SRMSE 0.640, Average RMSE 0.015
+Mode 4: Max SRMSE 1.628 (with RMSE 0.026 at segment 176, Max RMSE 0.145 (range 0.674), Average SRMSE 0.641, Average RMSE 0.022
+Mode 5: Max SRMSE 1.739 (with RMSE 0.037 at segment 92, Max RMSE 0.098 (range 0.536), Average SRMSE 0.624, Average RMSE 0.030
+Mode 6: Max SRMSE 1.373 (with RMSE 0.108 at segment 36, Max RMSE 0.126 (range 1.169), Average SRMSE 0.655, Average RMSE 0.044
+Mode 7: Max SRMSE 1.517 (with RMSE 0.034 at segment 1, Max RMSE 0.219 (range 1.307), Average SRMSE 0.739, Average RMSE 0.080
+Mode 8: Max SRMSE 1.261 (with RMSE 0.085 at segment 14, Max RMSE 0.257 (range 1.404), Average SRMSE 0.880, Average RMSE 0.119
+Mode 9: Max SRMSE 1.378 (with RMSE 0.134 at segment 1, Max RMSE 0.380 (range 1.928), Average SRMSE 0.795, Average RMSE 0.195
+Mode 10: Max SRMSE 0.996 (with RMSE 0.589 at segment 0, Max RMSE 0.589 (range 2.924), Average SRMSE 0.996, Average RMSE 0.589
+Average SRMSE across all modes is 0.641
+Average RMSE across all modes is 0.013
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 6.2098s
+Initialization finished in 0.1070s
+Running test on seed 27, k_randomized is 6
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0580s
+Running FCD on model_cubic with initial guess function initial_guess_cubic
+Time took for initial guess and batch transformation: 0.4646s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 1.504 (with RMSE 3.518 at segment 806, Max RMSE 9.987 (range 30.020), Average SRMSE 0.800, Average RMSE 1.116
+Mode 2: Max SRMSE 1.456 (with RMSE 2.707 at segment 635, Max RMSE 12.909 (range 62.740), Average SRMSE 0.766, Average RMSE 1.608
+Mode 3: Max SRMSE 1.527 (with RMSE 4.002 at segment 341, Max RMSE 13.603 (range 77.590), Average SRMSE 0.766, Average RMSE 2.336
+Mode 4: Max SRMSE 1.309 (with RMSE 5.653 at segment 142, Max RMSE 16.127 (range 86.960), Average SRMSE 0.753, Average RMSE 3.315
+Mode 5: Max SRMSE 1.267 (with RMSE 2.436 at segment 10, Max RMSE 17.747 (range 102.820), Average SRMSE 0.713, Average RMSE 4.534
+Mode 6: Max SRMSE 1.225 (with RMSE 9.698 at segment 47, Max RMSE 23.547 (range 170.090), Average SRMSE 0.668, Average RMSE 6.614
+Mode 7: Max SRMSE 1.213 (with RMSE 10.725 at segment 20, Max RMSE 22.402 (range 132.370), Average SRMSE 0.684, Average RMSE 9.395
+Mode 8: Max SRMSE 1.029 (with RMSE 5.674 at segment 4, Max RMSE 38.134 (range 263.810), Average SRMSE 0.734, Average RMSE 14.892
+Mode 9: Max SRMSE 0.907 (with RMSE 37.327 at segment 3, Max RMSE 37.327 (range 263.810), Average SRMSE 0.652, Average RMSE 19.504
+Mode 10: Max SRMSE 0.221 (with RMSE 39.179 at segment 0, Max RMSE 39.179 (range 572.370), Average SRMSE 0.221, Average RMSE 39.179
+Average SRMSE across all modes is 0.778
+Average RMSE across all modes is 1.880
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 6.8397s
+Initialization finished in 0.1090s
+Running test on seed 28, k_randomized is 28
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0077s
+Running FCD on model_cubic with initial guess function initial_guess_cubic
+Time took for initial guess and batch transformation: 0.0092s
+Bucketing segment lengths: [4]
+Mode 1: Max SRMSE 0.000 (with RMSE 0.000 at segment 0, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 2: Max SRMSE 0.000 (with RMSE 0.000 at segment 0, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 3: Max SRMSE 0.000 (with RMSE 0.000 at segment 0, Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Average SRMSE across all modes is 0.000
+Average RMSE across all modes is 0.000
+Number of segments in each mode: [4, 4, 1]
+Decomposition took 1.5757s
+Initialization finished in 0.1077s
+Running test on seed 29, k_randomized is 12
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0418s
+Running FCD on model_gaussian with initial guess function initial_guess_gaussian
+Time took for initial guess and batch transformation: 0.0868s
+Bucketing segment lengths: [42, 374]
+Mode 1: Max SRMSE 3.728 (with RMSE 3.052 at segment 12, Max RMSE 13.426 (range 54.720), Average SRMSE 0.738, Average RMSE 2.584
+Mode 2: Max SRMSE 1.848 (with RMSE 1.964 at segment 18, Max RMSE 14.333 (range 39.320), Average SRMSE 0.675, Average RMSE 3.412
+Mode 3: Max SRMSE 4.079 (with RMSE 3.092 at segment 34, Max RMSE 12.580 (range 79.110), Average SRMSE 0.732, Average RMSE 4.807
+Mode 4: Max SRMSE 3.625 (with RMSE 4.731 at segment 15, Max RMSE 15.253 (range 82.750), Average SRMSE 0.678, Average RMSE 6.465
+Mode 5: Max SRMSE 1.063 (with RMSE 16.356 at segment 16, Max RMSE 16.356 (range 59.860), Average SRMSE 0.527, Average RMSE 8.583
+Mode 6: Max SRMSE 2.406 (with RMSE 12.592 at segment 3, Max RMSE 22.810 (range 234.926), Average SRMSE 0.877, Average RMSE 14.178
+Mode 7: Max SRMSE 0.771 (with RMSE 29.488 at segment 3, Max RMSE 29.488 (range 175.070), Average SRMSE 0.485, Average RMSE 18.875
+Mode 8: Max SRMSE 0.694 (with RMSE 49.202 at segment 0, Max RMSE 49.202 (range 260.461), Average SRMSE 0.694, Average RMSE 49.202
+Average SRMSE across all modes is 0.712
+Average RMSE across all modes is 3.848
+Number of segments in each mode: [373, 186, 93, 46, 23, 11, 5, 1]
+Decomposition took 2.8828s
+Initialization finished in 0.1077s
+Running test on seed 30, k_randomized is 25
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0082s
+Running FCD on model_cubic with initial guess function initial_guess_cubic
+Time took for initial guess and batch transformation: 0.0123s
+Bucketing segment lengths: [22]
+Mode 1: Max SRMSE 0.000 (with RMSE 0.000 at segment 19, Max RMSE 0.000 (range 10.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 2: Max SRMSE 0.000 (with RMSE 0.000 at segment 9, Max RMSE 0.000 (range 20.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 3: Max SRMSE 0.000 (with RMSE 0.000 at segment 4, Max RMSE 0.000 (range 40.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 4: Max SRMSE 0.000 (with RMSE 0.000 at segment 0, Max RMSE 0.000 (range 204.000), Average SRMSE 0.000, Average RMSE 0.000
+Average SRMSE across all modes is 0.000
+Average RMSE across all modes is 0.000
+Number of segments in each mode: [20, 10, 5, 1]
+Decomposition took 1.6490s
+Average SRMSE across all tests: 0.618
+Max SRMSE across all tests: 7.788 at test 14
+Average RMSE across all tests: 98.964
+Average time across all tests(with compilation): 4.419
+Press any key to continue . . .

@@ -128,9 +128,9 @@ def main_fitting():
     average_rmse_tests=[]
     all_srmse_tests=[]
     time_tests=[]
-    randomized=True
-    model_user=utility.model_quadratic
-    model_init_user=utility_guesses.initial_guess_quadratic
+    randomized=False
+    model_user=utility.model_fourier
+    model_init_user=utility_guesses.initial_guess_fourier
     for k in range(1,num_testing+1):
         settings={'show_plot': False}
         k_randomized=0
@@ -139,7 +139,7 @@ def main_fitting():
         else:
             k_randomized=k
         mode_fitting_runner=mode_fitting.FCD(x_dataset=np.full(10000,1),y_dataset=np.full(10000,1), model=utility.model_sin7, initial_guesses_function=utility_guesses.initial_guess_sin7, settings_args=settings,parallel=True,verbose = 1)    
-        x_dataset, y_dataset,model, init_guess_model=test_datasets(k_randomized) 
+        x_dataset, y_dataset,model, init_guess_model=test_datasets(k_randomized,model_user=model_user,model_init_user=model_init_user) 
         print(f"Running test on seed {k}, k_randomized is {k_randomized}")
         mode_fitting_runner.set_data(x_dataset, y_dataset)
         mode_fitting_runner.set_model(model,init_guess_model)

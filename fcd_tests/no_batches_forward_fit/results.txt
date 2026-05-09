@@ -1,0 +1,8 @@
+Initialization finished in 2.1149s
+Running FCD on model_sin6 with initial guess function initial_guesses_sin
+Time took for initial guess and batch transformation: 0.0021s
+Bucketing segment lengths: [168]
+Mode 1: Max SRMSE 2.647 (with RMSE 2463.250, range 5020.020), Max RMSE 2463.250 (range 5020.020), Average SRMSE 1.031, Average RMSE 1626.456
+Average SRMSE across all modes is 1.031
+Average RMSE across all modes is 1626.456
+Decomposition took 1.7158s

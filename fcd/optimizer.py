@@ -285,7 +285,7 @@ def compute_state(params_unconstrained,x_data_full, y, lower, upper, changepoint
     return params_unconstrained, r, J_unconstrained, ssr
 
 @partial(jax.jit)
-def solve_step(p, r, J, lam,ridge):
+def solve_step(p, r, J, lam):
     """
     Core function for Levenberg-Marquardt algorithm and equations with numerical stability checks and clipping.
 
@@ -301,19 +301,25 @@ def solve_step(p, r, J, lam,ridge):
     """
     H = J.T @ J
     g= J.T @ r
+    diag_H = jnp.diag(H)
+    diag_H_ridge = jnp.where(jnp.isfinite(jnp.max(diag_H)), jnp.max(diag_H) * 1e-9, 1.0)
+    ridge = jnp.maximum(diag_H_ridge, 1e-12)
+    
+    #jax.debug.print("Ridge {ridge}", ridge=ridge)
     A = H + (lam + ridge) * jnp.eye(p.size, dtype=DTYPE)
     
-    bad = jnp.logical_or(jnp.any(jnp.isnan(A)), jnp.any(jnp.isinf(A)))
-    diag_H = jnp.diag(H)
+    good = jnp.all(jnp.isfinite(A))
+    #jax.debug.print("good bool {good}", good=good)
 
-    fallback_scale = jnp.where(jnp.isfinite(jnp.mean(diag_H)), jnp.mean(diag_H), 1.0)
-    A_fallback = (lam + ridge + fallback_scale) * jnp.eye(p.size, dtype=DTYPE)
+    A_fallback = (lam + 1.0) * jnp.eye(p.size, dtype=DTYPE)
+    g_fallback = jnp.where(jnp.isfinite(g), g, 0.0)
     
-    A = jnp.where(bad, A_fallback, A)
-    dp_unconstrained = solve(A, -g, assume_a='pos')
+    A_safe = jnp.where(good, A,A_fallback)
+    g_safe = jnp.where(good, g,g_fallback)
 
-    dp_unconstrained = jnp.where(jnp.isnan(dp_unconstrained), jnp.zeros_like(dp_unconstrained), dp_unconstrained)
-
+    dp_unconstrained = solve(A_safe, -g_safe, assume_a='pos')
+    diag_H_ridge = jnp.where(jnp.all(jnp.max(diag_H)), jnp.max(diag_H) * 1e-9, 0.0)
+    
     MAX_DP_COMPONENT = 5.0 
     dp_unconstrained = jnp.clip(dp_unconstrained, -MAX_DP_COMPONENT, MAX_DP_COMPONENT)
 
@@ -323,13 +329,12 @@ def solve_step(p, r, J, lam,ridge):
     scale_factor = jnp.where(current_dp_norm > MAX_DP_NORM, 
                              MAX_DP_NORM / current_dp_norm, 
                              1.0)
-    
     dp_unconstrained = dp_unconstrained * scale_factor
 
-    return dp_unconstrained
+    return dp_unconstrained,g
 @partial(jax.jit, static_argnames=["max_seg_len", "fitting_config","functions_config"])
 def lm_fit(params_init, x_data, y, lower, upper, changepoint_jax, batch_index, prev_params,
-                num_segments, leftover_batch,batch_std,batch_size, max_seg_len,fitting_config,functions_config, lam, ridge, can_converge=True,
+                num_segments, leftover_batch, max_seg_len,fitting_config,functions_config, lam, can_converge=True,
                 ftol=1e-3, xtol=1e-2):
     """
     This function transforms parameters into constrained, bounded space and computes residual, Jacobian in current state for Levenberg-Marquardt Algorithm
@@ -377,10 +382,12 @@ def lm_fit(params_init, x_data, y, lower, upper, changepoint_jax, batch_index, p
 
     def body_fun(state):
         p_old, lam, err_old, r_old, J_old, it, best_error, best_params, conv_ftol_counter, conv_xtol_counter, _ = state
-        
-        dp = solve_step(p_old, r_old, J_old, lam,ridge)
+
+        dp,g = solve_step(p_old, r_old, J_old, lam)
         p_prop = p_old + dp
         params_c = utility.to_constrained_jax(p_prop, lower, upper)
+
+
         r_prop = residuals_next_iterations(params_c, x_data,y, changepoint_jax,
                                            batch_index, prev_params,num_segments, 
                                            leftover_batch, max_seg_len, fitting_config,functions_config)
@@ -472,13 +479,9 @@ def forward_fit_processing(batch,batch_remainder,num_batches,num_segments,params
         forward_fit_changepoint_array.append(changepoint_list_original[batch+1][1])
     return last_batch,params_to_take,segments_to_fit_unpack, forward_fit_changepoint_array, forward_fit_params_array,forward_fit_lower_array,forward_fit_upper_array,params,lower,upper,changepoint_list_original
 
-def fit_batch(last_batch,segments_to_fit_unpack,params_to_take,data_dicts,full_params_list, forward_fit_arrays, jnp_prev_params,batch_info,tols, bucketing_i,batch_std,fitting_config,functions_config):
+def fit_batch(last_batch,segments_to_fit_unpack,params_to_take,data_dicts,full_params_list, forward_fit_arrays, jnp_prev_params,batch_info,tols, bucketing_i,dataset_range,fitting_config,functions_config):
     can_converge=True
 
-    data_scale = batch_std
-    base_ridge = 1e-4
-
-    adaptive_ridge = max(base_ridge * (data_scale**2),1e-9)
     batch_solver,iters, best_error, conv = lm_fit(
         params_init=jnp.array(forward_fit_arrays['params'],dtype=DTYPE),
         x_data=data_dicts['x_data_jax'],
@@ -489,8 +492,8 @@ def fit_batch(last_batch,segments_to_fit_unpack,params_to_take,data_dicts,full_p
         batch_index=jnp.array(batch_info['batch'],dtype=INTTYPE),
         prev_params=jnp_prev_params, 
         num_segments=jnp.array(batch_info['num_segments'], dtype=INTTYPE), 
-        leftover_batch=jnp.array(batch_info['leftover_batch'], dtype=INTTYPE),batch_std=batch_std,batch_size=tols['batch_size'],
-        max_seg_len=bucketing_i,fitting_config=fitting_config,functions_config=functions_config,lam=tols['lam'],ridge=adaptive_ridge,can_converge=jnp.array(can_converge, dtype=jnp.bool_), ftol=tols['ftol'],xtol=tols['xtol']
+        leftover_batch=jnp.array(batch_info['leftover_batch'], dtype=INTTYPE),
+        max_seg_len=bucketing_i,fitting_config=fitting_config,functions_config=functions_config,lam=tols['lam'],can_converge=jnp.array(can_converge, dtype=jnp.bool_), ftol=tols['ftol'],xtol=tols['xtol']
     )
     full_batch_solver=batch_solver
     batch_solver_constrained = utility.to_constrained_jax(
@@ -539,7 +542,7 @@ def lm_start(params, x_data_full_np, y_padded, lower, upper, changepoint_list_or
     reduced_parameters=[]
     leftover_batch=1
     batch_remainder=num_segments%fitting_config.batch_size
-
+    dataset_range=max(y_padded)-min(y_padded)
     if (batch_remainder==0 or batch_remainder==1) and not num_segments<fitting_config.batch_size: 
         leftover_batch=0
 
@@ -562,15 +565,6 @@ def lm_start(params, x_data_full_np, y_padded, lower, upper, changepoint_list_or
 
     for batch in range(num_batches):
         last_batch,params_to_take,segments_to_fit_unpack, forward_fit_changepoint_array, forward_fit_params_array,forward_fit_lower_array,forward_fit_upper_array,params,lower,upper,changepoint_list_original=forward_fit_processing(batch,batch_remainder,num_batches,num_segments,params,lower,upper,changepoint_list_original,fitting_config,functions_config)
-
-        
-        if not last_batch:
-            y_values = y_padded[changepoint_list_original[batch][0]:changepoint_list_original[batch+1][1]+1]
-            batch_std=np.std(y_values) + 1e-12
-
-        else:
-            y_values = y_padded[changepoint_list_original[batch][0]:changepoint_list_original[batch][-1]]
-            batch_std=np.std(y_values) + 1e-12 
 
         pad_zeros=functions_config.MODEL_FULL_PARAMETER_COUNT+functions_config.MODEL_REDUCED_PARAMETER_COUNT*fitting_config.batch_size-len(forward_fit_params_array)
 
@@ -596,7 +590,7 @@ def lm_start(params, x_data_full_np, y_padded, lower, upper, changepoint_list_or
         if not fitting_config.bucketing:
             bucketing_i=max_segment_lengths[mode]
 
-        best_fit, best_batch_solver,best_full_batch_solver=fit_batch(last_batch,segments_to_fit_unpack,params_to_take,data_dicts,full_params_list, forward_fit_arrays, jnp_prev_params,batch_info,tols, bucketing_i,batch_std,fitting_config,functions_config)        
+        best_fit, best_batch_solver,best_full_batch_solver=fit_batch(last_batch,segments_to_fit_unpack,params_to_take,data_dicts,full_params_list, forward_fit_arrays, jnp_prev_params,batch_info,tols, bucketing_i,dataset_range,fitting_config,functions_config)        
         full_params=best_fit
 
         batch_solver=best_batch_solver

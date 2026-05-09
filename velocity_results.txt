@@ -1,0 +1,8 @@
+Initialization finished in 0.1324s
+Running FCD on model_cubic with initial guess function initial_guess_cubic
+Time took for initial guess and batch transformation: 0.0024s
+Bucketing segment lengths: [101]
+Mode 1: Max SRMSE 1.457 (with RMSE 2.514 at segment 9, Max RMSE 4.835 (range 53.900), Average SRMSE 0.629, Average RMSE 2.764
+Average SRMSE across all modes is 0.629
+Average RMSE across all modes is 2.764
+Decomposition took 2.6059s

@@ -10,8 +10,8 @@ x=np.arange(len(y))
 settings={"scaling":True, "warmup": False}
 fcd = FCD(
     x_dataset=x, y_dataset=y, 
-    model=utility.model_sin6,
-    initial_guesses_function=utility_guesses.initial_guess_sin6,settings_args=settings,
+    model=utility.model_sin5,
+    initial_guesses_function=utility_guesses.initial_guess_sin5,settings_args=settings,
     parallel=True,
     verbose=0
 )
@@ -25,7 +25,7 @@ for k in range(num_speed_tests):
         y_test = np.tile(y, 10)
         x_test=np.arange(len(y_test))
     fcd.set_data(x_test,y_test)
-    print(f"Running test {k+1} on {test_points[k]} points with sin6 model")
+    print(f"Running test {k+1} on {test_points[k]} points with sin5 model")
     for i in range(5):
         fcd_start=time.perf_counter()
         fcd.run()

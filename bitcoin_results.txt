@@ -1,0 +1,14 @@
+Initialization finished in 0.2496s
+Running FCD on model_sin5 with initial guess function initial_guesses_sin
+Time took for initial guess and batch transformation: 0.0605s
+Bucketing segment lengths: [87]
+Mode 1: Max SRMSE 1.820 (with RMSE 11.309 at segment 69, Max RMSE 23.952 (range 267.780), Average SRMSE 0.487, Average RMSE 8.732
+Mode 2: Max SRMSE 1.619 (with RMSE 22.407 at segment 5, Max RMSE 28.737 (range 102.810), Average SRMSE 0.649, Average RMSE 15.269
+Mode 3: Max SRMSE 1.200 (with RMSE 29.014 at segment 11, Max RMSE 51.652 (range 412.700), Average SRMSE 0.643, Average RMSE 20.748
+Mode 4: Max SRMSE 0.980 (with RMSE 19.601 at segment 11, Max RMSE 42.758 (range 285.090), Average SRMSE 0.604, Average RMSE 28.612
+Mode 5: Max SRMSE 0.883 (with RMSE 30.967 at segment 5, Max RMSE 50.692 (range 304.040), Average SRMSE 0.644, Average RMSE 38.987
+Mode 6: Max SRMSE 0.666 (with RMSE 98.609 at segment 0, Max RMSE 98.609 (range 753.150), Average SRMSE 0.666, Average RMSE 98.609
+Average SRMSE across all modes is 0.562
+Average RMSE across all modes is 14.537
+Number of segments in each mode: [120, 60, 30, 15, 7, 1]
+Decomposition took 2.4933s

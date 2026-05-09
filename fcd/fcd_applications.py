@@ -13,7 +13,74 @@ from matplotlib.colors import LinearSegmentedColormap, TwoSlopeNorm
 from matplotlib.collections import LineCollection
 from scipy.interpolate import interp1d
 testing_mode=1
+def show_combined_plot_velocity(x_data, speed_data,y_fit_modes,derivatives_modes):
+    fig, (ax1, ax2,ax3) = plt.subplots(3, 1, figsize=(7, 6), sharex=True, constrained_layout=True)
+    
+    ax1.plot(x_data, speed_data, color='gray', alpha=1.0, label='Raw Velocity')
+    ax1.set_ylabel('Speed ($km/h$)', fontsize=12)
+    ax1.grid(True, alpha=0.3)
+    ax1.set_title('Raw Velocity', fontsize=12)
+    
 
+    ax2.plot(x_data, y_fit_modes[0], color='blue', linewidth=2, label='SCO Fit')
+    ax2.set_ylabel('Speed ($km/h$)', fontsize=12)
+    ax2.grid(True, alpha=0.3)
+    ax2.set_title('SCO Optimized Velocity Fit', fontsize=12)
+    
+
+    mode = 0  
+    y_raw = derivatives_modes[mode]
+    
+    f = interp1d(x_data, y_raw, kind='cubic')
+    x_smooth = np.linspace(x_data.min(), x_data.max(), len(x_data) * 15)
+    y_smooth = f(x_smooth)
+    
+    colors = ["#00008B", "#777777", "#ADFF2F"] 
+    my_cmap = LinearSegmentedColormap.from_list("fcd_accel", colors)
+    abs_max = max(abs(y_smooth.min()), abs(y_smooth.max())) + 1e-12
+    norm = TwoSlopeNorm(vcenter=0, vmin=-abs_max, vmax=abs_max)
+    
+    points = np.array([x_smooth, y_smooth]).T.reshape(-1, 1, 2)
+    segments = np.concatenate([points[:-1], points[1:]], axis=1)
+    
+    lc = LineCollection(segments, cmap=my_cmap, norm=norm, linewidth=2.5)
+    lc.set_array(y_smooth[:-1])
+    ax3.add_collection(lc)
+    
+    ax3.set_xlim(x_smooth.min(), x_smooth.max())
+    ax3.set_ylim(y_smooth.min() * 1.1, y_smooth.max() * 1.1)
+    ax3.axhline(0, color='black', linewidth=0.8, alpha=0.5)
+    ax3.set_ylabel('Accel ($km/h^2$)', fontsize=12)
+    ax3.set_xlabel('Time ($s$)', fontsize=12)
+    ax3.set_title('SCO: Derived Acceleration Fit', fontsize=12)
+    ax3.grid(True, linestyle='--', alpha=0.6)
+    ax3.set_ylim(-2.5, 2.5) 
+
+    fig.align_ylabels([ax1, ax2, ax3])
+    plt.savefig("full_plot.png", dpi=300, bbox_inches='tight')
+    plt.show()
+def show_combined_plot_EEG(x_data, speed_data,y_fit_modes,integrals_modes):
+    fig, (ax1, ax2,ax3) = plt.subplots(3, 1, figsize=(7.3, 6.3), sharex=True, constrained_layout=True)
+    
+    ax1.plot(x_data, speed_data, color='gray', alpha=1.0, label='Raw Voltage')
+    ax1.set_ylabel('Voltage ($\mu$V)', fontsize=12)
+    ax1.grid(True, alpha=0.3)
+    ax1.set_title('Raw EEG Data', fontsize=12)
+    
+
+    ax2.plot(x_data, y_fit_modes[0], color='blue', linewidth=2, label='SCO Fit')
+    ax2.set_ylabel('Voltage ($\mu$V)', fontsize=12)
+    ax2.grid(True, alpha=0.3)
+    ax2.set_title('SCO Optimized EEG Fit', fontsize=12)
+    
+    ax3.plot(x_data, integrals_modes[0], color='green', linewidth=2, label='SCO Fit')
+    ax3.set_ylabel('Integrated Voltage ($\mu V \cdot s$)', fontsize=12)
+    ax3.grid(True, alpha=0.3)
+    ax3.set_title('SCO Integrated EEG Fit', fontsize=12)
+
+    fig.align_ylabels([ax1, ax2, ax3])
+    plt.savefig("full_plot_EEG.png", dpi=300, bbox_inches='tight')
+    plt.show()
 if testing_mode==0:
     speed_data = np.loadtxt('test_datasets/other_tests/RAW_GPS.txt', usecols=1)
     x_data = np.loadtxt('test_datasets/other_tests/RAW_GPS.txt', usecols=0)
@@ -21,69 +88,21 @@ if testing_mode==0:
     settings_args={'non_uniform': True, 'changepoints_non_uniform': ch_points}
     mode_fitting_runner=mode_fitting.FCD(x_dataset=x_data,y_dataset=speed_data,model=utility.model_cubic,initial_guesses_function=utility_guesses.initial_guess_cubic,settings_args=settings_args,parallel=True, verbose=1)
     optimized_params=mode_fitting_runner.run()
+    y_fit_modes=mode_fitting_runner.calculate_y_fit_modes()
     mode_fitting_runner.print_fitted_functions()
     derivatives_modes=mode_fitting_runner.calculate_derivatives(order=1, print_derivative_formulas=True)
     
-    colors = ["#00008B", "#777777", "#ADFF2F"] 
-    my_cmap = LinearSegmentedColormap.from_list("fcd_accel", colors)
-    
-    cols, rows = 1, 1
-    fig, axes = plt.subplots(rows, cols, figsize=(10, 5), constrained_layout=True)
-    #axes_flat = axes.flatten()
-    
-    for mode in range(len(optimized_params)):
-        ax = axes
-        y_raw = derivatives_modes[mode]
-        x_raw = x_data
-        
-        f = interp1d(x_raw, y_raw, kind='cubic')
-        x_smooth = np.linspace(x_raw.min(), x_raw.max(), len(x_raw) * 15)
-        y_smooth = f(x_smooth)
-        
-        y_min, y_max = y_smooth.min(), y_smooth.max()
-        
-        abs_max = max(abs(y_min), abs(y_max)) + 1e-12
-        norm = TwoSlopeNorm(vcenter=0, vmin=-abs_max, vmax=abs_max)
-        
-        points = np.array([x_smooth, y_smooth]).T.reshape(-1, 1, 2)
-        segments = np.concatenate([points[:-1], points[1:]], axis=1)
-        
-        lc = LineCollection(segments, cmap=my_cmap, norm=norm, linewidth=2.0)
-        lc.set_array(y_smooth[:-1])
-        ax.add_collection(lc)
-        
-        ax.set_xlim(x_smooth.min(), x_smooth.max())
-        y_range = y_max - y_min
-        if y_range < 1e-12: y_range = 0.1
-        
-        ax.set_ylim(y_min - 0.05 * y_range, y_max + 0.05 * y_range)
-        
-        ax.axhline(0, color='black', linewidth=0.8, alpha=0.3)
-        ax.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.6)
-        ax.set_facecolor('white') 
-        ax.set_title(f'Resolution {mode+1} Derivative', fontsize=11)
-    
-    cbar_norm = TwoSlopeNorm(vcenter=0, vmin=-1, vmax=1)
-    sm = cm.ScalarMappable(norm=cbar_norm, cmap=my_cmap)
-    cbar = fig.colorbar(sm, ax=axes, location='right', shrink=0.7)
-    cbar.set_label('Normalized Derivative', fontsize=12)
-    
-    fig.supylabel('Acceleration ($km/h^2$)', fontsize=12)
-    fig.supxlabel('Time ($s$)', fontsize=12)
-    plt.savefig("graph_acceleration.png", dpi=300, bbox_inches='tight')    
-    plt.show()
+    show_combined_plot_velocity(x_data, speed_data,y_fit_modes,derivatives_modes)
 
-    mode_fitting_runner.set_data(x_data, derivatives_modes[0])
-    mode_fitting_runner.run()
     integrals_modes=mode_fitting_runner.calculate_integrals(order=1, print_integral_formulas=False)
-    cols=2
-    rows=3
+    cols=1
+    rows=1
     fig,axes=plt.subplots(rows,cols, figsize=(5*rows, 4*cols))
     
-    axes_flat=np.array([axes]).flatten()
+    axes_flat=axes
     
     for mode in range(len(integrals_modes)):
-        ax = axes_flat[mode]
+        ax = axes_flat
         
         ax.plot(x_data, integrals_modes[mode], color='green', linewidth=2)
         
@@ -118,9 +137,11 @@ elif testing_mode==1:
         verbose=1
     )
     mode_fitting_runner.run()
+    y_fit_modes=mode_fitting_runner.calculate_y_fit_modes()
     mode_fitting_runner.print_fitted_functions()
     
     integrals_modes=mode_fitting_runner.calculate_integrals(order=1, print_integral_formulas=True)
+    show_combined_plot_EEG(x,y,y_fit_modes,integrals_modes)
     cols=2
     rows=3
     fig,axes=plt.subplots(rows,cols, figsize=(5*rows, 4*cols))

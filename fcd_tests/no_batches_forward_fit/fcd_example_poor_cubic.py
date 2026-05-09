@@ -1,0 +1,56 @@
+from mode_fitting import FCD
+import utility
+import utility_guesses
+import numpy as np
+
+np.random.seed(112)
+
+#Set datasets
+#eeg_data_full = (np.loadtxt('test_datasets/other_tests/s00.csv', usecols=1, delimiter=','))
+#x_data_full=np.linspace(0,60,len(eeg_data_full))
+#y=eeg_data_full[:1000]
+#x=x_data_full[:1000]
+y=np.load(f"test_datasets/cryptocoin_tests/test3.npy")[:1000]
+x=np.arange(len(y))
+#arr=np.array(np.random.randint(5,1000, 10)) #100 times
+#arr=list(np.cumsum(arr))
+#changepoints_list = []
+#list_uni=[0,1000,2000,3000,4000,6000,7000,8000,9000]
+#for i in range(10):
+#    # 1. Randomly decide how many interior points to have (between 5 and 20)
+#    # We subtract 2 because we will manually add 0 and 9999
+#    num_interior_points = np.random.randint(5, 21) - 2
+#    
+#    # 2. Generate random unique indices between 1 and 9998
+#    # We use choice to ensure no duplicates and then sort them
+#    interior_points = np.random.choice(np.arange(1, 9999), size=num_interior_points, replace=False)
+#    interior_points.sort()
+#    
+#    # 3. Combine 0, the sorted random points, and 9999
+#    row = np.concatenate([[0], interior_points, [9999]])
+#    
+#    changepoints_list.append(list(row.astype(int)))
+#Initialize FCD runner
+arr_nu=np.linspace(0, len(y), 4)
+arr_nu=arr_nu.astype(int).tolist()
+settings_args={'non_uniform': True, 'changepoints_non_uniform': arr_nu}
+optimization_settings_args={'batch_size': 1}
+#optimization_settings_args={'max_iters': 1000, 'ftol': 1e-12, 'xtol': 1e-12}
+fcd = FCD(
+    x_dataset=x, y_dataset=y,
+    model=utility.model_cubic,
+    initial_guesses_function=utility_guesses.initial_guess_cubic,
+    parallel=True,
+    optimization_settings_args=optimization_settings_args,
+    settings_args=settings_args,
+    verbose=1
+)
+
+# Execute fitting
+params = fcd.run()
+
+# Extract analytic insights
+fcd.print_fitted_functions()
+fitted_y_values=fcd.calculate_y_fit_modes()
+derivatives = fcd.calculate_derivatives(order=1, print_derivative_formulas=True)
+integrals = fcd.calculate_integrals(order=1, print_integral_formulas=True)

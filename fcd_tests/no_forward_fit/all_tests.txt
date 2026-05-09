@@ -1,0 +1,956 @@
+Initialization finished in 0.2487s
+Running test on seed 1
+Running FCD on model_sin7 with initial guess function initial_guesses_sin
+Time took for initial guess and batch transformation: 0.5244s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 204.127 (with RMSE 240.396, range 2.830), Max RMSE 424.669 (range 0.930), Average SRMSE 1.636, Average RMSE 5.970
+Mode 2: Max SRMSE 16.687 (with RMSE 44.261, range 9.470), Max RMSE 44.261 (range 9.470), Average SRMSE 0.778, Average RMSE 1.709
+Mode 3: Max SRMSE 20.521 (with RMSE 61.946, range 8.760), Max RMSE 61.946 (range 8.760), Average SRMSE 0.661, Average RMSE 2.270
+Mode 4: Max SRMSE 2.732 (with RMSE 10.154, range 19.920), Max RMSE 14.210 (range 30.270), Average SRMSE 0.590, Average RMSE 3.189
+Mode 5: Max SRMSE 15.234 (with RMSE 26.337, range 7.950), Max RMSE 26.337 (range 7.950), Average SRMSE 0.717, Average RMSE 5.140
+Mode 6: Max SRMSE 1.969 (with RMSE 15.542, range 28.120), Max RMSE 19.537 (range 98.180), Average SRMSE 0.542, Average RMSE 6.935
+Mode 7: Max SRMSE 2.202 (with RMSE 23.389, range 51.160), Max RMSE 36.254 (range 160.880), Average SRMSE 0.593, Average RMSE 11.033
+Mode 8: Max SRMSE 1.035 (with RMSE 23.629, range 108.170), Max RMSE 26.417 (range 215.000), Average SRMSE 0.594, Average RMSE 15.957
+Mode 9: Max SRMSE 0.953 (with RMSE 22.263, range 95.300), Max RMSE 38.764 (range 170.730), Average SRMSE 0.576, Average RMSE 25.713
+Mode 10: Max SRMSE 0.459 (with RMSE 45.142, range 451.260), Max RMSE 45.142 (range 451.260), Average SRMSE 0.459, Average RMSE 45.142
+Average SRMSE across all modes is 1.174
+Average RMSE across all modes is 4.375
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 8.0631s
+Running test on seed 2
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.1070s
+Running FCD on model_sin6 with initial guess function initial_guesses_sin
+Time took for initial guess and batch transformation: 0.6342s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 225.861 (with RMSE 8355.944, range 121.750), Max RMSE 8355.944 (range 121.750), Average SRMSE 1.802, Average RMSE 96.109
+Mode 2: Max SRMSE 4.658 (with RMSE 219.461, range 146.390), Max RMSE 370.534 (range 2523.690), Average SRMSE 0.667, Average RMSE 36.181
+Mode 3: Max SRMSE 23.944 (with RMSE 2071.334, range 432.010), Max RMSE 2193.309 (range 360.090), Average SRMSE 0.734, Average RMSE 59.731
+Mode 4: Max SRMSE 2.111 (with RMSE 178.076, range 448.540), Max RMSE 385.819 (range 2937.330), Average SRMSE 0.622, Average RMSE 68.746
+Mode 5: Max SRMSE 2.514 (with RMSE 322.632, range 565.220), Max RMSE 389.050 (range 3600.910), Average SRMSE 0.661, Average RMSE 101.811
+Mode 6: Max SRMSE 1.966 (with RMSE 372.289, range 900.260), Max RMSE 479.437 (range 3592.930), Average SRMSE 0.599, Average RMSE 138.014
+Mode 7: Max SRMSE 1.190 (with RMSE 76.131, range 382.940), Max RMSE 519.574 (range 4946.740), Average SRMSE 0.620, Average RMSE 190.720
+Mode 8: Max SRMSE 1.499 (with RMSE 482.072, range 1981.540), Max RMSE 482.072 (range 1981.540), Average SRMSE 0.595, Average RMSE 270.846
+Mode 9: Max SRMSE 1.079 (with RMSE 157.700, range 893.450), Max RMSE 575.770 (range 5521.280), Average SRMSE 0.574, Average RMSE 374.892
+Mode 10: Max SRMSE 0.279 (with RMSE 755.558, range 12045.720), Max RMSE 755.558 (range 12045.720), Average SRMSE 0.279, Average RMSE 755.558
+Average SRMSE across all modes is 1.239
+Average RMSE across all modes is 77.697
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 6.3793s
+Running test on seed 3
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0944s
+Running FCD on model_sin5 with initial guess function initial_guesses_sin
+Time took for initial guess and batch transformation: 0.6206s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 65.147 (with RMSE 11323.327, range 565.530), Max RMSE 11323.327 (range 565.530), Average SRMSE 1.139, Average RMSE 302.582
+Mode 2: Max SRMSE 61.107 (with RMSE 11481.593, range 529.860), Max RMSE 14734.176 (range 1522.980), Average SRMSE 1.040, Average RMSE 350.716
+Mode 3: Max SRMSE 19.608 (with RMSE 5943.291, range 1056.320), Max RMSE 5943.291 (range 1056.320), Average SRMSE 0.954, Average RMSE 459.923
+Mode 4: Max SRMSE 3.678 (with RMSE 1318.450, range 1934.910), Max RMSE 1439.510 (range 2478.900), Average SRMSE 0.707, Average RMSE 518.805
+Mode 5: Max SRMSE 3.902 (with RMSE 2248.097, range 2730.990), Max RMSE 2248.097 (range 2730.990), Average SRMSE 0.706, Average RMSE 757.178
+Mode 6: Max SRMSE 1.308 (with RMSE 1196.700, range 4345.260), Max RMSE 2568.918 (range 10470.110), Average SRMSE 0.692, Average RMSE 1059.179
+Mode 7: Max SRMSE 2.113 (with RMSE 3755.530, range 10470.110), Max RMSE 3755.530 (range 10470.110), Average SRMSE 0.676, Average RMSE 1498.445
+Mode 8: Max SRMSE 2.225 (with RMSE 4394.836, range 10020.340), Max RMSE 4394.836 (range 10020.340), Average SRMSE 0.759, Average RMSE 2214.730
+Mode 9: Max SRMSE 0.770 (with RMSE 3010.395, range 17941.500), Max RMSE 4532.949 (range 29260.060), Average SRMSE 0.467, Average RMSE 2749.947
+Mode 10: Max SRMSE 0.981 (with RMSE 9290.741, range 39711.490), Max RMSE 9290.741 (range 39711.490), Average SRMSE 0.981, Average RMSE 9290.741
+Average SRMSE across all modes is 1.037
+Average RMSE across all modes is 396.911
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 6.2792s
+Running test on seed 4
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0396s
+Running FCD on model_sin4 with initial guess function initial_guesses_sin
+Time took for initial guess and batch transformation: 0.1316s
+Bucketing segment lengths: [42, 374]
+Exception ignored in: <function Image.__del__ at 0x00000281E5639CA0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 4017, in __del__
+    self.tk.call('image', 'delete', self.name)
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Mode 1: Max SRMSE 11.734 (with RMSE 4950.828, range 1310.610), Max RMSE 17959.142 (range 4548.140), Average SRMSE 1.046, Average RMSE 1216.065
+Mode 2: Max SRMSE 3.564 (with RMSE 3736.872, range 3196.060), Max RMSE 6112.942 (range 10229.230), Average SRMSE 0.867, Average RMSE 1391.543
+Mode 3: Max SRMSE 6.785 (with RMSE 2048.431, range 1271.280), Max RMSE 4470.195 (range 3204.090), Average SRMSE 0.861, Average RMSE 1533.304
+Mode 4: Max SRMSE 1.511 (with RMSE 1488.970, range 3342.030), Max RMSE 4004.680 (range 29447.270), Average SRMSE 0.668, Average RMSE 2100.204
+Mode 5: Max SRMSE 2.146 (with RMSE 2403.984, range 4738.730), Max RMSE 4693.391 (range 34041.910), Average SRMSE 0.620, Average RMSE 2668.350
+Mode 6: Max SRMSE 1.001 (with RMSE 1646.494, range 6325.630), Max RMSE 5927.181 (range 61748.670), Average SRMSE 0.569, Average RMSE 3857.935
+Mode 7: Max SRMSE 0.967 (with RMSE 9381.951, range 38602.190), Max RMSE 10544.591 (range 66182.730), Average SRMSE 0.651, Average RMSE 7023.415
+Mode 8: Max SRMSE 0.383 (with RMSE 11317.234, range 108877.250), Max RMSE 11317.234 (range 108877.250), Average SRMSE 0.383, Average RMSE 11317.234
+Average SRMSE across all modes is 0.930
+Average RMSE across all modes is 1493.048
+Number of segments in each mode: [373, 186, 93, 46, 23, 11, 5, 1]
+Decomposition took 24.7584s
+Running test on seed 5
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0757s
+Running FCD on model_quadratic with initial guess function initial_guess_quadratic
+Time took for initial guess and batch transformation: 0.3575s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Exception ignored in: <function Image.__del__ at 0x00000281E5639CA0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 4017, in __del__
+    self.tk.call('image', 'delete', self.name)
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Mode 1: Max SRMSE 46.205 (with RMSE 2.279, range 0.130), Max RMSE 2.279 (range 0.130), Average SRMSE 1.312, Average RMSE 0.087
+Mode 2: Max SRMSE 13.004 (with RMSE 0.639, range 0.170), Max RMSE 1.231 (range 1.210), Average SRMSE 1.214, Average RMSE 0.096
+Mode 3: Max SRMSE 23.354 (with RMSE 1.419, range 0.240), Max RMSE 1.419 (range 0.240), Average SRMSE 1.287, Average RMSE 0.134
+Mode 4: Max SRMSE 17.867 (with RMSE 0.800, range 0.250), Max RMSE 1.678 (range 0.750), Average SRMSE 1.368, Average RMSE 0.198
+Mode 5: Max SRMSE 9.870 (with RMSE 0.555, range 0.280), Max RMSE 1.861 (range 0.810), Average SRMSE 1.366, Average RMSE 0.275
+Mode 6: Max SRMSE 11.036 (with RMSE 1.172, range 0.550), Max RMSE 1.716 (range 2.220), Average SRMSE 1.373, Average RMSE 0.423
+Mode 7: Max SRMSE 5.563 (with RMSE 3.637, range 2.390), Max RMSE 3.637 (range 2.390), Average SRMSE 1.351, Average RMSE 0.704
+Mode 8: Max SRMSE 1.773 (with RMSE 1.155, range 3.160), Max RMSE 2.527 (range 6.580), Average SRMSE 1.087, Average RMSE 0.857
+Mode 9: Max SRMSE 1.645 (with RMSE 1.770, range 4.080), Max RMSE 3.004 (range 9.460), Average SRMSE 0.998, Average RMSE 1.326
+Mode 10: Max SRMSE 0.473 (with RMSE 1.535, range 12.990), Max RMSE 1.535 (range 12.990), Average SRMSE 0.473, Average RMSE 1.535
+Average SRMSE across all modes is 1.289
+Average RMSE across all modes is 0.124
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 25.7354s
+Running test on seed 6
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0632s
+Running FCD on model_cubic with initial guess function initial_guess_cubic
+Time took for initial guess and batch transformation: 0.3187s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 133.351 (with RMSE 351.247, range 7.080), Max RMSE 351.247 (range 7.080), Average SRMSE 1.399, Average RMSE 4.325
+Mode 2: Max SRMSE 19.764 (with RMSE 65.271, range 11.540), Max RMSE 65.271 (range 11.540), Average SRMSE 0.942, Average RMSE 2.344
+Mode 3: Max SRMSE 10.280 (with RMSE 114.414, range 39.770), Max RMSE 114.414 (range 39.770), Average SRMSE 0.953, Average RMSE 3.321
+Mode 4: Max SRMSE 14.868 (with RMSE 65.246, range 21.600), Max RMSE 65.246 (range 21.600), Average SRMSE 0.941, Average RMSE 4.219
+Mode 5: Max SRMSE 12.910 (with RMSE 53.699, range 21.740), Max RMSE 53.699 (range 21.740), Average SRMSE 0.983, Average RMSE 6.175
+Mode 6: Max SRMSE 1.736 (with RMSE 26.589, range 64.840), Max RMSE 53.550 (range 170.090), Average SRMSE 0.744, Average RMSE 7.860
+Mode 7: Max SRMSE 3.174 (with RMSE 12.512, range 18.210), Max RMSE 39.274 (range 263.810), Average SRMSE 0.887, Average RMSE 12.384
+Mode 8: Max SRMSE 1.233 (with RMSE 32.247, range 117.400), Max RMSE 46.106 (range 263.810), Average SRMSE 0.783, Average RMSE 16.518
+Mode 9: Max SRMSE 2.100 (with RMSE 78.595, range 147.760), Max RMSE 78.595 (range 147.760), Average SRMSE 0.862, Average RMSE 27.422
+Mode 10: Max SRMSE 0.222 (with RMSE 39.299, range 572.370), Max RMSE 39.299 (range 572.370), Average SRMSE 0.222, Average RMSE 39.299
+Average SRMSE across all modes is 1.169
+Average RMSE across all modes is 3.967
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 4.9076s
+Running test on seed 7
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0500s
+Running FCD on model_linear with initial guess function initial_guess_linear
+Time took for initial guess and batch transformation: 0.2576s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Exception ignored in: <function Image.__del__ at 0x00000281E5639CA0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 4017, in __del__
+    self.tk.call('image', 'delete', self.name)
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Mode 1: Max SRMSE 8.725 (with RMSE 109.584, range 35.550), Max RMSE 148.041 (range 163.500), Average SRMSE 0.965, Average RMSE 20.599
+Mode 2: Max SRMSE 5.237 (with RMSE 111.241, range 76.660), Max RMSE 161.872 (range 486.750), Average SRMSE 0.968, Average RMSE 28.028
+Mode 3: Max SRMSE 3.207 (with RMSE 56.130, range 71.460), Max RMSE 161.168 (range 619.970), Average SRMSE 0.984, Average RMSE 38.950
+Mode 4: Max SRMSE 3.922 (with RMSE 60.718, range 77.330), Max RMSE 250.132 (range 485.060), Average SRMSE 0.939, Average RMSE 55.783
+Mode 5: Max SRMSE 2.114 (with RMSE 151.891, range 292.420), Max RMSE 234.802 (range 1301.500), Average SRMSE 0.976, Average RMSE 82.792
+Mode 6: Max SRMSE 2.856 (with RMSE 159.453, range 256.110), Max RMSE 289.621 (range 532.580), Average SRMSE 0.994, Average RMSE 112.958
+Mode 7: Max SRMSE 4.688 (with RMSE 187.549, range 202.040), Max RMSE 632.490 (range 2053.780), Average SRMSE 0.976, Average RMSE 164.835
+Mode 8: Max SRMSE 5.601 (with RMSE 1037.140, range 1056.780), Max RMSE 1037.140 (range 1056.780), Average SRMSE 1.214, Average RMSE 270.524
+Mode 9: Max SRMSE 1.834 (with RMSE 490.479, range 1187.560), Max RMSE 503.653 (range 2605.470), Average SRMSE 0.981, Average RMSE 369.900
+Mode 10: Max SRMSE 0.654 (with RMSE 636.471, range 4127.040), Max RMSE 636.471 (range 4127.040), Average SRMSE 0.654, Average RMSE 636.471
+Average SRMSE across all modes is 0.968
+Average RMSE across all modes is 33.173
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 25.0192s
+Running test on seed 8
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0285s
+Running FCD on model_relation with initial guess function initial_guess_relation
+Time took for initial guess and batch transformation: 0.0698s
+Bucketing segment lengths: [42, 374]
+Exception ignored in: <function Image.__del__ at 0x00000281E5639CA0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 4017, in __del__
+    self.tk.call('image', 'delete', self.name)
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Mode 1: Max SRMSE 3.404 (with RMSE 73.833, range 69.240), Max RMSE 251.439 (range 455.900), Average SRMSE 0.826, Average RMSE 60.119
+Mode 2: Max SRMSE 2.867 (with RMSE 337.386, range 404.700), Max RMSE 337.386 (range 404.700), Average SRMSE 0.861, Average RMSE 87.123
+Mode 3: Max SRMSE 2.237 (with RMSE 73.892, range 127.520), Max RMSE 468.138 (range 1734.540), Average SRMSE 0.870, Average RMSE 124.367
+Mode 4: Max SRMSE 1.397 (with RMSE 67.294, range 213.350), Max RMSE 583.698 (range 2076.830), Average SRMSE 0.806, Average RMSE 173.624
+Mode 5: Max SRMSE 1.195 (with RMSE 95.661, range 403.450), Max RMSE 567.720 (range 2591.580), Average SRMSE 0.751, Average RMSE 242.390
+Mode 6: Max SRMSE 1.283 (with RMSE 320.345, range 1003.660), Max RMSE 848.765 (range 3358.660), Average SRMSE 0.802, Average RMSE 415.200
+Mode 7: Max SRMSE 1.014 (with RMSE 488.386, range 1846.160), Max RMSE 865.729 (range 3358.660), Average SRMSE 0.815, Average RMSE 503.444
+Mode 8: Max SRMSE 0.982 (with RMSE 889.812, range 4103.160), Max RMSE 889.812 (range 4103.160), Average SRMSE 0.982, Average RMSE 889.812
+Average SRMSE across all modes is 0.837
+Average RMSE across all modes is 97.197
+Number of segments in each mode: [373, 186, 93, 46, 23, 11, 5, 1]
+Decomposition took 24.7254s
+Running test on seed 9
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0601s
+Running FCD on model_decay with initial guess function initial_guess_decay
+Time took for initial guess and batch transformation: 0.2797s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 39.984 (with RMSE 0.006, range 0.000), Max RMSE 0.006 (range 0.000), Average SRMSE 1.027, Average RMSE 0.000
+Mode 2: Max SRMSE 6.974 (with RMSE 0.001, range 0.000), Max RMSE 0.002 (range 0.008), Average SRMSE 0.966, Average RMSE 0.000
+Mode 3: Max SRMSE 3.370 (with RMSE 0.000, range 0.000), Max RMSE 0.002 (range 0.003), Average SRMSE 0.951, Average RMSE 0.000
+Mode 4: Max SRMSE 4.265 (with RMSE 0.001, range 0.001), Max RMSE 0.003 (range 0.006), Average SRMSE 0.914, Average RMSE 0.000
+Mode 5: Max SRMSE 3.779 (with RMSE 0.000, range 0.000), Max RMSE 0.003 (range 0.010), Average SRMSE 0.918, Average RMSE 0.001
+Mode 6: Max SRMSE 2.469 (with RMSE 0.004, range 0.007), Max RMSE 0.005 (range 0.010), Average SRMSE 0.927, Average RMSE 0.001
+Mode 7: Max SRMSE 1.505 (with RMSE 0.000, range 0.001), Max RMSE 0.004 (range 0.022), Average SRMSE 0.842, Average RMSE 0.001
+Mode 8: Max SRMSE 1.873 (with RMSE 0.011, range 0.026), Max RMSE 0.011 (range 0.026), Average SRMSE 0.995, Average RMSE 0.003
+Mode 9: Max SRMSE 0.881 (with RMSE 0.007, range 0.031), Max RMSE 0.007 (range 0.031), Average SRMSE 0.679, Average RMSE 0.004
+Mode 10: Max SRMSE 0.998 (with RMSE 0.006, range 0.033), Max RMSE 0.006 (range 0.033), Average SRMSE 0.998, Average RMSE 0.006
+Average SRMSE across all modes is 0.988
+Average RMSE across all modes is 0.000
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 5.2277s
+Running test on seed 10
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.1099s
+Running FCD on model_logistic with initial guess function initial_guess_logistic
+Time took for initial guess and batch transformation: 0.3547s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Exception ignored in: <function Image.__del__ at 0x00000281E5639CA0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 4017, in __del__
+    self.tk.call('image', 'delete', self.name)
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Mode 1: Max SRMSE 12.553 (with RMSE 0.229, range 0.056), Max RMSE 0.229 (range 0.056), Average SRMSE 0.807, Average RMSE 0.005
+Mode 2: Max SRMSE 5.442 (with RMSE 0.021, range 0.015), Max RMSE 0.082 (range 0.107), Average SRMSE 0.717, Average RMSE 0.006
+Mode 3: Max SRMSE 1.700 (with RMSE 0.005, range 0.010), Max RMSE 0.049 (range 0.240), Average SRMSE 0.659, Average RMSE 0.008
+Mode 4: Max SRMSE 2.179 (with RMSE 0.036, range 0.064), Max RMSE 0.060 (range 0.240), Average SRMSE 0.668, Average RMSE 0.012
+Mode 5: Max SRMSE 1.765 (with RMSE 0.033, range 0.067), Max RMSE 0.050 (range 0.240), Average SRMSE 0.734, Average RMSE 0.017
+Mode 6: Max SRMSE 1.478 (with RMSE 0.020, range 0.065), Max RMSE 0.076 (range 0.360), Average SRMSE 0.722, Average RMSE 0.025
+Mode 7: Max SRMSE 1.307 (with RMSE 0.082, range 0.277), Max RMSE 0.082 (range 0.277), Average SRMSE 0.692, Average RMSE 0.034
+Mode 8: Max SRMSE 1.120 (with RMSE 0.046, range 0.207), Max RMSE 0.106 (range 0.445), Average SRMSE 0.712, Average RMSE 0.054
+Mode 9: Max SRMSE 0.932 (with RMSE 0.113, range 0.581), Max RMSE 0.113 (range 0.581), Average SRMSE 0.728, Average RMSE 0.071
+Mode 10: Max SRMSE 0.482 (with RMSE 0.118, range 1.147), Max RMSE 0.118 (range 1.147), Average SRMSE 0.482, Average RMSE 0.118
+Average SRMSE across all modes is 0.752
+Average RMSE across all modes is 0.007
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 25.8721s
+Running test on seed 11
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0956s
+Running FCD on model_fourier with initial guess function initial_guess_fourier
+Time took for initial guess and batch transformation: 0.3647s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Exception ignored in: <function Image.__del__ at 0x00000281E5639CA0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 4017, in __del__
+    self.tk.call('image', 'delete', self.name)
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Mode 1: Max SRMSE 147.921 (with RMSE 159.010, range 3.340), Max RMSE 261.359 (range 7.300), Average SRMSE 1.188, Average RMSE 1.653
+Mode 2: Max SRMSE 58.674 (with RMSE 65.501, range 3.540), Max RMSE 65.501 (range 3.540), Average SRMSE 0.988, Average RMSE 1.158
+Mode 3: Max SRMSE 2.708 (with RMSE 5.031, range 7.290), Max RMSE 6.873 (range 8.788), Average SRMSE 0.626, Average RMSE 0.733
+Mode 4: Max SRMSE 1.202 (with RMSE 4.233, range 13.440), Max RMSE 5.229 (range 35.590), Average SRMSE 0.562, Average RMSE 0.973
+Mode 5: Max SRMSE 1.000 (with RMSE 0.080, range 0.825), Max RMSE 4.601 (range 55.960), Average SRMSE 0.482, Average RMSE 1.281
+Mode 6: Max SRMSE 1.767 (with RMSE 8.877, range 21.680), Max RMSE 8.877 (range 21.680), Average SRMSE 0.508, Average RMSE 1.993
+Mode 7: Max SRMSE 1.000 (with RMSE 0.174, range 2.263), Max RMSE 11.847 (range 86.030), Average SRMSE 0.414, Average RMSE 2.828
+Mode 8: Max SRMSE 1.000 (with RMSE 0.208, range 2.611), Max RMSE 8.589 (range 90.320), Average SRMSE 0.447, Average RMSE 3.733
+Mode 9: Max SRMSE 0.640 (with RMSE 15.772, range 106.890), Max RMSE 15.772 (range 106.890), Average SRMSE 0.338, Average RMSE 5.971
+Mode 10: Max SRMSE 0.211 (with RMSE 15.581, range 256.901), Max RMSE 15.581 (range 256.901), Average SRMSE 0.211, Average RMSE 15.581
+Average SRMSE across all modes is 0.985
+Average RMSE across all modes is 1.393
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 33.2546s
+Running test on seed 12
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.1154s
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 0, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 2, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 3, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 4, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 5, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 8, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 9, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 15, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 41, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 109, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 122, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 139, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 140, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 141, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 142, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 143, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 144, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 152, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 154, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 157, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 163, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 164, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 165, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 168, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 170, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 172, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 173, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 174, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 176, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 179, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 180, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 181, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 189, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 190, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 192, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 195, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 197, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 199, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 201, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 202, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 1 segment 1, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 1 segment 2, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 1 segment 4, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 1 segment 70, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 1 segment 99, initial guess was clipped
+Running FCD on model_gaussian with initial guess function initial_guess_gaussian
+Time took for initial guess and batch transformation: 0.1691s
+Bucketing segment lengths: [42, 374]
+Exception ignored in: <function Image.__del__ at 0x00000281E5639CA0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 4017, in __del__
+    self.tk.call('image', 'delete', self.name)
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Mode 1: Max SRMSE 13.676 (with RMSE 33.487, range 7.850), Max RMSE 39.634 (range 17.110), Average SRMSE 1.001, Average RMSE 3.812
+Mode 2: Max SRMSE 2.892 (with RMSE 17.090, range 20.840), Max RMSE 17.782 (range 33.260), Average SRMSE 0.731, Average RMSE 3.782
+Mode 3: Max SRMSE 2.305 (with RMSE 2.518, range 4.640), Max RMSE 15.759 (range 57.550), Average SRMSE 0.736, Average RMSE 5.141
+Mode 4: Max SRMSE 4.021 (with RMSE 5.247, range 6.790), Max RMSE 15.197 (range 82.750), Average SRMSE 0.731, Average RMSE 6.712
+Mode 5: Max SRMSE 1.792 (with RMSE 2.802, range 9.730), Max RMSE 27.560 (range 59.860), Average SRMSE 0.631, Average RMSE 9.702
+Mode 6: Max SRMSE 2.671 (with RMSE 13.982, range 35.590), Max RMSE 22.651 (range 130.430), Average SRMSE 0.973, Average RMSE 14.771
+Mode 7: Max SRMSE 0.775 (with RMSE 29.657, range 175.070), Max RMSE 29.657 (range 175.070), Average SRMSE 0.489, Average RMSE 18.924
+Mode 8: Max SRMSE 0.693 (with RMSE 49.157, range 260.461), Max RMSE 49.157 (range 260.461), Average SRMSE 0.693, Average RMSE 49.157
+Average SRMSE across all modes is 0.867
+Average RMSE across all modes is 4.664
+Number of segments in each mode: [373, 186, 93, 46, 23, 11, 5, 1]
+Decomposition took 25.2422s
+Running test on seed 13
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.1140s
+Running FCD on model_sin7 with initial guess function initial_guesses_sin
+Time took for initial guess and batch transformation: 0.6347s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 1522.207 (with RMSE 0.023, range 0.000), Max RMSE 0.044 (range 0.000), Average SRMSE 13.042, Average RMSE 0.000
+Mode 2: Max SRMSE 31.903 (with RMSE 0.001, range 0.000), Max RMSE 0.001 (range 0.000), Average SRMSE 0.823, Average RMSE 0.000
+Mode 3: Max SRMSE 10.331 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.765, Average RMSE 0.000
+Mode 4: Max SRMSE 2.853 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.674, Average RMSE 0.000
+Mode 5: Max SRMSE 2.435 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.001), Average SRMSE 0.649, Average RMSE 0.000
+Mode 6: Max SRMSE 1.214 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.001), Average SRMSE 0.574, Average RMSE 0.000
+Mode 7: Max SRMSE 1.377 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.001), Average SRMSE 0.570, Average RMSE 0.000
+Mode 8: Max SRMSE 0.774 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.001), Average SRMSE 0.460, Average RMSE 0.000
+Mode 9: Max SRMSE 0.862 (with RMSE 0.000, range 0.001), Max RMSE 0.000 (range 0.003), Average SRMSE 0.400, Average RMSE 0.000
+Mode 10: Max SRMSE 0.409 (with RMSE 0.000, range 0.004), Max RMSE 0.000 (range 0.004), Average SRMSE 0.409, Average RMSE 0.000
+Average SRMSE across all modes is 6.916
+Average RMSE across all modes is 0.000
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 8.3030s
+Running test on seed 14
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.1092s
+Running FCD on model_sin6 with initial guess function initial_guesses_sin
+Time took for initial guess and batch transformation: 0.6374s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 81.118 (with RMSE 0.062, range 0.003), Max RMSE 0.078 (range 0.001), Average SRMSE 1.101, Average RMSE 0.001
+Mode 2: Max SRMSE 31.849 (with RMSE 0.020, range 0.002), Max RMSE 0.020 (range 0.002), Average SRMSE 0.803, Average RMSE 0.001
+Mode 3: Max SRMSE 3.348 (with RMSE 0.003, range 0.004), Max RMSE 0.005 (range 0.032), Average SRMSE 0.715, Average RMSE 0.001
+Mode 4: Max SRMSE 1.772 (with RMSE 0.001, range 0.002), Max RMSE 0.005 (range 0.040), Average SRMSE 0.667, Average RMSE 0.001
+Mode 5: Max SRMSE 2.061 (with RMSE 0.005, range 0.010), Max RMSE 0.006 (range 0.046), Average SRMSE 0.628, Average RMSE 0.001
+Mode 6: Max SRMSE 2.019 (with RMSE 0.002, range 0.006), Max RMSE 0.010 (range 0.055), Average SRMSE 0.601, Average RMSE 0.002
+Mode 7: Max SRMSE 1.570 (with RMSE 0.012, range 0.055), Max RMSE 0.012 (range 0.055), Average SRMSE 0.593, Average RMSE 0.003
+Mode 8: Max SRMSE 0.954 (with RMSE 0.007, range 0.061), Max RMSE 0.007 (range 0.061), Average SRMSE 0.555, Average RMSE 0.003
+Mode 9: Max SRMSE 0.708 (with RMSE 0.002, range 0.014), Max RMSE 0.008 (range 0.094), Average SRMSE 0.524, Average RMSE 0.005
+Mode 10: Max SRMSE 0.206 (with RMSE 0.011, range 0.186), Max RMSE 0.011 (range 0.186), Average SRMSE 0.206, Average RMSE 0.011
+Average SRMSE across all modes is 0.921
+Average RMSE across all modes is 0.001
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 5.6103s
+Running test on seed 15
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0881s
+Running FCD on model_sin5 with initial guess function initial_guesses_sin
+Time took for initial guess and batch transformation: 0.6170s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 285.586 (with RMSE 5.013, range 0.053), Max RMSE 5.824 (range 0.157), Average SRMSE 1.685, Average RMSE 0.027
+Mode 2: Max SRMSE 4.491 (with RMSE 0.080, range 0.055), Max RMSE 0.121 (range 0.132), Average SRMSE 0.765, Average RMSE 0.013
+Mode 3: Max SRMSE 19.263 (with RMSE 0.191, range 0.034), Max RMSE 0.249 (range 0.053), Average SRMSE 0.855, Average RMSE 0.020
+Mode 4: Max SRMSE 11.347 (with RMSE 0.135, range 0.053), Max RMSE 0.147 (range 0.158), Average SRMSE 0.795, Average RMSE 0.026
+Mode 5: Max SRMSE 2.782 (with RMSE 0.106, range 0.144), Max RMSE 0.125 (range 0.397), Average SRMSE 0.714, Average RMSE 0.034
+Mode 6: Max SRMSE 2.064 (with RMSE 0.165, range 0.381), Max RMSE 0.219 (range 0.437), Average SRMSE 0.728, Average RMSE 0.052
+Mode 7: Max SRMSE 2.372 (with RMSE 0.094, range 0.206), Max RMSE 0.197 (range 1.307), Average SRMSE 0.770, Average RMSE 0.076
+Mode 8: Max SRMSE 1.949 (with RMSE 0.254, range 0.811), Max RMSE 0.254 (range 0.811), Average SRMSE 0.711, Average RMSE 0.094
+Mode 9: Max SRMSE 1.044 (with RMSE 0.101, range 0.535), Max RMSE 0.290 (range 1.128), Average SRMSE 0.665, Average RMSE 0.152
+Mode 10: Max SRMSE 0.553 (with RMSE 0.327, range 2.924), Max RMSE 0.327 (range 2.924), Average SRMSE 0.553, Average RMSE 0.327
+Average SRMSE across all modes is 1.237
+Average RMSE across all modes is 0.024
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 5.6504s
+Running test on seed 16
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0386s
+Running FCD on model_sin4 with initial guess function initial_guesses_sin
+Time took for initial guess and batch transformation: 0.1309s
+Bucketing segment lengths: [42, 374]
+Mode 1: Max SRMSE 17.187 (with RMSE 0.326, range 0.050), Max RMSE 0.539 (range 0.811), Average SRMSE 1.100, Average RMSE 0.034
+Mode 2: Max SRMSE 6.889 (with RMSE 0.063, range 0.038), Max RMSE 0.265 (range 0.488), Average SRMSE 0.961, Average RMSE 0.037
+Mode 3: Max SRMSE 1.827 (with RMSE 0.077, range 0.170), Max RMSE 0.176 (range 1.030), Average SRMSE 0.695, Average RMSE 0.039
+Mode 4: Max SRMSE 1.432 (with RMSE 0.037, range 0.137), Max RMSE 0.210 (range 1.030), Average SRMSE 0.650, Average RMSE 0.050
+Mode 5: Max SRMSE 1.343 (with RMSE 0.172, range 0.457), Max RMSE 0.212 (range 1.893), Average SRMSE 0.670, Average RMSE 0.075
+Mode 6: Max SRMSE 0.980 (with RMSE 0.093, range 0.432), Max RMSE 0.268 (range 1.911), Average SRMSE 0.605, Average RMSE 0.104
+Mode 7: Max SRMSE 1.107 (with RMSE 0.107, range 0.426), Max RMSE 0.339 (range 2.790), Average SRMSE 0.727, Average RMSE 0.181
+Mode 8: Max SRMSE 0.763 (with RMSE 0.393, range 2.790), Max RMSE 0.393 (range 2.790), Average SRMSE 0.763, Average RMSE 0.393
+Average SRMSE across all modes is 0.962
+Average RMSE across all modes is 0.040
+Number of segments in each mode: [373, 186, 93, 46, 23, 11, 5, 1]
+Decomposition took 2.9252s
+Running test on seed 17
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0531s
+Running FCD on model_quadratic with initial guess function initial_guess_quadratic
+Time took for initial guess and batch transformation: 0.3011s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 15.837 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 1.061, Average RMSE 0.000
+Mode 2: Max SRMSE 15.967 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 1.093, Average RMSE 0.000
+Mode 3: Max SRMSE 13.596 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 1.251, Average RMSE 0.000
+Mode 4: Max SRMSE 27.216 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 1.570, Average RMSE 0.000
+Mode 5: Max SRMSE 26.753 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 1.548, Average RMSE 0.000
+Mode 6: Max SRMSE 6.341 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 1.238, Average RMSE 0.000
+Mode 7: Max SRMSE 8.111 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 1.287, Average RMSE 0.000
+Mode 8: Max SRMSE 1.399 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.933, Average RMSE 0.000
+Mode 9: Max SRMSE 2.486 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 1.290, Average RMSE 0.000
+Mode 10: Max SRMSE 0.698 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.698, Average RMSE 0.000
+Average SRMSE across all modes is 1.144
+Average RMSE across all modes is 0.000
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 5.4535s
+Running test on seed 18
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0537s
+Running FCD on model_cubic with initial guess function initial_guess_cubic
+Time took for initial guess and batch transformation: 0.3114s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Exception ignored in: <function Image.__del__ at 0x00000281E5639CA0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 4017, in __del__
+    self.tk.call('image', 'delete', self.name)
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Image.__del__ at 0x00000281E5639CA0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 4017, in __del__
+    self.tk.call('image', 'delete', self.name)
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Mode 1: Max SRMSE 296.752 (with RMSE 0.007, range 0.000), Max RMSE 0.014 (range 0.001), Average SRMSE 2.388, Average RMSE 0.000
+Mode 2: Max SRMSE 29.219 (with RMSE 0.002, range 0.000), Max RMSE 0.002 (range 0.001), Average SRMSE 1.095, Average RMSE 0.000
+Mode 3: Max SRMSE 15.977 (with RMSE 0.002, range 0.000), Max RMSE 0.002 (range 0.000), Average SRMSE 0.900, Average RMSE 0.000
+Mode 4: Max SRMSE 9.749 (with RMSE 0.001, range 0.000), Max RMSE 0.004 (range 0.002), Average SRMSE 0.952, Average RMSE 0.000
+Mode 5: Max SRMSE 12.656 (with RMSE 0.001, range 0.000), Max RMSE 0.001 (range 0.000), Average SRMSE 1.124, Average RMSE 0.000
+Mode 6: Max SRMSE 6.005 (with RMSE 0.002, range 0.001), Max RMSE 0.002 (range 0.001), Average SRMSE 0.960, Average RMSE 0.000
+Mode 7: Max SRMSE 1.229 (with RMSE 0.000, range 0.001), Max RMSE 0.001 (range 0.005), Average SRMSE 0.738, Average RMSE 0.000
+Mode 8: Max SRMSE 8.079 (with RMSE 0.001, range 0.001), Max RMSE 0.001 (range 0.001), Average SRMSE 1.302, Average RMSE 0.000
+Mode 9: Max SRMSE 0.952 (with RMSE 0.000, range 0.001), Max RMSE 0.001 (range 0.009), Average SRMSE 0.703, Average RMSE 0.000
+Mode 10: Max SRMSE 0.502 (with RMSE 0.001, range 0.009), Max RMSE 0.001 (range 0.009), Average SRMSE 0.502, Average RMSE 0.001
+Average SRMSE across all modes is 1.706
+Average RMSE across all modes is 0.000
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 48.1062s
+Running test on seed 19
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0498s
+Running FCD on model_linear with initial guess function initial_guess_linear
+Time took for initial guess and batch transformation: 0.2608s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 5.554 (with RMSE 0.020, range 0.011), Max RMSE 0.039 (range 0.033), Average SRMSE 0.981, Average RMSE 0.002
+Mode 2: Max SRMSE 3.741 (with RMSE 0.007, range 0.006), Max RMSE 0.033 (range 0.117), Average SRMSE 0.977, Average RMSE 0.003
+Mode 3: Max SRMSE 3.193 (with RMSE 0.008, range 0.011), Max RMSE 0.035 (range 0.096), Average SRMSE 0.965, Average RMSE 0.004
+Mode 4: Max SRMSE 3.242 (with RMSE 0.078, range 0.122), Max RMSE 0.078 (range 0.122), Average SRMSE 1.008, Average RMSE 0.007
+Mode 5: Max SRMSE 2.269 (with RMSE 0.018, range 0.051), Max RMSE 0.059 (range 0.158), Average SRMSE 1.023, Average RMSE 0.009
+Mode 6: Max SRMSE 2.602 (with RMSE 0.012, range 0.019), Max RMSE 0.077 (range 0.295), Average SRMSE 1.084, Average RMSE 0.014
+Mode 7: Max SRMSE 7.079 (with RMSE 0.017, range 0.017), Max RMSE 0.109 (range 0.365), Average SRMSE 1.207, Average RMSE 0.021
+Mode 8: Max SRMSE 6.434 (with RMSE 0.024, range 0.018), Max RMSE 0.188 (range 0.159), Average SRMSE 2.186, Average RMSE 0.043
+Mode 9: Max SRMSE 1.869 (with RMSE 0.045, range 0.078), Max RMSE 0.103 (range 0.568), Average SRMSE 1.040, Average RMSE 0.053
+Mode 10: Max SRMSE 0.965 (with RMSE 0.115, range 0.732), Max RMSE 0.115 (range 0.732), Average SRMSE 0.965, Average RMSE 0.115
+Average SRMSE across all modes is 0.989
+Average RMSE across all modes is 0.004
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 3.9910s
+Running test on seed 20
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0241s
+Running FCD on model_relation with initial guess function initial_guess_relation
+Time took for initial guess and batch transformation: 0.0667s
+Bucketing segment lengths: [42, 374]
+Mode 1: Max SRMSE 5.711 (with RMSE 0.038, range 0.017), Max RMSE 0.090 (range 0.239), Average SRMSE 0.874, Average RMSE 0.006
+Mode 2: Max SRMSE 5.026 (with RMSE 0.034, range 0.021), Max RMSE 0.078 (range 0.230), Average SRMSE 0.848, Average RMSE 0.008
+Mode 3: Max SRMSE 2.277 (with RMSE 0.005, range 0.008), Max RMSE 0.108 (range 0.360), Average SRMSE 0.848, Average RMSE 0.011
+Mode 4: Max SRMSE 4.159 (with RMSE 0.026, range 0.025), Max RMSE 0.090 (range 0.388), Average SRMSE 0.937, Average RMSE 0.018
+Mode 5: Max SRMSE 1.307 (with RMSE 0.062, range 0.169), Max RMSE 0.119 (range 0.639), Average SRMSE 0.871, Average RMSE 0.025
+Mode 6: Max SRMSE 1.997 (with RMSE 0.059, range 0.132), Max RMSE 0.106 (range 0.685), Average SRMSE 1.038, Average RMSE 0.041
+Mode 7: Max SRMSE 1.275 (with RMSE 0.013, range 0.044), Max RMSE 0.103 (range 0.685), Average SRMSE 0.949, Average RMSE 0.054
+Mode 8: Max SRMSE 0.998 (with RMSE 0.094, range 0.685), Max RMSE 0.094 (range 0.685), Average SRMSE 0.998, Average RMSE 0.094
+Average SRMSE across all modes is 0.871
+Average RMSE across all modes is 0.009
+Number of segments in each mode: [373, 186, 93, 46, 23, 11, 5, 1]
+Decomposition took 2.4004s
+Running test on seed 21
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0589s
+Running FCD on model_decay with initial guess function initial_guess_decay
+Time took for initial guess and batch transformation: 0.2693s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 4934.692 (with RMSE 0.270, range 0.000), Max RMSE 0.419 (range 0.000), Average SRMSE 5.678, Average RMSE 0.000
+Mode 2: Max SRMSE 5.763 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.001), Average SRMSE 0.919, Average RMSE 0.000
+Mode 3: Max SRMSE 4.648 (with RMSE 0.000, range 0.000), Max RMSE 0.001 (range 0.001), Average SRMSE 0.934, Average RMSE 0.000
+Mode 4: Max SRMSE 4.826 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.002), Average SRMSE 0.950, Average RMSE 0.000
+Mode 5: Max SRMSE 2.218 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.002), Average SRMSE 0.870, Average RMSE 0.000
+Mode 6: Max SRMSE 1.955 (with RMSE 0.000, range 0.001), Max RMSE 0.001 (range 0.003), Average SRMSE 0.834, Average RMSE 0.000
+Mode 7: Max SRMSE 1.462 (with RMSE 0.000, range 0.001), Max RMSE 0.001 (range 0.004), Average SRMSE 0.835, Average RMSE 0.000
+Mode 8: Max SRMSE 1.236 (with RMSE 0.000, range 0.001), Max RMSE 0.001 (range 0.004), Average SRMSE 0.838, Average RMSE 0.000
+Mode 9: Max SRMSE 1.217 (with RMSE 0.001, range 0.004), Max RMSE 0.001 (range 0.005), Average SRMSE 0.933, Average RMSE 0.001
+Mode 10: Max SRMSE 0.688 (with RMSE 0.002, range 0.013), Max RMSE 0.002 (range 0.013), Average SRMSE 0.688, Average RMSE 0.002
+Average SRMSE across all modes is 3.304
+Average RMSE across all modes is 0.000
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 3.9896s
+Running test on seed 22
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0805s
+Running FCD on model_logistic with initial guess function initial_guess_logistic
+Time took for initial guess and batch transformation: 0.3287s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 8.911 (with RMSE 0.005, range 0.001), Max RMSE 0.008 (range 0.005), Average SRMSE 0.790, Average RMSE 0.000
+Mode 2: Max SRMSE 10.208 (with RMSE 0.014, range 0.005), Max RMSE 0.014 (range 0.005), Average SRMSE 0.715, Average RMSE 0.001
+Mode 3: Max SRMSE 3.470 (with RMSE 0.002, range 0.002), Max RMSE 0.006 (range 0.022), Average SRMSE 0.724, Average RMSE 0.001
+Mode 4: Max SRMSE 1.767 (with RMSE 0.001, range 0.002), Max RMSE 0.005 (range 0.049), Average SRMSE 0.713, Average RMSE 0.001
+Mode 5: Max SRMSE 1.956 (with RMSE 0.002, range 0.005), Max RMSE 0.007 (range 0.061), Average SRMSE 0.714, Average RMSE 0.001
+Mode 6: Max SRMSE 1.398 (with RMSE 0.003, range 0.012), Max RMSE 0.010 (range 0.061), Average SRMSE 0.735, Average RMSE 0.002
+Mode 7: Max SRMSE 1.083 (with RMSE 0.001, range 0.006), Max RMSE 0.013 (range 0.077), Average SRMSE 0.790, Average RMSE 0.003
+Mode 8: Max SRMSE 1.092 (with RMSE 0.002, range 0.011), Max RMSE 0.013 (range 0.077), Average SRMSE 0.763, Average RMSE 0.004
+Mode 9: Max SRMSE 0.943 (with RMSE 0.005, range 0.041), Max RMSE 0.012 (range 0.124), Average SRMSE 0.581, Average RMSE 0.005
+Mode 10: Max SRMSE 0.269 (with RMSE 0.008, range 0.154), Max RMSE 0.008 (range 0.154), Average SRMSE 0.269, Average RMSE 0.008
+Average SRMSE across all modes is 0.754
+Average RMSE across all modes is 0.001
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 4.2680s
+Running test on seed 23
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0807s
+Running FCD on model_fourier with initial guess function initial_guess_fourier
+Time took for initial guess and batch transformation: 0.3582s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Exception ignored in: <function Image.__del__ at 0x00000281E5639CA0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 4017, in __del__
+    self.tk.call('image', 'delete', self.name)
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Image.__del__ at 0x00000281E5639CA0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 4017, in __del__
+    self.tk.call('image', 'delete', self.name)
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Exception ignored in: <function Variable.__del__ at 0x00000281E56163A0>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\tkinter\__init__.py", line 363, in __del__
+    if self._tk.getboolean(self._tk.call("info", "exists", self._name)):
+RuntimeError: main thread is not in main loop
+Mode 1: Max SRMSE 38.327 (with RMSE 0.834, range 0.065), Max RMSE 0.834 (range 0.065), Average SRMSE 0.867, Average RMSE 0.007
+Mode 2: Max SRMSE 20.367 (with RMSE 0.093, range 0.017), Max RMSE 0.425 (range 0.130), Average SRMSE 0.736, Average RMSE 0.008
+Mode 3: Max SRMSE 3.135 (with RMSE 0.042, range 0.052), Max RMSE 0.069 (range 0.101), Average SRMSE 0.512, Average RMSE 0.008
+Mode 4: Max SRMSE 2.596 (with RMSE 0.024, range 0.033), Max RMSE 0.049 (range 0.263), Average SRMSE 0.471, Average RMSE 0.010
+Mode 5: Max SRMSE 1.492 (with RMSE 0.028, range 0.069), Max RMSE 0.065 (range 0.616), Average SRMSE 0.442, Average RMSE 0.014
+Mode 6: Max SRMSE 1.698 (with RMSE 0.045, range 0.117), Max RMSE 0.069 (range 0.751), Average SRMSE 0.439, Average RMSE 0.019
+Mode 7: Max SRMSE 1.337 (with RMSE 0.046, range 0.198), Max RMSE 0.089 (range 1.277), Average SRMSE 0.440, Average RMSE 0.028
+Mode 8: Max SRMSE 1.336 (with RMSE 0.121, range 0.558), Max RMSE 0.121 (range 0.558), Average SRMSE 0.533, Average RMSE 0.044
+Mode 9: Max SRMSE 0.519 (with RMSE 0.050, range 0.541), Max RMSE 0.099 (range 1.511), Average SRMSE 0.323, Average RMSE 0.059
+Mode 10: Max SRMSE 0.459 (with RMSE 0.152, range 1.720), Max RMSE 0.152 (range 1.720), Average SRMSE 0.459, Average RMSE 0.152
+Average SRMSE across all modes is 0.739
+Average RMSE across all modes is 0.008
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 50.9558s
+Running test on seed 24
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0406s
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 78, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 104, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 107, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 113, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 116, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 117, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 118, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 120, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 121, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 122, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 130, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 132, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 133, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 140, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 141, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 143, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 144, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 146, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 147, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 149, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 151, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 154, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 156, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 157, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 160, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 165, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 170, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 172, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 174, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 179, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 180, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 182, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 187, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 190, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 193, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 195, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 199, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 203, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 210, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 212, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 213, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 215, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 216, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 218, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 225, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 226, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 227, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 240, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 248, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 249, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 253, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 254, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 255, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 264, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 267, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 271, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 272, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 275, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 276, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 277, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 279, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 0 segment 280, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 1 segment 58, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 1 segment 70, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 1 segment 73, initial guess was clipped
+Warning, initial guess is out of lower and upper bounds for mode 1 segment 137, initial guess was clipped
+Running FCD on model_gaussian with initial guess function initial_guess_gaussian
+Time took for initial guess and batch transformation: 0.0908s
+Bucketing segment lengths: [42, 374]
+Mode 1: Max SRMSE 6.826 (with RMSE 0.063, range 0.024), Max RMSE 0.310 (range 0.773), Average SRMSE 0.911, Average RMSE 0.033
+Mode 2: Max SRMSE 4.978 (with RMSE 0.116, range 0.074), Max RMSE 0.241 (range 0.525), Average SRMSE 0.813, Average RMSE 0.039
+Mode 3: Max SRMSE 4.588 (with RMSE 0.484, range 0.352), Max RMSE 0.586 (range 0.595), Average SRMSE 0.872, Average RMSE 0.066
+Mode 4: Max SRMSE 2.176 (with RMSE 0.067, range 0.121), Max RMSE 0.376 (range 1.234), Average SRMSE 0.738, Average RMSE 0.075
+Mode 5: Max SRMSE 2.547 (with RMSE 0.087, range 0.122), Max RMSE 0.230 (range 1.533), Average SRMSE 0.771, Average RMSE 0.096
+Mode 6: Max SRMSE 1.375 (with RMSE 0.070, range 0.236), Max RMSE 0.314 (range 2.790), Average SRMSE 0.694, Average RMSE 0.123
+Mode 7: Max SRMSE 0.936 (with RMSE 0.324, range 1.614), Max RMSE 0.324 (range 1.614), Average SRMSE 0.607, Average RMSE 0.195
+Mode 8: Max SRMSE 0.427 (with RMSE 0.352, range 3.331), Max RMSE 0.352 (range 3.331), Average SRMSE 0.427, Average RMSE 0.352
+Average SRMSE across all modes is 0.860
+Average RMSE across all modes is 0.046
+Number of segments in each mode: [373, 186, 93, 46, 23, 11, 5, 1]
+Decomposition took 2.5480s
+Running test on seed 25
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0082s
+Running FCD on model_cubic with initial guess function initial_guess_cubic
+Time took for initial guess and batch transformation: 0.0115s
+Bucketing segment lengths: [22]
+Mode 1: Max SRMSE 0.000 (with RMSE 0.000, range 10.000), Max RMSE 0.000 (range 10.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 2: Max SRMSE 0.000 (with RMSE 0.000, range 20.000), Max RMSE 0.000 (range 20.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 3: Max SRMSE 0.000 (with RMSE 0.000, range 42.000), Max RMSE 0.000 (range 42.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 4: Max SRMSE 0.000 (with RMSE 0.000, range 204.000), Max RMSE 0.000 (range 204.000), Average SRMSE 0.000, Average RMSE 0.000
+Average SRMSE across all modes is 0.000
+Average RMSE across all modes is 0.000
+Number of segments in each mode: [20, 10, 5, 1]
+Decomposition took 1.6070s
+Running test on seed 26
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0205s
+Running FCD on model_cubic with initial guess function initial_guess_cubic
+Time took for initial guess and batch transformation: 0.0467s
+Bucketing segment lengths: [166]
+Mode 1: Max SRMSE 1.000 (with RMSE 0.003, range 58155540.429), Max RMSE 0.459 (range 1224417375.141), Average SRMSE 0.782, Average RMSE 0.038
+Mode 2: Max SRMSE 1.000 (with RMSE 0.004, range 282034505.912), Max RMSE 0.112 (range 3810834703200.625), Average SRMSE 0.551, Average RMSE 0.027
+Mode 3: Max SRMSE 1.000 (with RMSE 0.003, range 1465609267.217), Max RMSE 0.129 (range 4700119594102.516), Average SRMSE 0.367, Average RMSE 0.029
+Mode 4: Max SRMSE 1.000 (with RMSE 0.005, range 8886083533.601), Max RMSE 0.029 (range 11476061690416.328), Average SRMSE 0.292, Average RMSE 0.010
+Mode 5: Max SRMSE 1.000 (with RMSE 0.008, range 78766909850.165), Max RMSE 0.062 (range 17263075425720.352), Average SRMSE 0.167, Average RMSE 0.034
+Mode 6: Max SRMSE 1.000 (with RMSE 0.002, range 599522261666.819), Max RMSE 0.034 (range 48300385810022.977), Average SRMSE 0.167, Average RMSE 0.013
+Mode 7: Max SRMSE 0.000 (with RMSE 0.015, range 114088442383118.531), Max RMSE 0.015 (range 114088442383118.531), Average SRMSE 0.000, Average RMSE 0.015
+Average SRMSE across all modes is 0.610
+Average RMSE across all modes is 0.032
+Number of segments in each mode: [197, 98, 49, 24, 12, 6, 1]
+Decomposition took 2.3123s
+Running test on seed 27
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0265s
+Running FCD on model_cubic with initial guess function initial_guess_cubic
+Time took for initial guess and batch transformation: 0.0618s
+Bucketing segment lengths: [42, 324]
+Mode 1: Max SRMSE 0.000 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 2: Max SRMSE 0.000 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 3: Max SRMSE 0.000 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 4: Max SRMSE 0.000 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 5: Max SRMSE 0.000 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 6: Max SRMSE 0.000 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 7: Max SRMSE 0.000 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 8: Max SRMSE 0.000 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Average SRMSE across all modes is 0.000
+Average RMSE across all modes is 0.000
+Number of segments in each mode: [258, 129, 64, 32, 16, 8, 4, 1]
+Decomposition took 2.4512s
+Running test on seed 28
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0091s
+Running FCD on model_cubic with initial guess function initial_guess_cubic
+Time took for initial guess and batch transformation: 0.0110s
+Bucketing segment lengths: [4]
+Mode 1: Max SRMSE 0.000 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 2: Max SRMSE 0.000 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 3: Max SRMSE 0.000 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Average SRMSE across all modes is 0.000
+Average RMSE across all modes is 0.000
+Number of segments in each mode: [4, 4, 1]
+Decomposition took 1.5629s
+Running test on seed 29
+JAX compilation is triggered as shapes/variables are different.
+Initialization finished in 0.0555s
+Running FCD on model_cubic with initial guess function initial_guess_cubic
+Time took for initial guess and batch transformation: 0.3120s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 0.000 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 2: Max SRMSE 0.000 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 3: Max SRMSE 0.000 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 4: Max SRMSE 0.000 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 5: Max SRMSE 0.000 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 6: Max SRMSE 0.000 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 7: Max SRMSE 0.000 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 8: Max SRMSE 0.000 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 9: Max SRMSE 0.000 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Mode 10: Max SRMSE 0.000 (with RMSE 0.000, range 0.000), Max RMSE 0.000 (range 0.000), Average SRMSE 0.000, Average RMSE 0.000
+Average SRMSE across all modes is 0.000
+Average RMSE across all modes is 0.000
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 4.7666s
+Running test on seed 30
+Running FCD on model_cubic with initial guess function initial_guess_cubic
+Time took for initial guess and batch transformation: 0.2563s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 16.613 (with RMSE 6138434510587218100224.000, range 1098000000000001572864.000), Max RMSE 6138434510587218100224.000 (range 1098000000000001572864.000), Average SRMSE 0.998, Average RMSE 213069330196663074816.000
+Mode 2: Max SRMSE 10.112 (with RMSE 2459302514696557428736.000, range 867999999999982174208.000), Max RMSE 2765141040168708866048.000 (range 2331999999999984271360.000), Average SRMSE 0.870, Average RMSE 206066639934079926272.000
+Mode 3: Max SRMSE 7.936 (with RMSE 8833091544469176582144.000, range 3977000000000008126464.000), Max RMSE 8833091544469176582144.000 (range 3977000000000008126464.000), Average SRMSE 0.934, Average RMSE 316473519490446458880.000
+Mode 4: Max SRMSE 13.953 (with RMSE 6123314063064585732096.000, range 2160000000000020971520.000), Max RMSE 6123314063064585732096.000 (range 2160000000000020971520.000), Average SRMSE 0.918, Average RMSE 410773771610811006976.000
+Mode 5: Max SRMSE 14.952 (with RMSE 6219303391863170400256.000, range 2174000000000013107200.000), Max RMSE 6219303391863170400256.000 (range 2174000000000013107200.000), Average SRMSE 1.012, Average RMSE 627933117772765462528.000
+Mode 6: Max SRMSE 1.731 (with RMSE 2213508040807463780352.000, range 5555000000000001310720.000), Max RMSE 5320444950829895516160.000 (range 17008999999999997640704.000), Average SRMSE 0.733, Average RMSE 764334638908066234368.000
+Mode 7: Max SRMSE 3.365 (with RMSE 2974312000452721377280.000, range 5114999999999999213568.000), Max RMSE 3766967382615803822080.000 (range 26380999999999998689280.000), Average SRMSE 0.907, Average RMSE 1251075158727531692032.000
+Mode 8: Max SRMSE 1.239 (with RMSE 3239945106603742068736.000, range 11740000000000001048576.000), Max RMSE 4618283188432575397888.000 (range 26380999999999998689280.000), Average SRMSE 0.781, Average RMSE 1650072987815923154944.000
+Mode 9: Max SRMSE 2.117 (with RMSE 7922000827553969864704.000, range 14776000000000002097152.000), Max RMSE 7922000827553969864704.000 (range 14776000000000002097152.000), Average SRMSE 0.867, Average RMSE 2757474743477255798784.000
+Mode 10: Max SRMSE 0.220 (with RMSE 3887174581972264026112.000, range 57236999999999988203520.000), Max RMSE 3887174581972264026112.000 (range 57236999999999988203520.000), Average SRMSE 0.220, Average RMSE 3887174581972264026112.000
+Average SRMSE across all modes is 0.947
+Average RMSE across all modes is 277058334460870262784.000
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 2.0807s
+Average SRMSE across all tests: 1.360
+Average RMSE across all tests: 88.029
+Average time across all tests(with compilation): 14.986

@@ -1,0 +1,18 @@
+Initialization finished in 8.5549s
+Running FCD on model_sin6 with initial guess function initial_guesses_sin
+Time took for initial guess and batch transformation: 0.5333s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 22.072 (with RMSE 3289.526, range 362.700), Max RMSE 7138.782 (range 1303.820), Average SRMSE 0.834, Average RMSE 213.450
+Mode 2: Max SRMSE 5.406 (with RMSE 567.247, range 401.300), Max RMSE 2020.021 (range 1303.820), Average SRMSE 0.643, Average RMSE 229.775
+Mode 3: Max SRMSE 15.106 (with RMSE 4029.475, range 948.720), Max RMSE 4029.475 (range 948.720), Average SRMSE 0.710, Average RMSE 341.380
+Mode 4: Max SRMSE 3.151 (with RMSE 1364.095, range 2116.660), Max RMSE 1956.274 (range 5974.210), Average SRMSE 0.613, Average RMSE 449.115
+Mode 5: Max SRMSE 1.682 (with RMSE 958.136, range 2475.570), Max RMSE 2638.462 (range 8645.880), Average SRMSE 0.587, Average RMSE 656.552
+Mode 6: Max SRMSE 1.790 (with RMSE 1309.549, range 2770.710), Max RMSE 2459.920 (range 10470.110), Average SRMSE 0.623, Average RMSE 924.486
+Mode 7: Max SRMSE 1.477 (with RMSE 2757.988, range 8179.930), Max RMSE 2757.988 (range 8179.930), Average SRMSE 0.596, Average RMSE 1335.005
+Mode 8: Max SRMSE 1.165 (with RMSE 2301.438, range 10020.340), Max RMSE 2301.438 (range 10020.340), Average SRMSE 0.565, Average RMSE 1684.116
+Mode 9: Max SRMSE 0.878 (with RMSE 3430.806, range 17941.500), Max RMSE 3430.806 (range 17941.500), Average SRMSE 0.431, Average RMSE 2449.809
+Mode 10: Max SRMSE 0.610 (with RMSE 5775.818, range 39711.490), Max RMSE 5775.818 (range 39711.490), Average SRMSE 0.610, Average RMSE 5775.818
+Average SRMSE across all modes is 0.742
+Average RMSE across all modes is 292.809
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 6.4885s

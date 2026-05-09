@@ -1,0 +1,36 @@
+Running test 1 on 10 points with sin5 model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 2.2039549000000003
+Iteration 2 finished in 0.013113200000000269
+Iteration 3 finished in 0.011858099999999538
+Iteration 4 finished in 0.012099800000000549
+Iteration 5 finished in 0.011643199999999965
+Running test 2 on 100 points with sin5 model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 2.0929428999999997
+Iteration 2 finished in 0.03695439999999994
+Iteration 3 finished in 0.03520669999999981
+Iteration 4 finished in 0.03542709999999971
+Iteration 5 finished in 0.03537899999999983
+Running test 3 on 1000 points with sin5 model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 2.6739075999999997
+Iteration 2 finished in 0.7689699000000001
+Iteration 3 finished in 0.7499599000000003
+Iteration 4 finished in 0.7513532999999999
+Iteration 5 finished in 0.7495181999999989
+Running test 4 on 10000 points with sin5 model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 6.5000561
+Iteration 2 finished in 3.4521283999999994
+Iteration 3 finished in 3.4457661
+Iteration 4 finished in 3.5600020000000008
+Iteration 5 finished in 3.474801899999999
+Running test 5 on 100000.0 points with sin5 model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 45.159366299999995
+Iteration 2 finished in 33.79375130000001
+Iteration 3 finished in 34.2754831
+Iteration 4 finished in 33.9930684
+Iteration 5 finished in 33.9386763
+Press any key to continue . . .

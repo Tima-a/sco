@@ -1,0 +1,46 @@
+Test was performed on sin6 model.
+
+Standard bounds:
+Initialization finished in 0.2923s
+Running FCD on model_sin6 with initial guess function initial_guesses_sin
+Time took for initial guess and batch transformation: 0.5219s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 1.645 (with RMSE 203.917, range 372.030), Max RMSE 757.127 (range 3283.780), Average SRMSE 0.403, Average RMSE 95.259
+Mode 2: Max SRMSE 1.765 (with RMSE 302.556, range 594.870), Max RMSE 906.154 (range 4324.170), Average SRMSE 0.529, Average RMSE 191.339
+Mode 3: Max SRMSE 1.394 (with RMSE 185.816, range 476.250), Max RMSE 1105.404 (range 4725.050), Average SRMSE 0.574, Average RMSE 296.234
+Mode 4: Max SRMSE 1.249 (with RMSE 259.491, range 1070.360), Max RMSE 1135.288 (range 5239.070), Average SRMSE 0.553, Average RMSE 415.998
+Mode 5: Max SRMSE 1.162 (with RMSE 607.655, range 2256.430), Max RMSE 1390.434 (range 8887.300), Average SRMSE 0.552, Average RMSE 612.323
+Mode 6: Max SRMSE 1.034 (with RMSE 1345.049, range 5700.190), Max RMSE 1595.176 (range 14362.460), Average SRMSE 0.575, Average RMSE 864.954
+Mode 7: Max SRMSE 1.033 (with RMSE 1174.553, range 5768.730), Max RMSE 1979.724 (range 14003.610), Average SRMSE 0.548, Average RMSE 1239.164
+Mode 8: Max SRMSE 1.185 (with RMSE 2340.097, range 10020.340), Max RMSE 2340.097 (range 10020.340), Average SRMSE 0.580, Average RMSE 1716.168
+Mode 9: Max SRMSE 0.805 (with RMSE 3146.893, range 17941.500), Max RMSE 3146.893 (range 17941.500), Average SRMSE 0.411, Average RMSE 2329.020
+Mode 10: Max SRMSE 0.610 (with RMSE 5775.818, range 39711.490), Max RMSE 5775.818 (range 39711.490), Average SRMSE 0.610, Average RMSE 5775.818
+Average SRMSE across all modes is 0.475
+Average RMSE across all modes is 213.073
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 7.4540s
+
+Loose bounds:
+Such configuration was used:
+elif parameters_configuration==6: #a1,a0,b0,c1,c0,D
+    original_p0 = np.array([a1_start, a0_start, b0_start, c1_start, c0_start, d0_start])
+    lower_bounds2 = [safe_a1_min*100.0,-safe_a0_max*100.0, dynamic_b0_min*0.1, -1*y_to_x_ratio*100.0, c0_min-1e4,-100*np.pi]
+    upper_bounds2 = [safe_a1_max*100.0,safe_a0_max*100.0,dynamic_b0_max*10.0,y_to_x_ratio*100.0,c0_max+1e4, 100*np.pi]
+Initialization finished in 0.2931s
+Running FCD on model_sin6 with initial guess function initial_guesses_sin
+Time took for initial guess and batch transformation: 0.5262s
+Bucketing segment lengths: [21, 81, 324, 1430]
+Mode 1: Max SRMSE 569.762 (with RMSE 114994.488, range 590.540), Max RMSE 114994.488 (range 590.540), Average SRMSE 1.919, Average RMSE 568.224
+Mode 2: Max SRMSE 8.105 (with RMSE 1393.824, range 508.880), Max RMSE 2535.331 (range 1917.270), Average SRMSE 0.798, Average RMSE 296.839
+Mode 3: Max SRMSE 69.949 (with RMSE 52447.117, range 2552.130), Max RMSE 52447.117 (range 2552.130), Average SRMSE 1.400, Average RMSE 752.032
+Mode 4: Max SRMSE 5.878 (with RMSE 1208.376, range 952.120), Max RMSE 5117.928 (range 4029.440), Average SRMSE 0.771, Average RMSE 558.508
+Mode 5: Max SRMSE 25.079 (with RMSE 14288.358, range 2475.570), Max RMSE 14288.358 (range 2475.570), Average SRMSE 1.003, Average RMSE 987.880
+Mode 6: Max SRMSE 10.206 (with RMSE 7467.787, range 2770.710), Max RMSE 7467.787 (range 2770.710), Average SRMSE 0.898, Average RMSE 1257.679
+Mode 7: Max SRMSE 2.393 (with RMSE 4651.780, range 10717.210), Max RMSE 7610.522 (range 14003.610), Average SRMSE 0.919, Average RMSE 2108.808
+Mode 8: Max SRMSE 1.111 (with RMSE 3037.731, range 13581.100), Max RMSE 3037.731 (range 13581.100), Average SRMSE 0.614, Average RMSE 1902.536
+Mode 9: Max SRMSE 0.840 (with RMSE 3284.055, range 17941.500), Max RMSE 4963.549 (range 29260.060), Average SRMSE 0.465, Average RMSE 2721.897
+Mode 10: Max SRMSE 0.526 (with RMSE 4987.604, range 39711.490), Max RMSE 4987.604 (range 39711.490), Average SRMSE 0.526, Average RMSE 4987.604
+Average SRMSE across all modes is 1.441
+Average RMSE across all modes is 568.365
+Number of segments in each mode: [2000, 1000, 500, 250, 125, 62, 31, 15, 7, 1]
+Decomposition took 6.7618s
