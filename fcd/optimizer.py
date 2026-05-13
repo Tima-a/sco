@@ -77,7 +77,6 @@ def residuals_next_iterations(optimized_params, x_data_full, y_data_full, change
         x_data_full (jnp.ndarray): Padded JAX array of dataset x-values
         y_data_full (jnp.ndarray): Padded JAX array of dataset y-values
         changepoint_jax (jnp.ndarray): Padded JAX array of changepoint indices
-        segment_lengths_jax (jnp.ndarray): Padded JAX array of segment lengths
         batch_index (jnp.int32): Current batch index
         prev_params (jnp.ndarray): JAX array of previous batch last segment's full parameters
         num_segments (jnp.int32): Number of segments to fit in this mode
@@ -254,7 +253,6 @@ def compute_state(params_unconstrained,x_data_full, y, lower, upper, changepoint
         lower (jnp.ndarray): Padded JAX array of lower bounds for each parameter
         upper (jnp.ndarray): Padded JAX array of upper bounds for each parameter
         changepoint_jax (jnp.ndarray): Padded JAX array of changepoint indices
-        segment_lengths_jax (jnp.ndarray): Padded JAX array of segment lengths
         batch_index (jnp.int32): Current batch index
         prev_params (jnp.ndarray): JAX array of previous batch last segment's full parameters
         num_segments (jnp.int32): Number of segments to fit in this mode
@@ -294,7 +292,6 @@ def solve_step(p, r, J, lam):
         r (jnp.ndarray): Padded JAX array of residuals
         J (jnp.ndarray): Padded JAX array of Jacobian values
         lam (jnp.float64): Current lambda value
-        ridge (jnp.float64): Ridge used in Levenberg-Marquardt equation
 
     Returns:
         dp_unconstrained (jnp.ndarray): The proposed step for the parameters in unconstrained space, clipped and scaled for stability
@@ -346,19 +343,16 @@ def lm_fit(params_init, x_data, y, lower, upper, changepoint_jax, batch_index, p
         lower (jnp.ndarray): Padded JAX array of lower bounds for each parameter
         upper (jnp.ndarray): Padded JAX array of upper bounds for each parameter
         changepoint_jax (jnp.ndarray): Padded JAX array of changepoint indices
-        segment_lengths_jax (jnp.ndarray): Padded JAX array of segment lengths
         batch_index (jnp.int32): Current batch index
         prev_params (jnp.ndarray): JAX array of previous batch last segment's full parameters
         num_segments (jnp.int32): Number of segments to fit in this mode
         leftover_batch (jnp.int32): 1 if a partial batch exists, 0 otherwise.
         max_seg_len (int): Maximum segment length in this mode for residual array padding
         fitting_config (NamedTuple): Stores various static parameters for fitting
+        functions_config (NamedTuple): Stores JAX, numpy functions and continuity settings
         lam (jnp.float64): Initial lambda value to start optimization
-        ridge (jnp.float64): Ridge used in Levenberg-Marquardt equation
-        max_dp_norm (jnp.float64): Max allowed norm for proposed step
         can_converge (jnp.bool_): Boolean to allow or prevent converging to use max iterations for shaking
         ftol (jnp.float64): Relative tolerance for the change in the Sum of Squared Residuals (SSR)
-        gtol (jnp.float64): Gradient norm tolerance. Stop when the norm of the gradient falls below this value, indicating a local minimum
         xtol (jnp.float64): Parameter step tolerance. Stop when the norm of the change in unconstrained parameters is smaller than xtol.
 
     Returns:
@@ -513,12 +507,13 @@ def fit_batch(last_batch,segments_to_fit_unpack,params_to_take,data_dicts,full_p
 
     return full_params, batch_solver,full_batch_solver
 
-def lm_start(params, x_data_full_np, y_padded, lower, upper, changepoint_list_original, num_segments, segment_lengths, modes_length_bucketing,max_segment_lengths, mode, fitting_config,functions_config):
+def lm_start(params, x_data_full_np, y_padded, lower, upper, changepoint_list_original, num_segments, modes_length_bucketing,max_segment_lengths, mode, fitting_config,functions_config):
     """
     This function performs fitting for each mode by batches. Implements Forward Fit strategy, pads arrays for JAX function and uses shaking if fit is poor.
     
     Args:
         params (list[float]): list of initial guess parameters
+        x_data_full_np (list[float]): list of dataset x-values
         y_padded (list[float]): list of dataset y-values
         lower (list[float]): list of lower bounds for each parameter
         upper (list[float]): list of upper bounds for each parameter

@@ -129,8 +129,8 @@ def main_fitting():
     all_srmse_tests=[]
     time_tests=[]
     randomized=False
-    model_user=utility.model_fourier
-    model_init_user=utility_guesses.initial_guess_fourier
+    model_user=utility.model_sin5
+    model_init_user=utility_guesses.initial_guess_sin5
     for k in range(1,num_testing+1):
         settings={'show_plot': False}
         k_randomized=0

@@ -301,7 +301,7 @@ def validate_inputs(x_data, y_data, requested_modes, model, initial_guesses_func
     sign_model=inspect.signature(model)
     num_parameters=len(sign_model.parameters)-1 # because x is not counted
     empty_arr=np.arange(10)
-    guess, lo, up = initial_guesses_function(empty_arr,empty_arr,empty_arr,empty_arr,empty_arr,empty_arr,1,1,2)
+    guess, lo, up = initial_guesses_function(empty_arr,empty_arr,empty_arr,empty_arr,0.0,empty_arr,empty_arr,1,1,2)
     lengths_match = (num_parameters == len(guess) == len(lo) == len(up))
     if not lengths_match:
         raise ValueError(f"Arrays are not the same length for model, initial guess functions or lower, upper bounds")
@@ -464,19 +464,13 @@ def show_fitting_plot(max_mode, all_changepoints, x_data_full_np,y_data_full_np,
     cols = 1 if max_mode == 1 else 2
     rows = int(np.ceil(max_mode / cols)) 
     figsize=(6 * cols, 4 * rows)
-    if max_mode==1:
-        figsize=(10 * cols, 5 * rows)
-    fig, axes = plt.subplots(rows, cols, figsize=figsize) 
+    fig, axes = plt.subplots(rows, cols, figsize=figsize, layout='constrained', squeeze=False)
     
-    if max_mode == 1:
-        axes_flat = [axes]
-    else:
-        axes_flat = axes.flatten()
+    axes_flat = axes.flatten()
     
     for mode in range(max_mode):
         ax = axes_flat[mode]
         ax.yaxis.set_major_locator(ticker.MaxNLocator(nbins=5))
-        
         ax.xaxis.set_major_locator(ticker.MaxNLocator(nbins=6))
         changepoints_to_fit = len(all_changepoints[mode]) - 1
         changepoint = all_changepoints[mode]
@@ -507,7 +501,7 @@ def show_fitting_plot(max_mode, all_changepoints, x_data_full_np,y_data_full_np,
                     linewidth=2, label='Fit')
         if len(all_changepoints[mode]) < 300:
             ax.axvline(x=x_data_full_np[changepoint[-1]-1], color= 'darkslategray', linestyle= '--', linewidth= 1.2, alpha= 0.6)
-        ax.set_title(f'Resolution {mode+1} - {changepoints_to_fit} Segments')
+        ax.set_title(f'Resolution {mode+1} - {changepoints_to_fit} Segments',fontsize=12)
         x_range = abs(x_data_full_np[-1] - x_data_full_np[0])
         x_padding = x_range * 0.02 
         if x_data_full_np[-1] > x_data_full_np[0]:
@@ -519,18 +513,14 @@ def show_fitting_plot(max_mode, all_changepoints, x_data_full_np,y_data_full_np,
     if max_mode > 1:
         for i in range(max_mode, rows * cols):
             fig.delaxes(axes_flat[i])
-    plt.gca().yaxis.set_major_locator(ticker.MaxNLocator(nbins=5))
-    fig.supylabel(r'Price ($)', fontsize=12)
-    fig.supxlabel(r'Time ($m$)', fontsize=12)
+    fig.supylabel('Price ($)', fontsize=12)
+    fig.supxlabel('Time ($m$)', fontsize=12)
     
-    fig.tight_layout(rect=[0, 0.03, 1, 0.95])
-    fig = plt.gcf()
-    fig.set_size_inches(14, 8)  
-    fig.set_dpi(100)          
+    #fig = plt.gcf()
+    #fig.set_size_inches(14, 8)  
+    #fig.set_dpi(100)          
     
-    plt.tight_layout()
-    
-    plt.savefig("graph_eeg.png", dpi=300, bbox_inches='tight')
+    #plt.savefig("graph_bitcoin.png", dpi=300, bbox_inches='tight')
 
     plt.show() 
     plt.close('all')
@@ -774,32 +764,25 @@ def batch_transformation(max_mode, all_changepoints,all_initial_guesses,all_lowe
     params_list_all=[]
     lower_list_all=[]
     upper_list_all=[]
-    segment_length_list_all=[]
     for mode in range(max_mode):
         if not mode==max_mode-1 or (not multi_scale and num_segments_single>1) or non_uniform:
             changepoints_to_fit=len(all_changepoints[mode])-1
-            x_fit_list=[]
-            y_fit_list=[]
             changepoint_list=[]
             params_list=[]
             lower_list=[]
             upper_list=[]
-            segment_lengths_static_tuple = tuple([all_changepoints[mode][j+1] - all_changepoints[mode][j] + 1 for j in range(changepoints_to_fit)])
-            segment_length_list=[]
             changepoint=all_changepoints[mode]
             for f in range(changepoints_to_fit//config.batch_size):
                 changepoint_list.append(changepoint[f*config.batch_size:(f+1)*config.batch_size+1]) 
                 params_list.append(all_initial_guesses[mode][f*config.batch_size:(f+1)*config.batch_size])
                 lower_list.append(all_lower_bounds[mode][f*config.batch_size:(f+1)*config.batch_size])
                 upper_list.append(all_upper_bounds[mode][f*config.batch_size:(f+1)*config.batch_size])
-                segment_length_list.append(segment_lengths_static_tuple[f*config.batch_size:(f+1)*config.batch_size])
 
             if not changepoints_to_fit%config.batch_size==0:
                 changepoint_list.append(changepoint[(changepoints_to_fit//config.batch_size)*config.batch_size:changepoints_to_fit+1]) 
                 params_list.append(all_initial_guesses[mode][(changepoints_to_fit//config.batch_size)*config.batch_size:changepoints_to_fit+1]) 
                 lower_list.append(all_lower_bounds[mode][(changepoints_to_fit//config.batch_size)*config.batch_size:changepoints_to_fit+1]) 
                 upper_list.append(all_upper_bounds[mode][(changepoints_to_fit//config.batch_size)*config.batch_size:changepoints_to_fit+1]) 
-                segment_length_list.append(segment_lengths_static_tuple[(changepoints_to_fit//config.batch_size)*config.batch_size:changepoints_to_fit+1]) 
             
             params_list = [np.concatenate(sub_list, axis=0) for sub_list in params_list]
             lower_list = [np.concatenate(sub_list, axis=0) for sub_list in lower_list]
@@ -809,8 +792,7 @@ def batch_transformation(max_mode, all_changepoints,all_initial_guesses,all_lowe
             params_list_all.append(params_list)
             lower_list_all.append(lower_list)
             upper_list_all.append(upper_list)
-            segment_length_list_all.append(segment_length_list)
-    return params_list_all, changepoint_list_all,lower_list_all,upper_list_all,segment_length_list_all
+    return params_list_all, changepoint_list_all,lower_list_all,upper_list_all
 def fast_format(expr, precision=3):
     return expr.xreplace({n: sp.Float(n, precision) for n in expr.atoms(sp.Number)})
 def get_analytic_calculus_derivative(model_func, parameter_names, order=0):

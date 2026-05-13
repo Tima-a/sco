@@ -1,0 +1,36 @@
+Running test 1 on 10 points with cubic model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 1.9489340000000004
+Iteration 2 finished in 0.011312100000000491
+Iteration 3 finished in 0.010855100000000562
+Iteration 4 finished in 0.01089859999999998
+Iteration 5 finished in 0.010550999999999533
+Running test 2 on 100 points with cubic model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 1.7053714000000006
+Iteration 2 finished in 0.037931299999999446
+Iteration 3 finished in 0.03478350000000052
+Iteration 4 finished in 0.036426000000000514
+Iteration 5 finished in 0.03926650000000009
+Running test 3 on 1000 points with cubic model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 3.0413131
+Iteration 2 finished in 1.3323365000000003
+Iteration 3 finished in 1.328312500000001
+Iteration 4 finished in 1.3547434999999997
+Iteration 5 finished in 1.3438593999999995
+Running test 4 on 10000 points with cubic model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 6.7624483999999985
+Iteration 2 finished in 3.8103160000000003
+Iteration 3 finished in 3.8140877999999994
+Iteration 4 finished in 3.7729073000000035
+Iteration 5 finished in 3.7782342
+Running test 5 on 100000.0 points with cubic model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 45.3242472
+Iteration 2 finished in 38.03204459999999
+Iteration 3 finished in 39.2756036
+Iteration 4 finished in 40.32536590000001
+Iteration 5 finished in 38.08801169999998
+Press any key to continue . . .

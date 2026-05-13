@@ -31,7 +31,7 @@ x=np.arange(len(y))
 #    
 #    changepoints_list.append(list(row.astype(int)))
 #Initialize FCD runner
-arr_nu=np.linspace(0, len(y), 4)
+arr_nu=np.linspace(0, len(y), 12)
 arr_nu=arr_nu.astype(int).tolist()
 settings_args={'non_uniform': True, 'changepoints_non_uniform': arr_nu}
 optimization_settings_args={'batch_size': 1}

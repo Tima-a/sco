@@ -46,7 +46,7 @@ def calculate_floor_sin(batch_segments_x,batch_segments_y):
     noise_floor=np.where(noise_floor<1e-9, 1e-9, noise_floor)
     span_batches=max((max(batch_segments_y)-min(batch_segments_y))/2.0,1e-12)
     return noise_floor,span_batches
-def initial_guesses_sin(x_dataset,y_dataset,batch_segments_x,batch_segments_y,segment_x, segment_y, segment_index, mode_index,last_mode,parameters_configuration=7):
+def initial_guesses_sin(x_dataset,y_dataset,batch_segments_x,batch_segments_y,dataset_std, segment_x, segment_y, segment_index, mode_index,last_mode,parameters_configuration=7):
     noise_floor,noise_floor_span=calculate_floor_sin(batch_segments_x,batch_segments_y)
     segment_span_y=max(segment_y)-min(segment_y)
     x_span=segment_x[-1]-segment_x[0]
@@ -66,7 +66,11 @@ def initial_guesses_sin(x_dataset,y_dataset,batch_segments_x,batch_segments_y,se
     y_detrended_std=np.std(y_detrended)
 
     y_detrended_std_floor=noise_floor
-    a0_start = noise_floor_span
+
+    if np.std(segment_y)<dataset_std*0.1:
+        a0_start = noise_floor_span
+    else:
+        a0_start = y_detrended_std * 1.414
     a1_start = 1e-12 
     
     a0_start = max(a0_start, 0.0)
@@ -138,7 +142,7 @@ initial_guess_sin6 = partial(initial_guesses_sin, parameters_configuration=6)
 initial_guess_sin5 = partial(initial_guesses_sin,parameters_configuration=5)
 initial_guess_sin4 = partial(initial_guesses_sin,parameters_configuration=4)
 
-def initial_guess_quadratic(x_dataset,y_dataset,batch_segments_x,batch_segments_y,segment_x, segment_y, segment_index, mode_index, last_mode):
+def initial_guess_quadratic(x_dataset,y_dataset,batch_segments_x,batch_segments_y,dataset_std,segment_x, segment_y, segment_index, mode_index, last_mode):
     x_span = segment_x[-1]-segment_x[0]
     n_buffer = max(1, len(segment_y) // 10) 
 
@@ -171,7 +175,7 @@ def initial_guess_quadratic(x_dataset,y_dataset,batch_segments_x,batch_segments_
     ]
 
     return params_initial_guesses, lower_bounds, upper_bounds
-def initial_guess_cubic(x_dataset,y_dataset,batch_segments_x,batch_segments_y,segment_x, segment_y, segment_index, mode_index, last_mode):
+def initial_guess_cubic(x_dataset,y_dataset,batch_segments_x,batch_segments_y,dataset_std,segment_x, segment_y, segment_index, mode_index, last_mode):
     x_span = segment_x[-1]-segment_x[0]
     n_buffer = max(1, len(segment_y) // 10) 
 
@@ -207,7 +211,7 @@ def initial_guess_cubic(x_dataset,y_dataset,batch_segments_x,batch_segments_y,se
 
     return params_initial_guesses, lower_bounds, upper_bounds
 
-def initial_guess_decay(x_dataset,y_dataset,batch_segments_x,batch_segments_y,segment_x, segment_y, segment_index, mode_index, last_mode):
+def initial_guess_decay(x_dataset,y_dataset,batch_segments_x,batch_segments_y,dataset_std,segment_x, segment_y, segment_index, mode_index, last_mode):
     x_span = segment_x[-1]-segment_x[0]
     n_buffer = max(1, len(segment_y) // 10) 
 
@@ -232,7 +236,7 @@ def initial_guess_decay(x_dataset,y_dataset,batch_segments_x,batch_segments_y,se
     ]
 
     return params_initial_guesses,lower_bounds,upper_bounds
-def initial_guess_relation(x_dataset,y_dataset,batch_segments_x,batch_segments_y,segment_x, segment_y, segment_index, mode_index, last_mode):
+def initial_guess_relation(x_dataset,y_dataset,batch_segments_x,batch_segments_y,dataset_std,segment_x, segment_y, segment_index, mode_index, last_mode):
     x_span = segment_x[-1]-segment_x[0]
     y_span_floor=max(max(batch_segments_y)-min(batch_segments_y),1e-12)
     n_buffer = max(1, len(segment_y) // 10) 
@@ -250,7 +254,7 @@ def initial_guess_relation(x_dataset,y_dataset,batch_segments_x,batch_segments_y
     upper_bounds = [100 * np.abs(unit_a_floor), np.max(segment_y) + np.abs(y_span_floor), 100 * np.abs(unit_a_floor)]
 
     return params_initial_guesses, lower_bounds, upper_bounds
-def initial_guess_linear(x_dataset,y_dataset,batch_segments_x,batch_segments_y,segment_x, segment_y, segment_index, mode_index, last_mode):
+def initial_guess_linear(x_dataset,y_dataset,batch_segments_x,batch_segments_y,dataset_std,segment_x, segment_y, segment_index, mode_index, last_mode):
     x_span = segment_x[-1]-segment_x[0]
     y_span_floor=max(max(batch_segments_y)-min(batch_segments_y),1e-12)
     n_buffer = max(1, len(segment_y) // 10) 
@@ -266,7 +270,7 @@ def initial_guess_linear(x_dataset,y_dataset,batch_segments_x,batch_segments_y,s
     upper_bounds=[10 * np.abs(unit_a_floor),np.max(segment_y) + np.abs(y_span_floor)]
 
     return params_initial_guesses,lower_bounds,upper_bounds
-def initial_guess_gaussian(x_dataset,y_dataset, batch_segments_x,batch_segments_y, segment_x, segment_y, segment_index, mode_index, last_mode):
+def initial_guess_gaussian(x_dataset,y_dataset, batch_segments_x,batch_segments_y,dataset_std, segment_x, segment_y, segment_index, mode_index, last_mode):
     x_span = segment_x[-1] - segment_x[0]
     y_min, y_max = min(segment_y), max(segment_y)
     y_span_floor=max(max(batch_segments_y)-min(batch_segments_y),1e-12)
@@ -294,7 +298,7 @@ def initial_guess_gaussian(x_dataset,y_dataset, batch_segments_x,batch_segments_
     c_upper = y_max + y_span_floor * 0.2
 
     return [a_guess, x0_guess, sigma_guess, c0_guess], [a_lower, x0_lower, sigma_lower, c_lower], [a_upper, x0_upper, sigma_upper, c_upper]
-def initial_guess_logistic(x_dataset, y_dataset,batch_segments_x,batch_segments_y, segment_x, segment_y, segment_index, mode_index, last_mode):
+def initial_guess_logistic(x_dataset, y_dataset,batch_segments_x,batch_segments_y,dataset_std, segment_x, segment_y, segment_index, mode_index, last_mode):
     delta_x = float(segment_x[-1] - segment_x[0])
     if delta_x <= 0: 
         delta_x = 1.0
@@ -331,7 +335,7 @@ def initial_guess_logistic(x_dataset, y_dataset,batch_segments_x,batch_segments_
     ]
 
     return params_initial_guesses, lower_bounds, upper_bounds
-def initial_guess_fourier(x_dataset, y_dataset,batch_segments_x,batch_segments_y, segment_x, segment_y, segment_index, mode_index, last_mode):
+def initial_guess_fourier(x_dataset, y_dataset,batch_segments_x,batch_segments_y, dataset_std,segment_x, segment_y, segment_index, mode_index, last_mode):
     n_buffer = max(1, len(segment_y) // 10) 
     noise_floor,noise_floor_span=calculate_floor_sin(batch_segments_x,batch_segments_y)
     noise_floor_span=max(noise_floor_span,1e-9)

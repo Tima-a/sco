@@ -2,17 +2,16 @@ from mode_fitting import FCD
 import utility
 import utility_guesses
 import numpy as np
-import ruptures as rpt
+
 np.random.seed(112)
 
 #Set datasets
-y=np.load(f"test_datasets/cryptocoin_tests/test2.npy")[:600]
+y=np.load(f"test_datasets/cryptocoin_tests/test2.npy")[:400]
 x=np.arange(len(y))
-
 fcd = FCD(
     x_dataset=x, y_dataset=y,
-    model=utility.model_fourier,
-    initial_guesses_function=utility_guesses.initial_guess_fourier,
+    model=utility.model_sin5,
+    initial_guesses_function=utility_guesses.initial_guess_sin5,
     parallel=True,
     verbose=1
 )

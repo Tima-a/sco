@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import sympy as sp
 import inspect
 from functools import partial
+import matplotlib.ticker as ticker
 import re
 import utility_guesses
 DTYPE=jnp.float64
@@ -33,8 +34,10 @@ def model_decay(x, a, b, c):
     return a*sp.exp(b*x) + c
 def model_logistic(x, L, k, x0, c):
     return L / (1 + sp.exp(-k*(x - x0))) + c
-def model_fourier(x, a1,a2,a3,b1,b2,b3,f,c1,c0):
+def model_fourier2(x, a1,a2,a3,b1,b2,b3,f,c1,c0):
     return a1*sp.sin(f*x) + b1*sp.cos(f*x) + a2*sp.sin(2*f*x) + b2*sp.cos(2*f*x) + a3*sp.sin(3*f*x) + b3*sp.cos(3*f*x) + (c1*x + c0)
+def model_fourier(x, a1,a2,a3,ph1, ph2, ph3,f,c1,c0):
+    return a1*sp.sin(f*x + ph1) + a2*sp.sin(2*f*x + ph2) + a3*sp.sin(3*f*x + ph3) + (c1*x + c0)
 def model_gaussian(x, A, x0, sigma,c):
     return A * sp.exp(-((x - x0)**2) / (2 * (sigma**2))) + c
 def to_constrained_single(pu, lo, up):
@@ -193,7 +196,21 @@ def unscaling_model_gaussian(A, x0, sigma, c, sigma_x, mu_y, sigma_y):
 
     return [A_new, X0_new, Sigma_new, C_new]
 
-def unscaling_model_fourier(a1, a2, a3, b1, b2, b3, f, c1, c0, sigma_x, mu_y, sigma_y):    
+def unscaling_model_fourier(a1, a2, a3, ph1, ph2, ph3, f, c1, c0, sigma_x, mu_y, sigma_y):    
+    F_new = f / sigma_x
+    
+    C1_new = c1 * sigma_y / sigma_x
+
+    C0_new = c0 * sigma_y + mu_y
+    A1_new = a1 * sigma_y
+    A2_new = a2 * sigma_y
+    A3_new = a3 * sigma_y
+    
+    ph1_new=ph1
+    ph2_new=ph2
+    ph3_new=ph3
+    return [A1_new, A2_new, A3_new, ph1_new, ph2_new, ph3_new, F_new, C1_new, C0_new]
+def unscaling_model_fourier2(a1, a2, a3, b1, b2, b3, f, c1, c0, sigma_x, mu_y, sigma_y):    
     F_new = f / sigma_x
     
     C1_new = c1 * sigma_y / sigma_x
@@ -284,10 +301,28 @@ def validate_inputs(x_data, y_data, requested_modes, model, initial_guesses_func
     sign_model=inspect.signature(model)
     num_parameters=len(sign_model.parameters)-1 # because x is not counted
     empty_arr=np.arange(10)
-    guess, lo, up = initial_guesses_function(empty_arr,empty_arr,1.0,empty_arr,empty_arr,1,1,2)
+    guess, lo, up = initial_guesses_function(empty_arr,empty_arr,empty_arr,empty_arr,0.0,empty_arr,empty_arr,1,1,2)
     lengths_match = (num_parameters == len(guess) == len(lo) == len(up))
     if not lengths_match:
         raise ValueError(f"Arrays are not the same length for model, initial guess functions or lower, upper bounds")
+    chpoints = settings_args.get('changepoints_non_uniform')
+    if chpoints is not None:
+        if not isinstance(chpoints, list):
+            raise ValueError(f"Non-uniform changepoints array must be a list, got {type(chpoints)}")
+        if isinstance(chpoints[0], list):
+            for m in chpoints:
+                if not all(x <= y for x, y in zip(m, m[1:])):
+                    raise ValueError("Changepoints must be strictly in non-decreasing order")
+                for ch in m:
+                    if ch<0 or not isinstance(ch, int):
+                        raise ValueError(f"Changepoint indices cannot be negative or float type, got {ch}")
+        else:
+            if not all(x <= y for x, y in zip(chpoints, chpoints[1:])):
+                raise ValueError("Changepoints must be strictly in non-decreasing order")
+            for ch in chpoints:
+                if ch<0 or not isinstance(ch, int):
+                    raise ValueError(f"Changepoint indices cannot be negative or float type, got {ch}")
+
     min_scale_y=1e-3
     max_scale_y=1e30
     min_scale_x=1e-10
@@ -308,8 +343,9 @@ def validate_inputs(x_data, y_data, requested_modes, model, initial_guesses_func
         raise ValueError("When using custom model and scaling, unscaling function must be given")
     if optimization_settings_args['batch_size'] < 1:
         raise ValueError(f"Batch length ({optimization_settings_args['batch_size']}) cannot be less than 1")
-    if requested_modes<1:
-        raise ValueError(f"Requested number of modes cannot be less than 1(got {requested_modes})")
+    if requested_modes is not None:
+        if requested_modes<1:
+            raise ValueError(f"Requested number of modes cannot be less than 1(got {requested_modes})")
     for name,item in optimization_settings_args.items():
         if item <= 0 and not name == 'bucketing':
             raise ValueError(f"Argument '{name}' must be greater than 0.")
@@ -413,26 +449,29 @@ def find_optimal_configuration(modes_bucketing_data,compilation_cost=2.3, max_k=
             }
             
     return best_config
-
+def parse_args(defaults, user_input):
+    base = defaults.copy()
+    if user_input:
+        invalid = [k for k in user_input if k not in base]
+        if invalid:
+            raise ValueError(f"Invalid keys: {invalid}. Allowed: {list(base.keys())}")
+        base.update(user_input)
+    return base
 def show_fitting_plot(max_mode, all_changepoints, x_data_full_np,y_data_full_np,segment_lists_params,all_full_initial_guesses,functions_config, verbose):
     """
     Shows fitting plot for all modes with original dataset scattered and PELT detected changepoints.
     """
     cols = 1 if max_mode == 1 else 2
     rows = int(np.ceil(max_mode / cols)) 
-    figsize=(5 * cols, 4 * rows)
-    if max_mode==1:
-        figsize=(10 * cols, 5 * rows)
-    fig, axes = plt.subplots(rows, cols, figsize=figsize) 
+    figsize=(6 * cols, 4 * rows)
+    fig, axes = plt.subplots(rows, cols, figsize=figsize, layout='constrained', squeeze=False)
     
-    if max_mode == 1:
-        axes_flat = [axes]
-    else:
-        axes_flat = axes.flatten()
+    axes_flat = axes.flatten()
     
     for mode in range(max_mode):
         ax = axes_flat[mode]
-        
+        ax.yaxis.set_major_locator(ticker.MaxNLocator(nbins=5))
+        ax.xaxis.set_major_locator(ticker.MaxNLocator(nbins=6))
         changepoints_to_fit = len(all_changepoints[mode]) - 1
         changepoint = all_changepoints[mode]
         ax.scatter(x_data_full_np, y_data_full_np, label='Raw Data', s=5, alpha=0.6)
@@ -460,9 +499,9 @@ def show_fitting_plot(max_mode, all_changepoints, x_data_full_np,y_data_full_np,
                     functions_config.model_py(x_fit_plot, *popt_mode), 
                     color='red', 
                     linewidth=2, label='Fit')
-        if len(all_changepoints[0]) < 300:
+        if len(all_changepoints[mode]) < 300:
             ax.axvline(x=x_data_full_np[changepoint[-1]-1], color= 'darkslategray', linestyle= '--', linewidth= 1.2, alpha= 0.6)
-        ax.set_title(f'Mode {mode+1} - {changepoints_to_fit} Segments')
+        ax.set_title(f'Resolution {mode+1} - {changepoints_to_fit} Segments',fontsize=12)
         x_range = abs(x_data_full_np[-1] - x_data_full_np[0])
         x_padding = x_range * 0.02 
         if x_data_full_np[-1] > x_data_full_np[0]:
@@ -474,10 +513,15 @@ def show_fitting_plot(max_mode, all_changepoints, x_data_full_np,y_data_full_np,
     if max_mode > 1:
         for i in range(max_mode, rows * cols):
             fig.delaxes(axes_flat[i])
-    #fig.supylabel('Voltage ($\mu V$)', fontsize=12, x=0.05)
-    #fig.supxlabel('Time ($s$)', fontsize=12)
+    fig.supylabel('Price ($)', fontsize=12)
+    fig.supxlabel('Time ($m$)', fontsize=12)
     
-    fig.tight_layout(rect=[0, 0.03, 1, 0.95]) 
+    #fig = plt.gcf()
+    #fig.set_size_inches(14, 8)  
+    #fig.set_dpi(100)          
+    
+    #plt.savefig("graph_bitcoin.png", dpi=300, bbox_inches='tight')
+
     plt.show() 
     plt.close('all')
 def get_adaptive_modes(N_full, requested_modes=None):
@@ -542,7 +586,7 @@ def adjust_by_hardware_bucketing(benchmarks, hardware_factor):
     """
     adjusted_benchmarks = [(length, speed * hardware_factor) for length, speed in benchmarks]
     return adjusted_benchmarks
-def modify_uniform_num_segments(N_full,start_div=5,end_goal=4, speed=2):
+def modify_uniform_num_segments(N_full,start_div,end_goal=4, speed=2):
     num_seg=max(N_full//start_div,end_goal)
     num_segments_uniform=[num_seg]
 
@@ -591,8 +635,8 @@ def get_metrics(segments_params_modes, x_data_full_np,y_data_full_np,all_changep
                 last_start=0
             changepoint_index=k
             x_data_segment=x_data_full_np[changepoint[changepoint_index]:changepoint[changepoint_index+1] + last_start]-x_data_full_np[changepoint[changepoint_index]]
-            y_prediction = functions_config.model_py(x_data_segment, *segments_params_modes[i][k])
-            y_real=y_data_full_np[changepoint[changepoint_index]:changepoint[changepoint_index+1]+last_start]
+            y_prediction = np.array(functions_config.model_py(x_data_segment, *segments_params_modes[i][k]))
+            y_real=np.array(y_data_full_np[changepoint[changepoint_index]:changepoint[changepoint_index+1]+last_start])
             current_srmse=calculate_srmse(y_real, y_prediction)
             current_rmse=calculate_rmse(y_real, y_prediction)
             data_scales_mode.append(max(y_real)-min(y_real))
@@ -619,12 +663,12 @@ def get_metrics(segments_params_modes, x_data_full_np,y_data_full_np,all_changep
                     last_start=1
                 print(f"Segment {k} from {fmt(x_data_full_np[all_changepoints[m][k]])} to {fmt(x_data_full_np[all_changepoints[m][k+1]-last_start])} finished with SRMSE of {fmt(mode_srmse[k])} and RMSE of {fmt(mode_rmse[k])}")
             if mode_srmse:
-                print(f"Max SRMSE of {np.max(np.array(mode_srmse))} at segment {mode_srmse.index(np.max(np.array(mode_srmse)))}")
+                print(f"Max SRMSE of {fmt(np.max(np.array(mode_srmse)))} at segment {mode_srmse.index(np.max(np.array(mode_srmse)))}")
     if verbose>0:
         for i in range(len(srmse_scores_modes)):
             all_srmse_mode=np.array(srmse_scores_modes[i])
             all_rmse_mode=np.array(rmse_scores_modes[i])
-            output = (f"Mode {i+1}: Max SRMSE {fmt(np.max(all_srmse_mode))} (with RMSE {fmt(all_rmse_mode[np.argmax(all_srmse_mode)])}, range {fmt(data_scales_modes[i][np.argmax(all_srmse_mode)])}), "
+            output = (f"Mode {i+1}: Max SRMSE {fmt(np.max(all_srmse_mode))} (with RMSE {fmt(all_rmse_mode[np.argmax(all_srmse_mode)])} at segment {np.argmax(all_srmse_mode)}, "
               f"Max RMSE {fmt(np.max(all_rmse_mode))} (range {fmt(data_scales_modes[i][np.argmax(all_rmse_mode)])}), "
               f"Average SRMSE {fmt(np.mean(np.array(all_srmse_mode)))}, Average RMSE {fmt(np.mean(np.array(all_rmse_mode)))}")
             print(output)
@@ -633,6 +677,7 @@ def get_metrics(segments_params_modes, x_data_full_np,y_data_full_np,all_changep
         print(f"Average SRMSE across all modes is {fmt(np.mean(np.array(all_srmse_flat)))}")
         print(f"Average RMSE across all modes is {fmt(np.mean(np.array(all_rmse_flat)))}")
     return srmse_scores_modes,rmse_scores_modes,data_scales_modes
+
 def get_name(obj):
     if hasattr(obj, 'func'):
         return obj.func.__name__

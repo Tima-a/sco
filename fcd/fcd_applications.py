@@ -12,21 +12,20 @@ import matplotlib.gridspec as gridspec
 from matplotlib.colors import LinearSegmentedColormap, TwoSlopeNorm
 from matplotlib.collections import LineCollection
 from scipy.interpolate import interp1d
-testing_mode=1
-def show_combined_plot_velocity(x_data, speed_data,y_fit_modes,derivatives_modes):
+from matplotlib.ticker import FormatStrFormatter
+testing_mode=0
+def show_combined_plot_velocity(x_data, speed_data,y_fit_modes,derivatives_modes, all_changepoints):
     fig, (ax1, ax2,ax3) = plt.subplots(3, 1, figsize=(7, 6), sharex=True, constrained_layout=True)
-    
+    changepoint=all_changepoints[0]
     ax1.plot(x_data, speed_data, color='gray', alpha=1.0, label='Raw Velocity')
     ax1.set_ylabel('Speed ($km/h$)', fontsize=12)
     ax1.grid(True, alpha=0.3)
     ax1.set_title('Raw Velocity', fontsize=12)
-    
 
     ax2.plot(x_data, y_fit_modes[0], color='blue', linewidth=2, label='SCO Fit')
     ax2.set_ylabel('Speed ($km/h$)', fontsize=12)
     ax2.grid(True, alpha=0.3)
     ax2.set_title('SCO Optimized Velocity Fit', fontsize=12)
-    
 
     mode = 0  
     y_raw = derivatives_modes[mode]
@@ -55,30 +54,41 @@ def show_combined_plot_velocity(x_data, speed_data,y_fit_modes,derivatives_modes
     ax3.set_title('SCO: Derived Acceleration Fit', fontsize=12)
     ax3.grid(True, linestyle='--', alpha=0.6)
     ax3.set_ylim(-2.5, 2.5) 
+    
+    for cp_idx in changepoint[:len(changepoint)-1]:
+        for ax in [ax1, ax2, ax3]:
+            ax.axvline(x=x_data[cp_idx], color='darkslategray', 
+                linestyle='--', linewidth=1.2, alpha=0.6)
 
     fig.align_ylabels([ax1, ax2, ax3])
     plt.savefig("full_plot.png", dpi=300, bbox_inches='tight')
     plt.show()
-def show_combined_plot_EEG(x_data, speed_data,y_fit_modes,integrals_modes):
+def show_combined_plot_EEG(x_data, speed_data,y_fit_modes,integrals_modes,all_changepoints):
     fig, (ax1, ax2,ax3) = plt.subplots(3, 1, figsize=(7.3, 6.3), sharex=True, constrained_layout=True)
-    
+    changepoint=all_changepoints[0]
     ax1.plot(x_data, speed_data, color='gray', alpha=1.0, label='Raw Voltage')
     ax1.set_ylabel('Voltage ($\mu$V)', fontsize=12)
     ax1.grid(True, alpha=0.3)
     ax1.set_title('Raw EEG Data', fontsize=12)
-    
+    ax1.set_ylim(-30, 30)
 
     ax2.plot(x_data, y_fit_modes[0], color='blue', linewidth=2, label='SCO Fit')
     ax2.set_ylabel('Voltage ($\mu$V)', fontsize=12)
     ax2.grid(True, alpha=0.3)
     ax2.set_title('SCO Optimized EEG Fit', fontsize=12)
-    
+    ax2.set_ylim(-30, 30)
     ax3.plot(x_data, integrals_modes[0], color='green', linewidth=2, label='SCO Fit')
     ax3.set_ylabel('Integrated Voltage ($\mu V \cdot s$)', fontsize=12)
     ax3.grid(True, alpha=0.3)
     ax3.set_title('SCO Integrated EEG Fit', fontsize=12)
-
     fig.align_ylabels([ax1, ax2, ax3])
+    ax3.set_xlim(x_data.min(), x_data.max())
+    ax3.set_xticks(np.linspace(x_data.min(), x_data.max(), 6))
+    ax3.xaxis.set_major_formatter(FormatStrFormatter('%.1f'))
+    for cp_idx in changepoint[:len(changepoint)-1]:
+        for ax in [ax1, ax2, ax3]:
+            ax.axvline(x=x_data[cp_idx], color='darkslategray', 
+                linestyle='--', linewidth=1.2, alpha=0.6)
     plt.savefig("full_plot_EEG.png", dpi=300, bbox_inches='tight')
     plt.show()
 if testing_mode==0:
@@ -92,7 +102,7 @@ if testing_mode==0:
     mode_fitting_runner.print_fitted_functions()
     derivatives_modes=mode_fitting_runner.calculate_derivatives(order=1, print_derivative_formulas=True)
     
-    show_combined_plot_velocity(x_data, speed_data,y_fit_modes,derivatives_modes)
+    show_combined_plot_velocity(x_data, speed_data,y_fit_modes,derivatives_modes, mode_fitting_runner.all_changepoints)
 
     integrals_modes=mode_fitting_runner.calculate_integrals(order=1, print_integral_formulas=False)
     cols=1
@@ -121,12 +131,12 @@ if testing_mode==0:
     plt.show()
 
 elif testing_mode==1:
-    eeg_data_full = np.load("egg_c3_signal.npy")
-    x_data_full=np.load('egg_c3_time.npy')
+    eeg_data_full = np.load("test_datasets/other_tests/eeg_c3_signal.npy")
+    x_data_full=np.load('test_datasets/other_tests/eeg_c3_time.npy')
     y=eeg_data_full[:1000]
     x=x_data_full[:1000]
     
-    ch_points=[0, 166, 250,340,420,475,520, 560, 650, 833, 880,920,1000]
+    ch_points=[0, 166, 250,340,420,475,520, 540, 560, 650, 833, 880,920,1000]
     settings_args={'non_uniform': True, 'changepoints_non_uniform': ch_points}
     mode_fitting_runner = mode_fitting.FCD(
         x_dataset=x, y_dataset=y,
@@ -141,7 +151,7 @@ elif testing_mode==1:
     mode_fitting_runner.print_fitted_functions()
     
     integrals_modes=mode_fitting_runner.calculate_integrals(order=1, print_integral_formulas=True)
-    show_combined_plot_EEG(x,y,y_fit_modes,integrals_modes)
+    show_combined_plot_EEG(x,y,y_fit_modes,integrals_modes,mode_fitting_runner.all_changepoints)
     cols=2
     rows=3
     fig,axes=plt.subplots(rows,cols, figsize=(5*rows, 4*cols))

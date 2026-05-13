@@ -116,7 +116,7 @@ class FCD:
                     end_idx = min(len(changepoint) - 1, i + batch_size)
                     batch_segments_y=self._y_dataset[changepoint[start_idx]:changepoint[end_idx]]
                     batch_segments_x=self._x_dataset[changepoint[start_idx]:changepoint[end_idx]]
-                    initial_p0, initial_lower_bound, initial_upper_bound=self._functions_config.initial_guesses_function(self._x_dataset,self._y_dataset,batch_segments_x,batch_segments_y, segment_x,segment_y, i, mode, last_mode)
+                    initial_p0, initial_lower_bound, initial_upper_bound=self._functions_config.initial_guesses_function(self._x_dataset,self._y_dataset,batch_segments_x,batch_segments_y,dataset_std, segment_x,segment_y, i, mode, last_mode)
                     p0_np = np.asarray(initial_p0)
                     lb_np = np.asarray(initial_lower_bound)
                     ub_np = np.asarray(initial_upper_bound)
@@ -143,7 +143,7 @@ class FCD:
                 last_mode=True
                 segment_x = self._x_dataset-self._x_dataset[0]
                 segment_y = self._y_dataset
-                initial_p0, initial_lower_bound, initial_upper_bound=self._functions_config.initial_guesses_function(self._x_dataset,self._y_dataset,self._x_dataset,self._y_dataset,segment_x, segment_y, 0, mode,last_mode)
+                initial_p0, initial_lower_bound, initial_upper_bound=self._functions_config.initial_guesses_function(self._x_dataset,self._y_dataset,self._x_dataset,self._y_dataset,dataset_std, segment_x, segment_y, 0, mode,last_mode)
                 initial_p0=np.clip(initial_p0, initial_lower_bound, initial_upper_bound)
                 full_initial_p0 = [initial_p0]
                 initial_p0s = initial_p0
@@ -176,8 +176,7 @@ class FCD:
             p0_unconstrained_jax_new = utility.to_unconstrained(self._params_list_batched[mode], self._lower_list_batched[mode], self._upper_list_batched[mode])
             optimized_parameters, _= lm_start(
                 p0_unconstrained_jax_new,x_padded, y_padded, self._lower_list_batched[mode], self._upper_list_batched[mode], 
-                self._changepoint_list_batched[mode], changepoints_to_fit, self._segment_lengths_batched[mode], 
-                self._modes_length_bucketing, self._max_segment_lengths, mode,self._fitting_config,self._functions_config
+                self._changepoint_list_batched[mode], changepoints_to_fit, self._modes_length_bucketing, self._max_segment_lengths, mode,self._fitting_config,self._functions_config
             )
             optimized_parameters_full = [item for sublist in optimized_parameters for item in sublist]
     
@@ -334,10 +333,10 @@ class FCD:
                     last_start=1
                 segment_function=self.function_string
                 for i in range(len(self.parameter_names)):
-                    val_str = f"{self.fitted_parameters_modes[m][s][i]:.3g}"
+                    val_str = f"{self.fitted_parameters_modes[m][s][i]:.3f}"
                     segment_function=segment_function.replace(self.parameter_names[i], val_str)
                 segment_function = segment_function.replace('sp.', '')
-                segment_function = segment_function.replace('+ -', '- ')
+                segment_function = segment_function.replace('+-', '-')
                 if not self.all_changepoints[m][s] == 0:
                     segment_function = segment_function.replace('x', f'(x-{self.all_changepoints[m][s]})')
                 print(f"Segment {s+1} from x = {fmt(self._x_dataset_unscaled[self.all_changepoints[m][s]])} to {fmt(self._x_dataset_unscaled[self.all_changepoints[m][s+1]-last_start])}:")
@@ -414,8 +413,8 @@ class FCD:
                 batch_index=jnp.array(0,dtype=utility.INTTYPE),
                 prev_params=jnp.zeros(self._functions_config.MODEL_FULL_PARAMETER_COUNT), 
                 num_segments=jnp.array(100, dtype=utility.INTTYPE), 
-                leftover_batch=jnp.array(1, dtype=utility.INTTYPE),batch_std=jnp.array(100, dtype=utility.DTYPE),batch_size=batch_size,
-                max_seg_len=self._modes_length_bucketing[j],fitting_config=self._fitting_config,functions_config=self._functions_config,lam=lam,ridge=jnp.array(1e-12,dtype=utility.DTYPE),can_converge=jnp.array(True, dtype=jnp.bool_), ftol=ftol,xtol=xtol
+                leftover_batch=jnp.array(1, dtype=utility.INTTYPE),max_seg_len=self._modes_length_bucketing[j],
+                fitting_config=self._fitting_config,functions_config=self._functions_config,lam=lam,can_converge=jnp.array(True, dtype=jnp.bool_), ftol=ftol,xtol=xtol
             )
     def _initialize(self):
         time_init=time.perf_counter()
@@ -487,7 +486,7 @@ class FCD:
         
 
         self._generate_initial_guesses()
-        params_list_batched, changepoint_list_batched,lower_list_batched,upper_list_batched,segment_length_list_batched = utility.batch_transformation(self._number_of_modes,self.all_changepoints,self.all_initial_guesses,self.all_lower_bounds,self.all_upper_bounds, self._fitting_config,self._settings_args['multi_scale'],self._settings_args['num_segments_single'], self._settings_args['non_uniform'])
+        params_list_batched, changepoint_list_batched,lower_list_batched,upper_list_batched = utility.batch_transformation(self._number_of_modes,self.all_changepoints,self.all_initial_guesses,self.all_lower_bounds,self.all_upper_bounds, self._fitting_config,self._settings_args['multi_scale'],self._settings_args['num_segments_single'], self._settings_args['non_uniform'])
 
         if self._verbose>0:
             print(f"Running FCD on {utility.get_name(self._model)} with initial guess function {utility.get_name(self._initial_guesses_function)}")
@@ -498,7 +497,6 @@ class FCD:
         self._changepoint_list_batched=changepoint_list_batched
         self._lower_list_batched=lower_list_batched
         self._upper_list_batched=upper_list_batched
-        self._segment_lengths_batched=segment_length_list_batched
     def run(self):
         """
         Main function which runs all parts of Functional Continuous Decomposition(FCD) algorithm. 
