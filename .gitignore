@@ -2,8 +2,6 @@
 *.user
 *.suo
 *.sln.docstates
-desktop.ini
-Thumbs.db
 
 *.pycsdsd
 __pycache__/
