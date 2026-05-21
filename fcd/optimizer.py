@@ -302,11 +302,9 @@ def solve_step(p, r, J, lam):
     diag_H_ridge = jnp.where(jnp.isfinite(jnp.max(diag_H)), jnp.max(diag_H) * 1e-9, 1.0)
     ridge = jnp.maximum(diag_H_ridge, 1e-12)
     
-    #jax.debug.print("Ridge {ridge}", ridge=ridge)
     A = H + (lam + ridge) * jnp.eye(p.size, dtype=DTYPE)
     
     good = jnp.all(jnp.isfinite(A))
-    #jax.debug.print("good bool {good}", good=good)
 
     A_fallback = (lam + 1.0) * jnp.eye(p.size, dtype=DTYPE)
     g_fallback = jnp.where(jnp.isfinite(g), g, 0.0)

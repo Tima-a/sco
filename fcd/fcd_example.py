@@ -4,7 +4,6 @@ import utility_guesses
 import numpy as np
 
 np.random.seed(112)
-
 #Set datasets
 y=np.load(f"test_datasets/cryptocoin_tests/test2.npy")[:400]
 x=np.arange(len(y))

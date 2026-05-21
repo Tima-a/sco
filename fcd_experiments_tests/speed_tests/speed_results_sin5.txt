@@ -1,36 +1,36 @@
 Running test 1 on 10 points with sin5 model
 JAX compilation is triggered as shapes/variables are different.
-Iteration 1 finished in 2.2604331
-Iteration 2 finished in 0.012218400000000074
-Iteration 3 finished in 0.01178390000000018
-Iteration 4 finished in 0.011663800000000002
-Iteration 5 finished in 0.011296500000000265
+Iteration 1 finished in 2.1549348
+Iteration 2 finished in 0.012094999999999523
+Iteration 3 finished in 0.010930499999999732
+Iteration 4 finished in 0.010950200000000798
+Iteration 5 finished in 0.010880699999999521
 Running test 2 on 100 points with sin5 model
 JAX compilation is triggered as shapes/variables are different.
-Iteration 1 finished in 2.0723181999999998
-Iteration 2 finished in 0.03533750000000069
-Iteration 3 finished in 0.035445400000000404
-Iteration 4 finished in 0.036679400000000584
-Iteration 5 finished in 0.03696129999999975
+Iteration 1 finished in 2.0043836000000006
+Iteration 2 finished in 0.03525109999999998
+Iteration 3 finished in 0.03636600000000012
+Iteration 4 finished in 0.036891999999999925
+Iteration 5 finished in 0.03529720000000047
 Running test 3 on 1000 points with sin5 model
 JAX compilation is triggered as shapes/variables are different.
-Iteration 1 finished in 2.784792500000001
-Iteration 2 finished in 0.7959901000000009
-Iteration 3 finished in 0.8000608000000007
-Iteration 4 finished in 0.7901287000000004
-Iteration 5 finished in 0.795906200000001
+Iteration 1 finished in 2.613093600000001
+Iteration 2 finished in 0.7231430999999997
+Iteration 3 finished in 0.7134923000000004
+Iteration 4 finished in 0.7128528000000003
+Iteration 5 finished in 0.7100094000000006
 Running test 4 on 10000 points with sin5 model
 JAX compilation is triggered as shapes/variables are different.
-Iteration 1 finished in 6.786495600000002
-Iteration 2 finished in 3.4830672000000007
-Iteration 3 finished in 3.510964600000001
-Iteration 4 finished in 3.5315323999999997
-Iteration 5 finished in 3.4910260999999956
+Iteration 1 finished in 6.757525299999999
+Iteration 2 finished in 3.5015092999999986
+Iteration 3 finished in 3.5092354000000014
+Iteration 4 finished in 3.5557257999999976
+Iteration 5 finished in 3.5202332999999975
 Running test 5 on 100000.0 points with sin5 model
 JAX compilation is triggered as shapes/variables are different.
-Iteration 1 finished in 46.1378754
-Iteration 2 finished in 35.3208841
-Iteration 3 finished in 35.38556299999999
-Iteration 4 finished in 35.333848700000004
-Iteration 5 finished in 35.45253119999998
+Iteration 1 finished in 44.394569999999995
+Iteration 2 finished in 34.2431223
+Iteration 3 finished in 34.51038869999999
+Iteration 4 finished in 34.65509829999999
+Iteration 5 finished in 34.495289299999996
 Press any key to continue . . .

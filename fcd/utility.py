@@ -88,8 +88,7 @@ def to_unconstrained_jax(params_constrained, lower, upper):
 
 def standard_scaling(dataset, min_deviation=1e-30):
     mean=np.mean(dataset)
-    std_multiplier=len(dataset)*1e-2
-    std_dev=np.std(dataset)/std_multiplier
+    std_dev=np.std(dataset)
     safe_std = max(std_dev, min_deviation)
     dataset_scaled=(dataset-mean)/safe_std
     return dataset_scaled
@@ -237,11 +236,10 @@ unscale_map={ model_sin7: unscaling_model_sin7,
              }
 def unscale_parameters(fitted_parameters_modes, x_dataset, y_dataset, model_sympy,all_changepoints, custom_fitting, unscaling_func):
     unscaled_fitted_params_modes=[]
-    std_multiplier=len(y_dataset)*1e-2
     mu_x=np.mean(x_dataset)
-    sigma_x=np.std(x_dataset)/std_multiplier
+    sigma_x=np.std(x_dataset)
     mu_y=np.mean(y_dataset)
-    sigma_y=np.std(y_dataset)/std_multiplier
+    sigma_y=np.std(y_dataset)
     num_modes=len(all_changepoints)
     for i in range(len(fitted_parameters_modes)):
         params_mode=[]
@@ -516,11 +514,11 @@ def show_fitting_plot(max_mode, all_changepoints, x_data_full_np,y_data_full_np,
     fig.supylabel('Price ($)', fontsize=12)
     fig.supxlabel('Time ($m$)', fontsize=12)
     
-    #fig = plt.gcf()
-    #fig.set_size_inches(14, 8)  
-    #fig.set_dpi(100)          
+    fig = plt.gcf()
+    fig.set_size_inches(14, 8)  
+    fig.set_dpi(100)          
     
-    #plt.savefig("graph_bitcoin.png", dpi=300, bbox_inches='tight')
+    plt.savefig("graph_bitcoin.png", dpi=300, bbox_inches='tight')
 
     plt.show() 
     plt.close('all')

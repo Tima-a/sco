@@ -120,8 +120,8 @@ def make_testing_dataset():
         np.save(filename, dataset)
 
 def main_fitting():
-    #97,11,45,76, 154, 231
-    np.random.seed(97)    
+    #19,97,11,45,76, 154, 231
+    np.random.seed(19)    
     warning_segs=[]
     num_testing=30
     average_srmse_tests=[]
@@ -129,8 +129,8 @@ def main_fitting():
     all_srmse_tests=[]
     time_tests=[]
     randomized=False
-    model_user=utility.model_sin5
-    model_init_user=utility_guesses.initial_guess_sin5
+    model_user=utility.model_cubic
+    model_init_user=utility_guesses.initial_guess_cubic
     for k in range(1,num_testing+1):
         settings={'show_plot': False}
         k_randomized=0

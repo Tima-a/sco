@@ -13,7 +13,7 @@ from matplotlib.colors import LinearSegmentedColormap, TwoSlopeNorm
 from matplotlib.collections import LineCollection
 from scipy.interpolate import interp1d
 from matplotlib.ticker import FormatStrFormatter
-testing_mode=0
+testing_mode=1
 def show_combined_plot_velocity(x_data, speed_data,y_fit_modes,derivatives_modes, all_changepoints):
     fig, (ax1, ax2,ax3) = plt.subplots(3, 1, figsize=(7, 6), sharex=True, constrained_layout=True)
     changepoint=all_changepoints[0]
@@ -49,7 +49,7 @@ def show_combined_plot_velocity(x_data, speed_data,y_fit_modes,derivatives_modes
     ax3.set_xlim(x_smooth.min(), x_smooth.max())
     ax3.set_ylim(y_smooth.min() * 1.1, y_smooth.max() * 1.1)
     ax3.axhline(0, color='black', linewidth=0.8, alpha=0.5)
-    ax3.set_ylabel('Accel ($km/h^2$)', fontsize=12)
+    ax3.set_ylabel('Acceleration ($km/h^2$)', fontsize=12)
     ax3.set_xlabel('Time ($s$)', fontsize=12)
     ax3.set_title('SCO: Derived Acceleration Fit', fontsize=12)
     ax3.grid(True, linestyle='--', alpha=0.6)
@@ -61,7 +61,7 @@ def show_combined_plot_velocity(x_data, speed_data,y_fit_modes,derivatives_modes
                 linestyle='--', linewidth=1.2, alpha=0.6)
 
     fig.align_ylabels([ax1, ax2, ax3])
-    plt.savefig("full_plot.png", dpi=300, bbox_inches='tight')
+    plt.savefig("full_plot_velocity.png", dpi=300, bbox_inches='tight')
     plt.show()
 def show_combined_plot_EEG(x_data, speed_data,y_fit_modes,integrals_modes,all_changepoints):
     fig, (ax1, ax2,ax3) = plt.subplots(3, 1, figsize=(7.3, 6.3), sharex=True, constrained_layout=True)
@@ -95,6 +95,7 @@ if testing_mode==0:
     speed_data = np.loadtxt('test_datasets/other_tests/RAW_GPS.txt', usecols=1)
     x_data = np.loadtxt('test_datasets/other_tests/RAW_GPS.txt', usecols=0)
     ch_points=[0, 100,180,200,220,240,260,300,350, 400, 480, 525, 624]
+    print(f"Changepoints: {x_data[np.clip(0,ch_points, len(x_data)-1)]}")
     settings_args={'non_uniform': True, 'changepoints_non_uniform': ch_points}
     mode_fitting_runner=mode_fitting.FCD(x_dataset=x_data,y_dataset=speed_data,model=utility.model_cubic,initial_guesses_function=utility_guesses.initial_guess_cubic,settings_args=settings_args,parallel=True, verbose=1)
     optimized_params=mode_fitting_runner.run()
@@ -137,6 +138,7 @@ elif testing_mode==1:
     x=x_data_full[:1000]
     
     ch_points=[0, 166, 250,340,420,475,520, 540, 560, 650, 833, 880,920,1000]
+    print(f"Changepoints: {x[np.clip(0,ch_points, len(x)-1)]}")
     settings_args={'non_uniform': True, 'changepoints_non_uniform': ch_points}
     mode_fitting_runner = mode_fitting.FCD(
         x_dataset=x, y_dataset=y,
