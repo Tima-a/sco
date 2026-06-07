@@ -1,0 +1,33 @@
+Running test 1 on 100 points with model_fourier model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 2.0379888000000004
+Iteration 2 finished in 0.01996990000000043
+Iteration 3 finished in 0.021108899999999764
+Iteration 4 finished in 0.017459800000000136
+Iteration 5 finished in 0.01748489999999947
+Average time after first run: 0.01900587499999995
+Running test 2 on 1000 points with model_fourier model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 1.8106958999999998
+Iteration 2 finished in 0.08550389999999997
+Iteration 3 finished in 0.0862191000000001
+Iteration 4 finished in 0.08775559999999949
+Iteration 5 finished in 0.0873387000000001
+Average time after first run: 0.08670432499999992
+Running test 3 on 10000 points with model_fourier model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 2.6456085000000007
+Iteration 2 finished in 0.8830984999999991
+Iteration 3 finished in 0.8796908000000006
+Iteration 4 finished in 0.8853249000000005
+Iteration 5 finished in 0.8772742000000004
+Average time after first run: 0.8813471000000002
+Running test 4 on 100000.0 points with model_fourier model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 10.652491600000001
+Iteration 2 finished in 8.857398199999995
+Iteration 3 finished in 8.875467999999998
+Iteration 4 finished in 8.985705099999997
+Iteration 5 finished in 9.009750499999996
+Average time after first run: 8.932080449999997
+Press any key to continue . . .

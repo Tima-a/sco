@@ -1,0 +1,33 @@
+Running test 1 on 100 points with model_relation model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 1.4316697
+Iteration 2 finished in 0.004589900000000036
+Iteration 3 finished in 0.00420979999999993
+Iteration 4 finished in 0.003878800000000293
+Iteration 5 finished in 0.003541999999999934
+Average time after first run: 0.004055125000000048
+Running test 2 on 1000 points with model_relation model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 1.100403
+Iteration 2 finished in 0.025204699999999747
+Iteration 3 finished in 0.024193300000000306
+Iteration 4 finished in 0.024830699999999872
+Iteration 5 finished in 0.02557290000000023
+Average time after first run: 0.02495040000000004
+Running test 3 on 10000 points with model_relation model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 1.3784438999999997
+Iteration 2 finished in 0.23358339999999966
+Iteration 3 finished in 0.24015459999999944
+Iteration 4 finished in 0.24064329999999945
+Iteration 5 finished in 0.23196769999999933
+Average time after first run: 0.23658724999999947
+Running test 4 on 100000.0 points with model_relation model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 3.4370838
+Iteration 2 finished in 2.3033853000000004
+Iteration 3 finished in 2.2813935999999995
+Iteration 4 finished in 2.3955553999999992
+Iteration 5 finished in 2.2858111999999977
+Average time after first run: 2.316536374999999
+Press any key to continue . . .

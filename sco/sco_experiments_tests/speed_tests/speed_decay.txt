@@ -1,0 +1,33 @@
+Running test 1 on 100 points with model_decay model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 1.3000808
+Iteration 2 finished in 0.005396999999999874
+Iteration 3 finished in 0.004678699999999925
+Iteration 4 finished in 0.0046678
+Iteration 5 finished in 0.004324500000000064
+Average time after first run: 0.004766999999999966
+Running test 2 on 1000 points with model_decay model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 1.0709161999999997
+Iteration 2 finished in 0.031228900000000337
+Iteration 3 finished in 0.03022849999999977
+Iteration 4 finished in 0.03021480000000043
+Iteration 5 finished in 0.030549899999999575
+Average time after first run: 0.030555525000000028
+Running test 3 on 10000 points with model_decay model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 1.3970039000000005
+Iteration 2 finished in 0.2857554000000002
+Iteration 3 finished in 0.2859153000000001
+Iteration 4 finished in 0.2839868000000001
+Iteration 5 finished in 0.27737370000000006
+Average time after first run: 0.2832578000000001
+Running test 4 on 100000.0 points with model_decay model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 3.9113841999999996
+Iteration 2 finished in 2.830016800000001
+Iteration 3 finished in 2.8172473999999994
+Iteration 4 finished in 2.8904362
+Iteration 5 finished in 2.8346753000000007
+Average time after first run: 2.8430939250000002
+Press any key to continue . . .

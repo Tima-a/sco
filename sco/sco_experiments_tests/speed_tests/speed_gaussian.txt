@@ -1,0 +1,33 @@
+Running test 1 on 100 points with model_gaussian model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 1.5405027000000002
+Iteration 2 finished in 0.005050199999999894
+Iteration 3 finished in 0.0049847999999999
+Iteration 4 finished in 0.005148300000000106
+Iteration 5 finished in 0.004787700000000061
+Average time after first run: 0.00499274999999999
+Running test 2 on 1000 points with model_gaussian model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 1.2905069
+Iteration 2 finished in 0.029788100000000206
+Iteration 3 finished in 0.02893699999999999
+Iteration 4 finished in 0.028962099999999324
+Iteration 5 finished in 0.028919500000000653
+Average time after first run: 0.029151675000000044
+Running test 3 on 10000 points with model_gaussian model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 1.4784557999999999
+Iteration 2 finished in 0.26715029999999995
+Iteration 3 finished in 0.26468440000000015
+Iteration 4 finished in 0.26294909999999927
+Iteration 5 finished in 0.2710726000000001
+Average time after first run: 0.26646409999999987
+Running test 4 on 100000.0 points with model_gaussian model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 3.9826236999999995
+Iteration 2 finished in 2.6697085000000005
+Iteration 3 finished in 2.7278615000000013
+Iteration 4 finished in 2.6625446000000004
+Iteration 5 finished in 2.6665776
+Average time after first run: 2.6816730500000006
+Press any key to continue . . .

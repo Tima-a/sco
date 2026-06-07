@@ -1,0 +1,6 @@
+test1-4: Bitcoin 1s,1m,1h,1d datasets
+test5-8: ETH 1s,1m,1h,1d datasets
+test9-12: SOL 1s,1m,1h,1d datasets
+test13-16: ADA 1s,1m,1h,1d datasets
+test17-20: DOGE 1s,1m,1h,1d datasets
+test21-24: XRP 1s,1m,1h,1d datasets

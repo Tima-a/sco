@@ -1,0 +1,33 @@
+Running test 1 on 100 points with model_logistic model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 1.4458386
+Iteration 2 finished in 0.004553199999999702
+Iteration 3 finished in 0.0051866999999998775
+Iteration 4 finished in 0.0041335999999998485
+Iteration 5 finished in 0.004064700000000254
+Average time after first run: 0.0044845499999999205
+Running test 2 on 1000 points with model_logistic model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 1.2806295000000003
+Iteration 2 finished in 0.036650399999999195
+Iteration 3 finished in 0.033701599999999665
+Iteration 4 finished in 0.033694700000000744
+Iteration 5 finished in 0.03401409999999938
+Average time after first run: 0.034515199999999746
+Running test 3 on 10000 points with model_logistic model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 1.5147179
+Iteration 2 finished in 0.3211177000000003
+Iteration 3 finished in 0.3243015999999992
+Iteration 4 finished in 0.32501159999999985
+Iteration 5 finished in 0.3304103000000005
+Average time after first run: 0.32521029999999995
+Running test 4 on 100000.0 points with model_logistic model
+JAX compilation is triggered as shapes/variables are different.
+Iteration 1 finished in 4.499713300000001
+Iteration 2 finished in 3.249107799999999
+Iteration 3 finished in 3.3606610000000003
+Iteration 4 finished in 3.2736738999999986
+Iteration 5 finished in 3.3015214999999998
+Average time after first run: 3.2962410499999995
+Press any key to continue . . .
